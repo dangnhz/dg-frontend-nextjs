@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1921px" height="447px" viewBox="0 0 1921 447" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="47.289917%" x2="100%" y2="52.710083%" id="linearGradient-1">
+            <stop stop-color="#51C56F" offset="0%"></stop>
+            <stop stop-color="#64D276" offset="27.2568569%"></stop>
+            <stop stop-color="#D3EA6C" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-2" points="0 0 1086.96354 0 1920 0 1920 447 0 447"></polygon>
+        <linearGradient x1="-16.6624063%" y1="69.4637086%" x2="90.921419%" y2="23.4490682%" id="linearGradient-4">
+            <stop stop-color="#4FC46E" offset="0%"></stop>
+            <stop stop-color="#64D276" offset="27.2568569%"></stop>
+            <stop stop-color="#D3EA6C" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-39.6067703%" y1="64.3871086%" x2="170.164339%" y2="36.7074643%" id="linearGradient-5">
+            <stop stop-color="#FF4F18" offset="0%"></stop>
+            <stop stop-color="#F7B2C1" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-6" points="0 0 1086.96354 0 1920 0 1920 447 0 447"></polygon>
+        <linearGradient x1="111.635897%" y1="12.1751001%" x2="-45.6327528%" y2="81.9872928%" id="linearGradient-8">
+            <stop stop-color="#FF4F18" offset="0%"></stop>
+            <stop stop-color="#F7B2C1" offset="99.9155405%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Career" transform="translate(0.000000, -1860.000000)">
+            <g id="Group-2-Copy-2" transform="translate(0.000000, 1860.000000)">
+                <g id="Rectangle-2">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Rectangle" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                    <path d="M1447.11975,47 C1196.67665,47 331,57.9241461 331,585.898233 C331,830.870631 508.876601,1054 826.449099,1054 C1162.05927,1054 1590,807.65419 1590,47 L1447.11975,47 Z" id="Fill-1" fill="url(#linearGradient-4)" mask="url(#mask-3)"></path>
+                </g>
+                <g id="Rectangle-2" transform="translate(1.000000, 0.000000)">
+                    <mask id="mask-7" fill="white">
+                        <use xlink:href="#path-6"></use>
+                    </mask>
+                    <use id="Rectangle" fill="url(#linearGradient-5)" xlink:href="#path-6"></use>
+                    <path d="M1447.11975,47 C1196.67665,47 331,57.9241461 331,585.898233 C331,830.870631 508.876601,1054 826.449099,1054 C1162.05927,1054 1590,807.65419 1590,47 L1447.11975,47 Z" id="Fill-1" fill="url(#linearGradient-8)" mask="url(#mask-7)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

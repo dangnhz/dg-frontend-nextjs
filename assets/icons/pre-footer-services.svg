@@ -1,0 +1,51 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 480" width="1920" height="480" preserveAspectRatio="xMaxYMax slice" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);">
+	<defs>
+		<clipPath id="__lottie_element_8">
+			<rect width="1920" height="480" x="0" y="0"></rect>
+		</clipPath>
+		<mask id="__lottie_element_9" mask-type="alpha">
+			<g transform="matrix(1,0,0,1,-1,0)" opacity="1" style="display: block;">
+				<g opacity="1" transform="matrix(1,0,0,1,949.5,269)">
+					<path fill="url(#__lottie_element_12)" fill-opacity="1" d=" M599.4819946289062,-211 C290.9530029296875,-211 -775.5,-198.13400268554688 -775.5,423.69000244140625 C-775.5,712.2080078125 -556.3679809570312,975 -165.14100646972656,975 C248.3070068359375,975 775.5,684.864990234375 775.5,-211 C775.5,-211 599.4819946289062,-211 599.4819946289062,-211z"></path>
+					<g opacity="1" transform="matrix(1,0,0,1,0,0)"></g>
+				</g>
+			</g>
+		</mask>
+		<linearGradient id="__lottie_element_12" spreadMethod="pad" gradientUnits="userSpaceOnUse" x1="-772" y1="13" x2="766" y2="1.5">
+			<stop offset="0%" stop-color="#45A4E4"></stop>
+			<stop offset="15%" stop-color="rgb(84,207,110)"></stop>
+			<stop offset="30%" stop-color="rgb(89,217,110)"></stop>
+			<stop offset="65%" stop-color="#9071FF"></stop>
+			<stop offset="100%" stop-color="#EDC8FC"></stop>
+		</linearGradient>
+		<linearGradient id="__lottie_element_16" spreadMethod="pad" gradientUnits="userSpaceOnUse" x1="931.7069702148438" y1="28.986000061035156" x2="-851.219970703125" y2="82.60900115966797">
+			<stop offset="0%" stop-color="#6CD5FF"></stop>
+			<stop offset="15%" stop-color="#4FBAFF"></stop>
+			<stop offset="30%" stop-color="#4FBAFF"></stop>
+			<stop offset="65%" stop-color="#9071FF"></stop>
+			<stop offset="100%" stop-color="#EDC8FC"></stop>
+		</linearGradient>
+		<linearGradient id="__lottie_element_20" spreadMethod="pad" gradientUnits="userSpaceOnUse" x1="996" y1="-28" x2="-978" y2="52">
+			<stop offset="0%" stop-color="#7081FF"></stop>
+			<stop offset="15%" stop-color="#9E6CFF"></stop>
+			<stop offset="30%" stop-color="#8676FF"></stop>
+			<stop offset="65%" stop-color="#5794FF"></stop>
+			<stop offset="100%" stop-color="#FBFBFB"></stop>
+		</linearGradient>
+	</defs>
+	<g clip-path="url(#__lottie_element_8)">
+		<g transform="matrix(1,0,0,1,960,240)" opacity="1" style="display: block;">
+			<g opacity="1" transform="matrix(1,0,0,1,0,0)">
+				<path fill="url(#__lottie_element_20)" fill-opacity="1" d=" M961,-240 C961,-240 961,240 961,240 C961,240 -961,240 -961,240 C-961,240 -961,-240 -961,-240 C-961,-240 961,-240 961,-240z"></path>
+			</g>
+		</g>
+		<g mask="url(#__lottie_element_9)" style="display: block;">
+			<g transform="matrix(0.8199999928474426,0,0,1.3799999952316284,960,240)" opacity="1">
+				<g opacity="1" transform="matrix(1,0,0,1,0,0)">
+					<path fill="url(#__lottie_element_16)" fill-opacity="1" d=" M961,-240 C961,-240 961,240 961,240 C961,240 -961,240 -961,240 C-961,240 -961,-240 -961,-240 C-961,-240 961,-240 961,-240z"></path>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="73px" height="73px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="services-arrow-stoke" transform="translate(-1357.000000, -1123.000000)" stroke="#00A3E5">
+            <g id="Group-5" transform="translate(1391.646447, 1159.646447) rotate(45.000000) translate(-1391.646447, -1159.646447) translate(1367.146447, 1135.646447)">
+                <path id="services-arrow-fill" d="M55.7976532,21.7766148 L55.738464,25.1382553 L-5.89135329,26.2233852 L-5.83216414,22.8617447 L55.7976532,21.7766148 Z" stroke-width="0.8" fill="#00A3E5" transform="translate(24.953150, 24.000000) rotate(-45.000000) translate(-24.953150, -24.000000) "></path>
+                <polyline id="Path" stroke-width="4.8" points="10.6692103 -1.8189894e-12 48.1492458 -1.8189894e-12 48.8209927 38.1517825"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

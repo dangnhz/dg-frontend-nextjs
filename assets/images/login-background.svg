@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1282px" height="559px" viewBox="0 0 1282 559" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 3</title>
+    <defs>
+        <filter x="-4.8%" y="-12.3%" width="109.7%" height="124.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="3" dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="0%" y1="57.8204173%" x2="100%" y2="42.1795827%" id="linearGradient-2">
+            <stop stop-color="#D1309C" offset="0.0844594595%"></stop>
+            <stop stop-color="#FF4B9E" offset="31.7503988%"></stop>
+            <stop stop-color="#FA6B85" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-3" points="0 0 677.087706 0 1196 0 1196 473 0 473"></polygon>
+        <linearGradient x1="6.8537578%" y1="61.2641843%" x2="94.6139784%" y2="22.7087496%" id="linearGradient-5">
+            <stop stop-color="#DB419B" offset="0.0768274694%"></stop>
+            <stop stop-color="#F74B9F" offset="40.8140331%"></stop>
+            <stop stop-color="#FE728B" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Iris" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Case-study-Log-in" transform="translate(-319.000000, -410.000000)">
+            <g id="Group-3" filter="url(#filter-1)" transform="translate(362.000000, 453.000000)">
+                <g id="Rectangle-2-Copy-2">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="Mask" fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
+                    <g mask="url(#mask-4)" fill="url(#linearGradient-5)" id="Fill-1" transform="translate(-30, 0)">
+                        <g transform="translate(123.000000, 24.000000)">
+                            <path d="M882.966852,0 C684.840305,0 0,8.55923665 0,422.23506 C0,614.174705 140.718899,789 391.951789,789 C657.454354,789 996,595.984266 996,0 L882.966852,0 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
