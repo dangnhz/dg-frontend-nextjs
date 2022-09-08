@@ -1,0 +1,116 @@
+.menu {
+  background: $white;
+  width: 100%;
+  height: 100%;
+  padding: 5rem 1rem;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    background: transparent;
+  }
+
+  @include medium {
+    padding: 8rem 2rem 5rem 2rem;
+    justify-content: flex-start;
+  }
+
+  @include larger {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-y: hidden;
+  }
+
+  .menu-items {
+    @include larger {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .menu-item {
+    list-style-type: none;
+    margin: 1.5rem 0;
+
+    @include larger {
+      margin: 0 1rem;
+    }
+
+    @include xl {
+      margin: 0 1.5rem;
+    }
+  }
+
+  .menu-link {
+    display: block;
+    font-size: 32px;
+    position: relative;
+    text-decoration: none;
+    font-family: $font-primary-bold;
+    transition: color 0.2s;
+    color: $black;
+
+    @include medium {
+      font-size: 42px;
+    }
+
+    @include larger {
+      font-size: 20px;
+      padding: 0.5rem 0;
+    }
+
+    &.active, &:hover {
+      color: (var(--menu-link-color));
+    }
+  }
+
+  .search {
+    height: fit-content;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #e2e2e2;
+      margin-bottom: 2rem;
+    }
+
+    @include larger {
+      margin-left: 3rem;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 25px;
+        background-color: #e2e2e2;
+        position: absolute;
+        top: 0;
+        transform: translateY(-2px);
+        left: -2rem;
+      }
+    }
+
+    @include xl2 {
+      margin-left: 5rem;
+    }
+
+    .search-icon {
+        display: none;
+
+        @include larger {
+            display: block;
+        }
+    }
+  }
+}

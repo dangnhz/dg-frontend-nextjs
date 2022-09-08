@@ -21,6 +21,7 @@
       "@config/*": ["config/*"],
       "@assets/*": ["assets/*"],
       "@theme/*": ["theme/*"],
+      "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"],
     }
   },

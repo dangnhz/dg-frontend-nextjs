@@ -1,0 +1,224 @@
+// Creating a limited set (7) of margin padding groups
+// To be used with containers and wrappers only
+$space: 1rem;
+
+.container {
+  max-width: $xl3;
+  margin: 0 auto;
+  display: block;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.mx-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+a.container {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Keeps component from touching the edges
+// Needs to applied to the container or wrapper
+.margin-horizontal {
+  margin-left: $space;
+  margin-right: $space;
+
+  @include medium {
+    margin-left: 2 * $space;
+    margin-right: 2 * $space;
+  }
+
+  @include larger {
+    margin-left: 5.625 * $space;
+    margin-right: 5.625 * $space;
+  }
+
+  .margin-horizontal {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.margin-horizontal-2 {
+  margin-left: 2 * $space;
+  margin-right: 2 * $space;
+}
+
+.padding-horizontal {
+  padding-left: $space;
+  padding-right: $space;
+
+  @include medium {
+    padding-left: 2 * $space;
+    padding-right: 2 * $space;
+  }
+
+  @include larger {
+    padding-left: 5.625 * $space;
+    padding-right: 5.625 * $space;
+  }
+
+  .padding-horizontal {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Margin / paddings
+// ".margin-{modifier}, horizontal-small, vertical-small
+
+$spacings: (
+  (1, 0.5, 0.5),
+  (2, 1, 1),
+  (3, 1.5, 1.5),
+  (4, 2, 2),
+  (5, 2.5, 2.5),
+  (6, 3, 3),
+  (7, 3.5, 3.5),
+  (8, 3.5, 3.5),
+  (9, 3.5, 3.5),
+  (10, 3.5, 3.5),
+  (11, 3.5, 3.5),
+  (12, 3.5, 3.5)
+);
+
+// Generate  margin/paddings
+@each $s in $spacings {
+  .margin-#{nth($s, 1)} {
+    margin: nth($s, 2) * $space;
+
+    @include large {
+      margin: nth($s, 1) * $space;
+    }
+  }
+
+  .margin-h-#{nth($s, 1)} {
+    margin-left: nth($s, 2) * $space;
+    margin-right: nth($s, 2) * $space;
+
+    @include large {
+      margin-left: nth($s, 1) * $space;
+      margin-right: nth($s, 1) * $space;
+    }
+  }
+
+  .margin-v-#{nth($s, 1)} {
+    margin-top: nth($s, 3) * $space;
+    margin-bottom: nth($s, 3) * $space;
+
+    @include large {
+      margin-top: nth($s, 1) * $space;
+      margin-bottom: nth($s, 1) * $space;
+    }
+  }
+
+  .margin-t-#{nth($s, 1)} {
+    margin-top: nth($s, 3) * $space;
+
+    @include large {
+      margin-top: nth($s, 1) * $space;
+    }
+  }
+
+  .margin-b-#{nth($s, 1)} {
+    margin-bottom: nth($s, 3) * $space;
+
+    @include large {
+      margin-bottom: nth($s, 1) * $space;
+    }
+  }
+
+  .padding-#{nth($s, 1)} {
+    padding: nth($s, 2) * $space;
+
+    @include large {
+      padding: nth($s, 1) * $space;
+    }
+  }
+
+  .padding-h-#{nth($s, 1)} {
+    padding-left: nth($s, 2) * $space;
+    padding-right: nth($s, 2) * $space;
+
+    @include large {
+      padding-left: nth($s, 1) * $space;
+      padding-right: nth($s, 1) * $space;
+    }
+  }
+
+  .padding-v-#{nth($s, 1)} {
+    padding-top: nth($s, 3) * $space;
+    padding-bottom: nth($s, 3) * $space;
+
+    @include large {
+      padding-top: nth($s, 1) * $space;
+      padding-bottom: nth($s, 1) * $space;
+    }
+  }
+
+  .padding-t-#{nth($s, 1)} {
+    padding-top: nth($s, 3) * $space;
+
+    @include large {
+      padding-top: nth($s, 1) * $space;
+    }
+  }
+
+  .padding-b-#{nth($s, 1)} {
+    padding-bottom: nth($s, 3) * $space;
+
+    @include large{
+      padding-bottom: nth($s, 1) * $space;
+    }
+  }
+}
+
+.margin-b-4 {
+  margin-bottom: $space;
+
+  @include medium {
+    margin-bottom: 4 * $space;
+  }
+}
+
+.margin-b-7 {
+  margin-bottom: 2 * $space;
+
+  @include medium {
+    margin-bottom: 7.25 * $space;
+  }
+}
+
+$widths: (
+  (1, "650px"),
+  (2, "790px"),
+  (3, "1000px"),
+  (4, "1200px"),
+  (5, "1500px"),
+  (6, "1698px"),
+  (7, "1920px")
+);
+
+// Generate  max-widths
+@each $w in $widths {
+  .max-width-#{nth($w, 1)} {
+    max-width: #{nth($w, 2)};
+  }
+}

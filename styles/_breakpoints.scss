@@ -1,0 +1,192 @@
+/**
+ * Breakpoint Configuration
+ * @see https://github.com/Team-Sass/breakpoint/wiki
+ *
+ */
+
+/////////////////////
+// Global Breakpoints
+
+// Avoid using in favor of atomic, content-specific, breakpoints.
+// These should be used for generic code, like layouts and typography, only.
+@import 'breakpoint-sass/stylesheets/_breakpoint.scss';
+
+$xs: 320px;
+$small: 480px;
+$small-medium: 650px;
+$medium: 760px;
+$large: 920px;
+$larger: 1024px;
+$xl: 1224px;
+$xl2: 1350px;
+$xl3: 1500px;
+$xl4: 1700px;
+$xl5: 1920px;
+$xl6: 2140px;
+$xl7: 2360px;
+
+// The max-width breakpoint is used when the design should be applied at whatever the
+// largest breakpoint is regardless of actual pixel value. e.g. removing outer margin on body wrapper
+$max-width: $xl;
+
+/// Mixin - xs Breakpoint
+/// Allows easier @include xs {} syntax
+@mixin xs {
+  @include breakpoint($xs) {
+    @content;
+  }
+}
+
+/// Mixin - small Breakpoint
+/// Allows easier @include small {} syntax
+@mixin small {
+  @include breakpoint($small) {
+    @content;
+  }
+}
+
+@mixin small-medium {
+  @include breakpoint($small-medium) {
+    @content;
+  }
+}
+
+/// Mixin - medium Breakpoint
+/// Allows easier @include medium {} syntax
+@mixin medium {
+  @include breakpoint($medium) {
+    @content;
+  }
+}
+
+/// Mixin - large Breakpoint
+/// Allows easier @include large {} syntax
+@mixin large {
+  @include breakpoint($large) {
+    @content;
+  }
+}
+
+/// Mixin - large Breakpoint
+/// Allows easier @include large {} syntax
+@mixin larger {
+  @include breakpoint($larger) {
+    @content;
+  }
+}
+
+/// Mixin - xl Breakpoint
+/// Allows easier @include xl {} syntax
+@mixin xl {
+  @include breakpoint($xl) {
+    @content;
+  }
+}
+
+/// Mixin - xl2 Breakpoint
+/// Allows easier @include xl2 {} syntax
+@mixin xl2 {
+  @include breakpoint($xl2) {
+    @content;
+  }
+}
+
+/// Mixin - xl3 Breakpoint
+/// Allows easier @include xl3 {} syntax
+@mixin xl3 {
+  @include breakpoint($xl3) {
+    @content;
+  }
+}
+
+/// Mixin - xl4 Breakpoint
+/// Allows easier @include xl4 {} syntax
+@mixin xl4 {
+  @include breakpoint($xl4) {
+    @content;
+  }
+}
+
+/// Mixin - xl5 Breakpoint
+/// Allows easier @include xl5 {} syntax
+@mixin xl5 {
+  @include breakpoint($xl5) {
+    @content;
+  }
+}
+
+/// Mixin - xl6 Breakpoint
+/// Allows easier @include xl6 {} syntax
+@mixin xl6 {
+  @include breakpoint($xl6) {
+    @content;
+  }
+}
+
+/// Mixin - xl7 Breakpoint
+/// Allows easier @include xl7 {} syntax
+@mixin xl7 {
+  @include breakpoint($xl7) {
+    @content;
+  }
+}
+
+/// Mixin - max-width Breakpoint
+/// Allows easier @include max-width {} syntax
+@mixin max-width {
+  @include breakpoint($max-width) {
+    @content;
+  }
+}
+
+/// Max width breakpoints
+
+$up-to-xs: max-width $xs - 1px;
+$up-to-small: max-width $small - 1px;
+$up-to-medium: max-width $medium - 1px;
+$up-to-large: max-width $large - 1px;
+$up-to-larger: max-width $larger - 1px;
+$up-to-xl: max-width $xl - 1px;
+$up-to-xl2: max-width $xl2 - 1px;
+
+@mixin up-to-xs {
+  @include breakpoint($up-to-xs) {
+    @content;
+  }
+}
+
+@mixin up-to-small {
+  @include breakpoint($up-to-small) {
+    @content;
+  }
+}
+
+@mixin up-to-medium {
+  @include breakpoint($up-to-medium) {
+    @content;
+  }
+}
+
+@mixin up-to-large {
+  @include breakpoint($up-to-large) {
+    @content;
+  }
+}
+
+@mixin up-to-larger {
+  @include breakpoint($up-to-larger) {
+    @content;
+  }
+}
+
+@mixin up-to-xl {
+  @include breakpoint($up-to-xl) {
+    @content;
+  }
+}
+
+@mixin up-to-xl2 {
+  @include breakpoint($up-to-xl2) {
+    @content;
+  }
+}

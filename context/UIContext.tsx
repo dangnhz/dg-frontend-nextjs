@@ -1,9 +1,16 @@
 import React, { FC, ReactNode, useState, useContext, createContext } from 'react'
-import { ThemeProvider } from 'styled-components'
-import { color } from 'theme/color';
-import { theme} from 'theme/theme';
+import {colors, DGColor } from '@theme/colors';
 
-export const UIContext = createContext({})
+interface ThemeState {
+  theme: DGColor;
+  setCurrentTheme?: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const initialState : ThemeState = {
+  theme: {...colors},
+}
+
+export const UIContext = createContext(initialState)
 
 export const useUI = () => {
   const context = useContext(UIContext)
@@ -15,15 +22,15 @@ export const useUI = () => {
 
 export const UIProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [currentTheme, setCurrentTheme] = useState('green')
-  const newTheme = {...theme, primaryColor:color[currentTheme]}
+  const theme = {...colors, primaryColor:colors[currentTheme]}
 
   const value = {
-    currentTheme,
+    theme,
     setCurrentTheme
   }
   return (
     <UIContext.Provider value={value}>
-      <ThemeProvider theme={newTheme}>{children}</ThemeProvider>
+      {children}
     </UIContext.Provider>
   )
 }

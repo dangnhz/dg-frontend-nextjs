@@ -1,0 +1,148 @@
+/////////////////////
+// General Mixins (put specific ones in component files where applicable)
+
+/// Mixin - Clearfix.
+/// Adds clearfix based on http://bourbon.io/docs/#clearfix
+/// use example =   @include cleafix
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+/// Mixin - Wrapper
+/// Outer container mixin for large screens
+@mixin wrapper(
+  $container-max-width: $max-width,
+  $outer-container-break: $small,
+  $v-margin: 0,
+  $v-padding: 0,
+  $h-padding: $space,
+  $h-padding-large: $h-padding
+) {
+  max-width: #{$container-max-width};
+  width: 100%;
+  margin: #{$v-margin} auto;
+  padding: #{$v-padding} #{$h-padding};
+
+  @include breakpoint($outer-container-break) {
+    padding: #{$v-padding} #{$h-padding-large};
+  }
+
+  @include breakpoint($container-max-width) {
+    padding-left:
+      calc(
+        #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
+      );
+    padding-right:
+      calc(
+        #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
+      );
+  }
+}
+
+/// Use the breakout mixin for elements that should be edge-to-edge
+/// Even when a parent container uses the wrapper mixin
+@mixin breakout($v-padding: $space * 2) {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(#{$v-padding} + calc(-50vw + 50%));
+  padding-right: calc(#{$v-padding} + calc(-50vw + 50%));
+}
+
+/// Mixin - Standard Margin
+@mixin margin {
+  margin-bottom: 1em;
+}
+
+@mixin no-bottom {
+  margin-bottom: 0;
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin set-breakpoint($breakpoint) {
+  @if $breakpoint == "" {
+    @content;
+  }
+
+  @else {
+    $value: map-get($breakpoints, $breakpoint);
+
+    @if $value != null {
+      @include breakpoint($value) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin bg-trans-color($direction, $color) {
+  background: linear-gradient(to #{$direction}, rgba(0, 0, 0, 0), #{$color});
+}
+
+// FUNCTION FOR THE FLUID FONT MIXIN
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function if-important($important) {
+  @return #{if($important, "!important", "")};
+}
+
+// FLUID FONT
+$fluid-container-max-width: 120rem; // 1920px
+$fluid-container-min-width: 20rem; // 320px
+
+/* stylelint-disable */
+@mixin fluid-font($max-font-size, $fluid-font-scale: 0.5, $important: false) {
+  $min-font-size: $max-font-size * $fluid-font-scale;
+
+  font-size: $max-font-size if-important($important);
+
+  @media screen and (max-width: $fluid-container-max-width) {
+    font-size:
+      calc(
+        #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+        (
+          (100vw - #{$fluid-container-min-width}) / #{strip-unit(
+            $fluid-container-max-width - $fluid-container-min-width
+          )}
+        )
+      )
+      if-important($important);
+  }
+
+  @media screen and (max-width: $fluid-container-min-width) {
+    font-size: $min-font-size if-important($important);
+  }
+}
+
+
+@mixin logo-size($max-logo-size, $fluid-logo-scale: 0.5, $important: false) {
+  $min-logo-size: $max-logo-size * $fluid-logo-scale;
+
+  width: $max-logo-size if-important($important);
+
+  @media screen and (max-width: $fluid-container-max-width) {
+    width:
+      calc(
+        #{$min-logo-size} + #{strip-unit($max-logo-size - $min-logo-size)} *
+        (
+          (100vw - #{$fluid-container-min-width}) / #{strip-unit(
+            $fluid-container-max-width - $fluid-container-min-width
+          )}
+        )
+      )
+      if-important($important);
+  }
+
+  @media screen and (max-width: $fluid-container-min-width) {
+    width: $min-logo-size if-important($important);
+  }
+}

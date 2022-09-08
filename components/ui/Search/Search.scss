@@ -1,0 +1,21 @@
+@import "../../assets/styles/setting";
+
+.search-header {
+    .hidden {
+        opacity: 0;
+    }
+}
+
+.search-result-item  {
+    .search-result-item__title {
+        &:hover {
+            h2 {
+                color: $primary-color-0;
+            }
+        }
+    }
+
+    strong {
+        font-family: $font-primary-bold;
+    }
+}

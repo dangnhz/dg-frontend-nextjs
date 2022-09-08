@@ -1,0 +1,110 @@
+.search-form {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+  
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+  
+    .search-form-icon-mobile {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-45%);
+        pointer-events: none;
+        display: none;
+    }
+
+    input {
+      padding: 1rem 3rem 1rem 1rem;
+      font-size: 20px;
+      width: 100%;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: 1px solid #ebebeb;
+      border-radius: 0;
+      transition: 0.3s;
+  
+      &:focus {
+        border-color: $green !important;
+      }
+  
+      @include large {
+          border-right: none;
+      }
+  
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
+  
+    }
+  
+    .btn-clear-input {
+      background: transparent;
+      border: none;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-45%);
+      cursor: pointer;
+    }
+  
+    .btn-search-submit {
+      border-radius: 0;
+      border: 1px solid $green;
+      border-left: none;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+      background-color: $green;
+  
+      svg {
+          transition: 0.3s;
+          fill: white;
+      }
+  
+      &:hover {
+          background-color: $orange;
+          border-color: $orange;
+  
+          svg {
+              fill: white;
+          }
+      }
+    }
+  }
+  
+
+  .search-form.mobile {
+    display: block;
+
+    @include larger {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .search-form-icon-mobile {
+        display: block;
+    }
+
+    .input-wrapper {
+        width: 100%;
+
+        input {
+            border: 1px solid black;
+            padding: 1rem 3rem 1rem 3rem;
+        }
+    }
+
+    .btn-search-submit {
+        display: none;
+    }
+  }

@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url('../public/fonts/Gilroy-Bold.woff2') format('woff2'), url('../public/fonts/Gilroy-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: url('../public/fonts/Gilroy-Regular.woff2') format('woff2'), url('../public/fonts/Gilroy-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: url('../public/fonts/Gilroy-Medium.woff2') format('woff2'), url('../public/fonts/Gilroy-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy-Light';
+    src: url('../public/fonts/Gilroy-Light.woff2') format('woff2'), url('../public/fonts/Gilroy-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Crimson-Regular';
+    src: url('../public/fonts/CrimsonText-Regular.woff2') format('woff2'), url('../public/fonts/CrimsonText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+$font-primary-bold: 'Gilroy-Bold';
+$font-primary-regular: 'Gilroy-Regular';
+$font-primary-medium: 'Gilroy-Medium';
+$font-primary-light: 'Gilroy-Light';
+$font-secondary-regular: 'Crimson-Regular';
+

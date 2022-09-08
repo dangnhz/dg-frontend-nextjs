@@ -1,0 +1,126 @@
+.line-wrap {
+  overflow: hidden;
+  width: 105%;
+}
+
+.reveal,
+.reveal::after {
+  animation-delay: 0.8;
+  animation-iteration-count: 1;
+  animation-duration: 800ms;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+.reveal {
+  position: relative;
+  animation-name: text;
+}
+
+@keyframes text {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal::after {
+  content: "";
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 10px;
+  background-color: var(--page-main-color);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+
+  @include xl2 {
+    animation-name: revealer;
+  }
+}
+
+@keyframes revealer {
+  0%,
+  50% {
+    transform-origin: 0 50%;
+  }
+
+  60%,
+  100% {
+    transform-origin: 100% 50%;
+  }
+
+  60% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+
+// logo changing color
+@keyframes changeLogoColor {
+  0%, 12% {
+    fill: $green;
+  }
+  16%, 28% {
+    fill: $blue;
+  }
+  32%, 44% {
+    fill: $purple;
+  }
+  48%, 60% {
+    fill: $pink;
+  }
+  64%, 76% {
+    fill: $orange;
+  }
+  80%, 92% {
+    fill: $red;
+  }
+
+  96%, 100% {
+    fill: $green;
+  }
+}
+
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}

@@ -1,3 +1,4 @@
+import Footer from '@components/ui/Footer'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -47,9 +48,7 @@ const Home: NextPage = () => {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-
-      </footer>
+     <Footer />
     </div>
   )
 }

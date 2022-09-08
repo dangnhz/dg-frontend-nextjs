@@ -1,8 +1,8 @@
-export type dgColor = {
+export type DGColor = {
   [key: string] : string
 }
 
-export const color : dgColor = {
+export const colors : DGColor = {
   green: '#3FB91E',
   purple: '#9C258F',
   orange: '#F6921B',

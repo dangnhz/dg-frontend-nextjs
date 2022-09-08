@@ -1,0 +1,63 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overscroll-behavior-y: none !important;
+  background-color: $bg-color-1;
+  overflow-x: hidden;
+}
+
+.app {
+  padding-top: 80px;
+
+  @include medium {
+    padding-top: 100px;
+  }
+
+  @include large {
+    padding-top: 160px;
+  }
+}
+
+.page-wrapper {
+  min-height: 80vh;
+}
+
+.page-curtain {
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  background-color: var(--page-main-color);
+}
+
+.page-careers {
+  .blog-post-listing {
+    margin-top: 0;
+  }
+}
+
+html.msie .cursor {
+  display: none !important;
+}
+
+html.msie [data-cursor-type],
+html.msie [data-cursor-type]:hover {
+  cursor: auto !important;
+}
+
+html.msie [data-cursor-type] * {
+  pointer-events: all;
+}
+
+html.msie a,
+html.msie a:hover {
+  cursor: pointer !important;
+}
+
+html.msie body {
+  cursor: all;
+}

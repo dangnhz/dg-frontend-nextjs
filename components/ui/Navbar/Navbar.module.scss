@@ -1,0 +1,105 @@
+
+
+$navbar-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.05);
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    width: 100%;
+    height: 64px;
+    transition: transform 450ms ease;
+    transform:  translateY(-150%);
+    background: $white;
+
+
+    @include medium {
+        height: 80px;
+    }
+    @include larger {
+        height: auto;
+        padding: 1rem 5.625rem;
+        box-shadow: $navbar-shadow;
+    }
+
+    &.is-shown {
+        transform: none;
+    }
+
+    &.navbar-mini {
+        height: 64px;
+
+        @include larger {
+            height: 70px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+    }
+
+    .navbar-inside {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+   
+}
+
+.brand {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1rem;
+    background-color: $white;
+    box-shadow: $navbar-shadow;
+
+    @include medium {
+        padding: 0 2rem;
+    }
+
+    @include larger {
+        width: fit-content;
+        padding: 0;
+        box-shadow: none;
+    }
+}
+
+.menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 9;
+
+    display: none;
+
+    @include larger {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+
+    }
+
+
+    .menu-curtain {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+
+        @include larger {
+            display: none;
+        }
+    }
+}
+
+

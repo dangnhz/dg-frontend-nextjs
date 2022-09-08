@@ -1,7 +1,7 @@
 import gsap from "gsap";
 
 //OPEN THE MENU
-export const staggerReveal = (timeline:any, nodes:HTMLAllCollection) => {
+export const staggerReveal = (timeline:any, nodes:any) => {
   timeline.to(nodes, {
     height: "100vh",
     transformOrigin: "right top",
@@ -18,7 +18,7 @@ export const staggerReveal = (timeline:any, nodes:HTMLAllCollection) => {
 
 //CLOSE THE MENU
 
-export const staggerRevealClose = (timeline:any, nodes:HTMLAllCollection) => {
+export const staggerRevealClose = (timeline:any, nodes:any) => {
   timeline.to(nodes, {
     skewY: 2,
     duration: 0,
@@ -32,7 +32,7 @@ export const staggerRevealClose = (timeline:any, nodes:HTMLAllCollection) => {
   });
 };
 
-export const menuCurtainReveal = (timeline:any, node:HTMLElement) => {
+export const menuCurtainReveal = (timeline:any, node:any) => {
   timeline.to(node, {
     keyframes: [
       { height: 0, bottom: window.outerHeight, duration: 0 },
@@ -42,7 +42,7 @@ export const menuCurtainReveal = (timeline:any, node:HTMLElement) => {
   });
 };
 
-export const menuCurtainClose = (timeline:any, node:HTMLElement) => {
+export const menuCurtainClose = (timeline:any, node:any) => {
   timeline.to(node, {
     keyframes: [
       { height: 0, bottom: 0, duration: 0 },
@@ -53,7 +53,7 @@ export const menuCurtainClose = (timeline:any, node:HTMLElement) => {
 };
 
 // STAGGER THE LINKS TO APPEAR
-export const staggerTextReveal = (timeline:any, nodes:HTMLAllCollection) => {
+export const staggerTextReveal = (timeline:any, nodes:any) => {
   timeline.fromTo(
     nodes,
     {
@@ -70,7 +70,7 @@ export const staggerTextReveal = (timeline:any, nodes:HTMLAllCollection) => {
   );
 };
 
-export const staggerTextHide = (timeline:any, nodes:HTMLAllCollection) => {
+export const staggerTextHide = (timeline:any, nodes:any) => {
   timeline.fromTo(
     nodes,
     {

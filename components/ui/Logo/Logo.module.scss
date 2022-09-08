@@ -1,0 +1,44 @@
+
+
+
+.dg-logo {
+    position: relative;
+    top: 1rem;
+    left: 0;
+    z-index: 11;
+    transition: width 300ms;
+    pointer-events: none;
+
+    @include logo-size(9.375rem, 0.5);
+
+    @include larger {
+        top: 0;
+    }
+
+    &.mini-logo {
+        @include medium {
+            width: 80px;
+        }
+
+        @include larger {
+            width: 50px;
+            transition: width 0s;
+
+            .logo-background {
+                animation: changeLogoColor 30s infinite linear
+            }
+
+            .logo-text {
+                visibility: hidden;
+            }
+        }
+    }
+
+    .logo-background {
+        transition: 1.5s;
+    }
+}
+
+
+
+

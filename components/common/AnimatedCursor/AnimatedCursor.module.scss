@@ -1,0 +1,33 @@
+
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  z-index: 1000;
+  transform-origin: center center;
+  pointer-events: none;
+  opacity: 0;
+  display: none;
+  
+  @include xl {
+    display: block;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .cursorLeaf {
+    width: 120px;
+    height: 120px;
+    backface-visibility: hidden;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(0.2);
+  }
+}

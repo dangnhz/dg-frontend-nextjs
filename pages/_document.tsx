@@ -15,12 +15,12 @@ export default function Document() {
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1" />
             <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1" color="#5bbad5" />
             <meta name="msapplication-TileColor" content="#da532c" />
-
+{/* 
             <link rel="preload" as="font" href="/fonts/Gilroy-Bold.woff2" type="font/woff2" crossOrigin="anonymous" />
             <link rel="preload" as="font" href="/fonts/Gilroy-Regular.woff2" type="font/woff2" crossOrigin="anonymous" />
             <link rel="preload" as="font" href="/fonts/Gilroy-Medium.woff2" type="font/woff2" crossOrigin="anonymous" />
             <link rel="preload" as="font" href="/fonts/Gilroy-Light.woff2" type="font/woff2" crossOrigin="anonymous" />
-            <link rel="preload" as="font" href="/fonts/CrimsonText-Regular.woff2" type="font/woff2" crossOrigin="anonymous" />
+            <link rel="preload" as="font" href="/fonts/CrimsonText-Regular.woff2" type="font/woff2" crossOrigin="anonymous" /> */}
            
 
       </Head>
