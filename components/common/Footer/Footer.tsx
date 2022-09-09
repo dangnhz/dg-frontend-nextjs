@@ -3,7 +3,7 @@ import Link from "next/link";
 import routes from "@lib/routes";
 import { useQuery } from "react-query";
 import { fetchLayoutData } from "@lib/api/layout.service";
-import FooterLogo from "../Logo/FooterLogo";
+import FooterLogo from "../../ui/Logo/FooterLogo";
 import Facebook from "@components/icons/Facebook";
 import LinkedIn from "@components/icons/LinkedIn";
 import Twitter from "@components/icons/Twitter";
@@ -18,16 +18,13 @@ const Footer:React.FC = () => {
 
   const [year, setYear] = useState<number|undefined>(undefined);
 
-  const {data : footer} = useQuery('fetchLayoutData', fetchLayoutData);
-
-  
+  const {data } = useQuery('fetchLayoutData', fetchLayoutData);
+  const footer = data?.footer
 
   useEffect(() => {
     const date = new Date();
     setYear(date.getFullYear());
   }, []);
-
-  if (!footer) return(<h1>Loading...</h1>)
 
   return (
     <>

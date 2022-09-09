@@ -1,0 +1,187 @@
+.card {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+
+    .wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+    }
+
+    .overlay {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        padding: 2rem;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.15;
+        transition: 0.4s;
+      }
+
+    .image {
+        overflow: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+    }
+
+    .info {
+        width: 100%;
+        padding: 14px 12px;
+        position: absolute;
+        top: 0;
+        text-align: left;
+        z-index: 2;
+
+        @include medium {
+            padding: 20px 16px;
+        }
+
+        @include xl {
+            padding: 38px 28px;
+        }
+    }
+
+    .category {
+        font-family: $font-primary-regular;
+        color: var(--text-color);
+        margin-bottom: 8px;
+
+        @include medium {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        @include large {
+            font-size: 14px;
+        }
+
+        @include xl {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        @include xl2 {
+            font-size: 20px;
+        }
+
+        @include xl5 {
+            font-size: 26px;
+        }
+    }
+
+    .title {
+        font-family: $font-primary-bold;
+        margin: 0;
+        line-height: 1.13;
+        color: var(--text-color);
+
+        font-size: 20px;
+
+        @include small {
+            font-size: 24px;
+        }
+
+        @include medium {
+            letter-spacing: -0.25px;
+            line-height: 1;
+            font-size: 16px;
+        }
+
+        @include large {
+            font-size: 20px;
+        }
+
+        @include xl2 {
+            font-size: 28px;
+        }
+
+
+        @include xl4 {
+            font-size: 38px;
+        }
+    }
+
+    .description {
+        overflow: hidden;
+        max-height: 0;
+        color: #fff;
+
+        p {
+            font-family: $font-primary-regular;
+            line-height: 1.33;
+            opacity: 0;
+            font-size: 16px;
+            transition: 0.3s;
+
+            @include medium {
+                margin-top: 24px;
+            }
+
+            @include xl2 {
+                font-size: 18px;
+            }
+
+            @include xl5 {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+
+
+@media (hover: hover) and (pointer: fine) {
+    .card {
+        &:hover {
+            .overlay {
+                opacity: 1;
+                background-color: var(--hover-color);
+            }
+
+            .title,
+            .category {
+                color: #fff;
+            }
+
+            .image {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+
+            .description {
+                transition: max-height 600ms ease-in;
+                max-height: 500px;
+
+                p {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+}
+
+.card.zoom-in {
+    @include xl {
+        animation: zoomIn 0.5s;
+    }
+}

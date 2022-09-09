@@ -1,10 +1,10 @@
-import pinkCloud from '@assets/images/clouds/pink-cloud.png';
-import blueCloud from '@assets/images/clouds/blue-cloud.png';
-import greenCloud from '@assets/images/clouds/green-cloud.png';
-import orangeCloud from '@assets/images/clouds/orange-cloud.png';
-import purpleCloud from '@assets/images/clouds/purple-cloud.png';
-import redCloud from '@assets/images/clouds/red-cloud.png';
-import homepageCloud from '@assets/images/clouds/homepage-cloud-green.png'
+import pinkCloud from '../public/clouds/pink-cloud.png';
+import blueCloud from '../public/clouds/blue-cloud.png';
+import greenCloud from '../public/clouds/green-cloud.png';
+import orangeCloud from '../public/clouds/orange-cloud.png';
+import purpleCloud from '../public/clouds/purple-cloud.png';
+import redCloud from '../public/clouds/red-cloud.png';
+import homepageCloud from '../public/clouds/homepage-cloud-green.png'
 
 export {
     pinkCloud,

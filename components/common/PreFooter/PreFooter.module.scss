@@ -1,0 +1,94 @@
+.pre-footer {
+    width: 100%;
+    height: fit-content;
+    min-height: 450px;
+    position: relative;
+    
+    &-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    &-background {
+      overflow: hidden;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &-content {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        &-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pre-footer-title {
+            color: $white;
+            margin: 0;
+            letter-spacing: 0;
+            text-align: center;
+            font-family: $font-primary-bold;
+            
+            @include fluid-font(3.75rem, 0.5);
+
+            @include large {
+                letter-spacing: -2.64px;
+            }
+        }
+
+    }
+}
+
+.pre-footer.has-contact-form {
+    min-height: 1200px;
+
+    @include medium {
+        min-height: 1000px;
+    }
+}
+
+
+.pre-footer-button, .btn-submit{
+    color: $white;
+    font-family: $font-primary-medium;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: $black;
+    padding: 16px 45px;
+    letter-spacing: 2.29px;
+    margin-top: 65px;
+    text-transform: uppercase;
+    transition:  0.3s;
+    border: none;
+    border-radius: 26px;
+
+   
+
+    &:not(:disabled) {
+        &:hover {
+            background-color: $white;
+            color: $black;
+            border-top-right-radius: 0;
+        }
+    }
+}

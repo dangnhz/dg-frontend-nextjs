@@ -8,13 +8,13 @@ const cx = classNames.bind(styles)
 interface Props {
     disabled: boolean,
     handleMenu: () => void;
-    state: MenuState
+    isMenuOpen: boolean
 }
 
-const Hamburger:React.FC<Props> = ({disabled, handleMenu, state} ) => {
+const Hamburger:React.FC<Props> = ({disabled, handleMenu, isMenuOpen} ) => {
 
     return (
-        <button className={cx('hamburger', {'is-active': state.clicked})} onClick={handleMenu} disabled={disabled}>
+        <button className={cx('hamburger', {'is-active': isMenuOpen})} onClick={handleMenu} disabled={disabled}>
             <div className={cx('line')}></div>
             <div className={cx('line')}></div>
             <div className={cx('line')}></div>

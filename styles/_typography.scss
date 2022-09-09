@@ -91,6 +91,12 @@ h6,
 }
 
 
+.homepage-title {
+  letter-spacing: -1px;
+  @include fluid-font(3.75rem, 0.5333);
+
+}
+
 p {
   font-family: $font-primary-regular;
   line-height: 1.625;

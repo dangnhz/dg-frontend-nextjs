@@ -1,0 +1,25 @@
+{
+  "title": "Digital Agency Sydney | Web Design Sydney | Digital Garden",
+  "titleTemplate": "%s | Digital Garden",
+  "description": "Digital Garden is a Sydney based full service Digital Agency offering custom Web Design, Web Development, eCommerce &amp; Drupal CMS solutions. Call Us - 0293576265",
+  "openGraph": {
+    "title": "Digital Agency Sydney | Web Design Sydney | Digital Garden",
+    "description": "Digital Garden is a Sydney based full service Digital Agency offering custom Web Design, Web Development, eCommerce &amp; Drupal CMS solutions. Call Us - 0293576265",
+    "type": "website",
+    "url": "https://www.digitalgarden.com.au/",
+    "site_name": "Digital Garden",
+    "images": [
+      {
+        "url": "/images/dg-logo.png",
+        "width": "800",
+        "height": "600",
+        "alt": "Digital Garden"
+      }
+    ]
+  },
+  "twitter": {
+    "handle": "@digitalgarden",
+    "site": "@digitalgarden",
+    "cardType": "summary_large_image"
+  }
+}

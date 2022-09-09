@@ -1,8 +1,15 @@
-import footerGreen from '@assets/images/footer-leaves/homepage-footer.svg';
-import footerBlue from '@assets/images/footer-leaves/blue.svg'
-import footerRed from '@assets/images/footer-leaves/red.svg'
+import footerGreen from '../public/footer-leaves/green.svg';
+import footerBlue from '../public/footer-leaves/blue.svg'
+import footerPurple from '../public/footer-leaves/purple.svg'
+import footerRed from '../public/footer-leaves/red.svg'
+import footerPink from '../public/footer-leaves/pink.svg'
+import footerGreenContact from '../public/footer-leaves/green-contact.svg'
+
 export {
     footerGreen,
     footerBlue,
-    footerRed 
+    footerRed,
+    footerPurple,
+    footerPink,
+    footerGreenContact
 }

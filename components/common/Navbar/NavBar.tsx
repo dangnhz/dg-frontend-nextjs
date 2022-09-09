@@ -35,36 +35,27 @@ const Navbar = () => {
   const { theme } = useUI()
 
   // State of our Menu
-  const [state, setState] = useState<MenuState>({
-    initial: false,
-    clicked: null,
-  })
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   // State of hamburger button
   const [disabled, setDisabled] = useState(false)
 
   const router = useRouter()
 
+  const breakpoint = useRef<MediaQueryList>()
+
+  useEffect(() => {
+    breakpoint.current = window.matchMedia('(max-width: 1023px)')
+  }, [])
+
   //Listening for page changes.
 
   useEffect(() => {
-    setState((prevState) => ({ ...prevState, clicked: false }))
-  }, [router.asPath])
-
-  // Toggle menu
-  const handleMenu = () => {
-    disableMenu()
-    if (state.initial === false) {
-      setState({
-        initial: null,
-        clicked: true,
-      })
-    } else if (state.clicked === true) {
-      setState((prevState) => ({ ...prevState, clicked: false }))
-    } else if (state.clicked === false) {
-      setState((prevState) => ({ ...prevState, clicked: true }))
+    if (breakpoint.current?.matches) {
+      setIsMenuOpen(false);
+      closeMenu()
     }
-  }
+  }, [router.asPath])
 
   //Determine if menu button should be disabled
   const disableMenu = () => {
@@ -118,35 +109,63 @@ const Navbar = () => {
   }, [])
 
   const resetMenu = useCallback(() => {
+    document.body.style.overflow = 'scroll'
+    gsap.set(['.js-menu .js-menu-link', '.js-search'], {
+      yPercent: 0,
+      opacity: 1,
+    })
 
-    console.log('reset');
-    tl.progress(0)
+    gsap.set('.js-menu', {
+      visibility: 'visible',
+      duration: 0,
+    })
+
+    gsap.set('.js-menu-wrapper', {
+      display: 'block',
+      duration: 0,
+    })
   }, [])
 
-  useEffect(() => {
-    const breakpoint = window.matchMedia('(max-width: 1023px)')
+  // Toggle menu
+  const handleMenu = () => {
+    disableMenu()
 
-    if (!breakpoint.matches) return
-    // If the menu is open and we click the menu button to close it.
-    if (state.clicked === false) {
-      closeMenu()
-    } else if (state.clicked === true) {
+    if (!isMenuOpen) {
       openMenu()
+    } else {
+      closeMenu()
     }
 
-    breakpoint.addEventListener('change', () => {
-      if (!breakpoint.matches) {
-        resetMenu();
+    setIsMenuOpen((prev) => !prev)
+  }
+
+  useEffect(() => {
+
+   if (breakpoint.current) {
+    breakpoint.current?.addEventListener('change', () => {
+      if (!breakpoint.current?.matches) {
+        if (!isMenuOpen) {
+          resetMenu()
+        }
+      } else {
+        //on mobile
+        setIsMenuOpen(false)
+        gsap.set('.js-menu-wrapper', {
+          display: 'none',
+          duration: 0,
+        })
       }
     })
-  }, [state.clicked])
+   }
+
+  }, [])
 
   //hide and show navbar on scroll
 
   useEffect(() => {
     if (scrollDir === 'UP') {
       setShowNavbar(true)
-    } else if (scrollDir === 'DOWN' && !state.clicked) {
+    } else if (scrollDir === 'DOWN' && !isMenuOpen) {
       setShowNavbar(false)
     }
 
@@ -161,7 +180,7 @@ const Navbar = () => {
     } else if (scrollY < 100) {
       setShowNavbar(true)
     }
-  }, [scrollDir, scrollY, state.clicked, width])
+  }, [scrollDir, scrollY, isMenuOpen, width])
 
   const navClassName = cx('navbar', { 'navbar-mini': isMini, 'is-shown': showNavbar })
 
@@ -170,7 +189,7 @@ const Navbar = () => {
       <div className={cx('navbar-inside', 'max-width-6')}>
         <div className={cx('brand')}>
           <Logo className={`${isMini ? 'mini-logo' : ''}`} />
-          <Hamburger handleMenu={handleMenu} state={state} disabled={disabled} />
+          <Hamburger handleMenu={handleMenu} isMenuOpen={isMenuOpen} disabled={disabled} />
         </div>
         <div className={cx('menu-wrapper', 'js-menu-wrapper')}>
           <div className={cx('menu-curtain', 'js-menu-curtain')} style={{ backgroundColor: theme.primaryColor }}></div>
