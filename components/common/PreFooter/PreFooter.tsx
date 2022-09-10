@@ -5,6 +5,7 @@ import { footerGreen, footerBlue, footerRed, footerPurple, footerPink, footerGre
 
 import classNames from 'classnames/bind'
 import styles from './PreFooter.module.scss'
+import { ButtonRounded } from '@components/ui/Button/Button'
 
 const cx = classNames.bind(styles)
 
@@ -47,11 +48,13 @@ const PreFooter: React.FC<Props> = ({ showContactForm = false, background = 'gre
           {!showContactForm && (
             <>
               <div className={cx('pre-footer-title')}>We'd love to work with you.</div>
-              <Link href="/contact" passHref>
-                <a className={cx('pre-footer-button')} data-cursor-type="none">
-                  Say Hello
-                </a>
-              </Link>
+              <ButtonRounded color='black'>
+                <Link href="/contact" passHref>
+                  <a className={cx('pre-footer-button')} data-cursor-type="none">
+                    Say Hello
+                  </a>
+                </Link>
+              </ButtonRounded>
             </>
           )}
           {/* {showContactForm && <ContactForm />} */}

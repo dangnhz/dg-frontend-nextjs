@@ -13,17 +13,19 @@ export interface CustomCSS extends CSSProperties {
   '--text-color': string
 }
 
+export interface ProjectCardType {
+  image: string
+  title: string
+  id: string
+  alias: string
+  shortDescription: string
+  clientName: string
+  thumbnailColor?: string
+  isGated: boolean
+}
+
 export interface ProjectCardProps {
-  data: {
-    image: string
-    title: string
-    id: string
-    alias: string
-    shortDescription: string
-    clientName: string
-    thumbnailColor?: string
-    isGated: boolean
-  }
+  data: ProjectCardType
   hoverColor: string
 }
 

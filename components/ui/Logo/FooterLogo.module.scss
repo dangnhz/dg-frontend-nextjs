@@ -1,6 +1,9 @@
   
   //animate footer logo colors
-  
+ .logo {
+    width: 100%;
+  }
+
   .footer-logo-background {
     animation: changeLogoColor 30s infinite linear;
   }

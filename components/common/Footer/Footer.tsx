@@ -33,7 +33,7 @@ const Footer:React.FC = () => {
         <div className={cx("footer-left-column")}>
           <div className={cx("footer-logo")}>
             <Link href="/" passHref>
-              <a className="logo"><FooterLogo /></a>
+              <a className={cx("logo")}><FooterLogo /></a>
             </Link>
           </div>
         </div>

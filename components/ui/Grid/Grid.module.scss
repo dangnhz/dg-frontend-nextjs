@@ -1,8 +1,54 @@
 .grid {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
 
     @include medium {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+.grid.grid-service {
+    column-gap: 2rem;
+    row-gap: 4rem;
+
+    @include small-medium {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+    }
+
+    @include large {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include xl2 {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2rem;
+    }
+
+}
+
+
+
+.grid.grid-clients {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    margin-bottom: 4rem;
+
+    @include breakpoint(500px) {
+        grid-column-gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include medium {
+        grid-column-gap: 0;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include xl2 {
+        grid-template-columns: repeat(6, 1fr);
+        
     }
 }

@@ -103,6 +103,18 @@
 
     @include xl2 {
       margin-left: 5rem;
+
+      &::before {
+        left: -3rem;
+      }
+    }
+
+    @include xl4 {
+      margin-left: 10rem;
+
+      &::before {
+        left: -6rem;
+      }
     }
 
     .search-icon {
@@ -110,6 +122,16 @@
 
         @include larger {
             display: block;
+        }
+
+        svg {
+          transition: 300ms ease;
+        }
+
+        &:hover {
+          svg {
+            fill: $green;
+          }
         }
     }
   }

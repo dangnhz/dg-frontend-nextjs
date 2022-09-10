@@ -1,18 +1,18 @@
-
 import type { NextPage } from 'next'
 import SEO from '../components/common/SEO'
 import { fetchHomepageData } from '@lib/api/homepage.service'
-import PreFooter from '@components/common/PreFooter';
-import HomeHero from '@components/home/HomeHero';
-import HomeProjectListing from '@components/home/HomeProjectListing/HomeProjectListing';
-
+import PreFooter from '@components/common/PreFooter'
+import Hero from '@components/home/Hero'
+import ProjectListing from '@components/home/ProjectListing/ProjectListing'
+import WhatWeDo from '@components/home/WhatWeDo/WhatWeDo'
+import HomePanels from '@components/home/HomePanels'
+import HomeClients from '@components/home/HomeClients/HomeClients'
 
 interface Props {
   data: any
 }
 
-const Home: NextPage<Props> = ({data}) => {
-
+const Home: NextPage<Props> = ({ data }) => {
   return (
     <>
       <SEO
@@ -33,8 +33,16 @@ const Home: NextPage<Props> = ({data}) => {
         // }}
       />
 
-      {data.banner && <HomeHero banner={data.banner} />}
-      {data.our_work && data.banner?.body && <HomeProjectListing title='Who we are' subtitle={data.our_work.title} intro={data.banner.body} projects={data.our_work.projects} />}
+      <Hero banner={data.banner} />
+      <ProjectListing
+        title="Who we are"
+        subtitle={data.our_work.title}
+        intro={data.banner.body}
+        projects={data.our_work.projects}
+      />
+      <WhatWeDo title={data.services_summary.title} tiles={data.services_summary.tiles} backgroundColor="white" />
+      <HomePanels data={data.call_to_action} />
+      <HomeClients title={data.clients.title} cards={data.clients.cards} link={data.clients.link} />
 
       <PreFooter />
     </>
@@ -42,15 +50,14 @@ const Home: NextPage<Props> = ({data}) => {
 }
 
 export const getStaticProps = async () => {
- 
   const data = await fetchHomepageData()
 
   return {
     props: {
       data,
     },
-    revalidate: 60, 
-  };
-};
+    revalidate: 60,
+  }
+}
 
 export default Home

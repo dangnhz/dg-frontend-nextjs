@@ -7,6 +7,7 @@ const cx = classNames.bind(styles);
 const FooterLogo = () => {
   return (
     <svg
+    className={cx("logo")}
     width="331px"
     height="97px"
     viewBox="0 0 331 97"

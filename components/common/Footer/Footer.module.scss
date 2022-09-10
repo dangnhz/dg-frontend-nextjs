@@ -14,21 +14,22 @@
       flex-direction: row;
     }
 
-    .footer-wrapper {
+    .footer-logo {
       margin-bottom: 3rem;
+      display: flex;
+      justify-content: left;
 
-      .footer-logo {
-        svg {
-          width: 250px;
+      .logo {
+        width: 250px;
 
-          @include small-medium {
-            width: 300px;
-          }
-
-          @include xl3 {
-            width: 100%;
-          }
+        @include small-medium {
+          width: 300px;
         }
+
+        @include xl3 {
+          width: 100%;
+        }
+
       }
     }
 
