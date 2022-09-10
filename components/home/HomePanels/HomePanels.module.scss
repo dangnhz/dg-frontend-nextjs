@@ -1,0 +1,8 @@
+.home-panels {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include medium {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,18 @@
+
+
+.what-we-do {
+
+    &.white {
+        background-color: $white;
+    }
+
+    &__services-listing {
+        display: grid;
+       
+        .services-card {
+            @include small-medium {
+                padding: 0 0.5rem;
+            }
+        }
+    }
+}

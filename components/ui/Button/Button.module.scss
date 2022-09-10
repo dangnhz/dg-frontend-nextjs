@@ -1,0 +1,78 @@
+.button-link {
+  font-family: $font-primary-bold;
+  font-size: 18px;
+  letter-spacing: 1.89px;
+  text-decoration: none;
+  padding: 6px 0;
+  border: none;
+  line-height: 1;
+  border-bottom: 4px solid;
+  transition: color 0.3s;
+  text-transform: uppercase;
+
+  @include medium {
+    font-size: 20px;
+  }
+
+  &.white {
+    color: $white;
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &.green {
+    color: $green;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &.black {
+    color: $black;
+  }
+
+  &.hover-black {
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+.button-rounded {
+  min-width: 200px;
+  border-radius: 26px;
+  background-color: $green;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $white;
+  font-family: $font-primary-medium;
+  transition: 0.3s;
+  width: fit-content;
+  cursor: pointer;
+
+  > * {
+    padding: 20px 24px 16px;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  &:hover {
+    border-top-right-radius: 0;
+  }
+
+  &.black {
+    background-color: $black;
+
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
+}

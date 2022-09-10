@@ -1,0 +1,86 @@
+
+
+
+.home-clients {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+
+.home-clients-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+
+    @include large {
+        flex-direction: row;
+        margin-top: 55px;
+        padding: 0 2rem 0 0;
+    }
+
+    @include xl2 {
+        padding: 0;
+    }
+
+
+    .home-clients-subtitle {
+        margin-top: 24px;
+
+        @include large {
+            width: 50%;
+            padding-right: 3rem;
+            padding-left: 3rem;
+            margin-top: 0;
+        }
+        @include xl {
+            padding-right: 5rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            font-family: $font-secondary-regular;
+            letter-spacing: -0.56px;
+            line-height: 1.22;
+            pointer-events: none;
+            margin: 0;
+
+            @include fluid-font(2.25rem, 0.667);
+
+            @include large {
+                line-height: 1.22;
+            }
+        }
+    }
+
+    .home-clients-intro {
+        margin-top: $space;
+
+        @include large {
+            width: 50%;
+            margin-top: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            font-family: $font-primary-regular;
+            letter-spacing: 0;
+            line-height: 1.38;
+            margin: 0;
+            pointer-events: none;
+            @include fluid-font(1.625rem, 0.615);
+        }
+    }
+}

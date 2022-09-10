@@ -1,0 +1,85 @@
+.home-panel {
+    position: relative;
+    .home-panel-wrapper {
+        width: 100%;
+        overflow: hidden;
+        padding: 70px 1rem;
+        margin: 0 auto;
+
+        @include medium {
+            padding: 60px 1rem 120px 1rem;
+        }
+
+        @include large {
+            padding: 80px 2rem 150px 2rem;
+        }
+
+        @include xl {
+            padding: 100px 80px 150px 80px;
+        }
+
+        @include xl3 {
+            padding: 120px 80px 160px 100px;
+        }
+
+        @include xl7 {
+            padding: 280px 110px 300px 110px;
+        }
+    }
+
+    &-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $green;
+        z-index: -1;
+    }
+
+    &-content{
+        max-width: 1000px;
+        margin: 0 auto;
+        color: $white;
+        h3 {
+            margin-top: 0;
+        }
+    }
+
+    &-button {
+        text-align: right;
+        margin-top: 60px;
+        position: relative;
+
+        @include medium {
+            position: absolute;
+            bottom: 60px;
+            right: 2rem;
+        }
+
+        @include xl{
+            bottom: 90px;
+            right: 110px;
+        }
+
+        @include xl6{
+            right: 210px;
+            bottom: 180px;
+        }
+    }
+}
