@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 // import ContactForm from '../../ui/ContactForm/ContactForm'
-import { footerGreen, footerBlue, footerRed, footerPurple, footerPink, footerGreenContact } from '@lib/footer-images'
+import { footerGreen, footerBlue, footerRed, footerPurple, footerPink, footerOrange ,footerGreenContact } from '@lib/footer-images'
 
 import classNames from 'classnames/bind'
 import styles from './PreFooter.module.scss'
@@ -34,6 +34,9 @@ const PreFooter: React.FC<Props> = ({ showContactForm = false, background = 'gre
       case 'pink':
         setImageUrl(footerPink.src)
         break
+      case 'orange':
+          setImageUrl(footerOrange.src)
+          break
       default:
         setImageUrl(footerGreen.src)
         break

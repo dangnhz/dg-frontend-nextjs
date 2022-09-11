@@ -5,7 +5,7 @@ export const fetchContactInfo = async () => {
     return data.data
 }
 
-export const sendContactDetail = async (data) => {
+export const sendContactDetail = async (data:any) => {
     const res = await http.post(`/contact`, data)
     return res.data
 }

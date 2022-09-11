@@ -5,12 +5,12 @@ export const fetchAllServices = async () => {
 	return data.data;
 };
 
-export const fetchService = async (id) => {
+export const fetchService = async (id:string) => {
 	const data = await http.get(`/service/${id}`);
 	return data.data;
 };
 
-export const fetchServiceItem = async (id, itemId) => {
+export const fetchServiceItem = async (id:string, itemId:string) => {
 	const data = await http.get(`/service/${id}/item/${itemId}`);
 	return data.data;
 };

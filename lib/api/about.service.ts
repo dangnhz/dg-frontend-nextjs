@@ -5,7 +5,7 @@ export const fetchAllTeamMembers = async () => {
     return data.data
 }
 
-export const fetchMember = async (id) => {
+export const fetchMember = async (id:string) => {
     const data = await http.get(`/member/${id}`)
     return data.data
 }

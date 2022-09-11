@@ -1,7 +1,7 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools } from "react-query/devtools";
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { UIProvider } from 'context/UIContext'
 import AppLayout from '@components/common/AppLayout'
 import SearchProvider from 'context/SearchContext'
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <SearchProvider>
           <UIProvider>
             <AppLayout>
-                  <Component {...pageProps} />
+              <Component {...pageProps} />
             </AppLayout>
           </UIProvider>
         </SearchProvider>
@@ -24,6 +24,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </QueryClientProvider>
   )
 }
-
 
 export default MyApp

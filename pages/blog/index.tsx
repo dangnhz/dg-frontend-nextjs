@@ -10,10 +10,11 @@ import PostListing from '../../components/ui/PostListing/PostListing'
 import Filter from '@components/ui/Filter'
 import PreFooter from '@components/common/PreFooter'
 
-const QUERY_KEY = 'fetchAllBlogPosts'
+const QUERY_KEY = 'fetchAllBlogPosts';
+const INITIAL_TERM = { id: '0', text: 'All' }
 
 const Blog: React.FC = () => {
-  const [filterTerm, setFilterTerm] = useState({ id: '0', text: 'All' })
+  const [filterTerm, setFilterTerm] = useState(INITIAL_TERM)
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery(
     [QUERY_KEY, filterTerm.id],
     ({ pageParam = 0 }) => fetchAllBlogPosts(pageParam, filterTerm.id),
@@ -24,6 +25,7 @@ const Blog: React.FC = () => {
         return
       },
       keepPreviousData: true,
+      staleTime: 1000 * 60 * 2
     }
   )
 
@@ -70,11 +72,9 @@ const Blog: React.FC = () => {
 export const getStaticProps = async () => {
   const queryClient = new QueryClient()
 
-  const filterTerm = { id: 0, text: 'All' }
+  const filterTerm = INITIAL_TERM
 
-  await queryClient.prefetchInfiniteQuery([QUERY_KEY, filterTerm.id], () => fetchAllBlogPosts(0, 0), {
-    staleTime: 1000 * 60 * 10,
-  })
+  await queryClient.prefetchInfiniteQuery([QUERY_KEY, filterTerm.id], () => fetchAllBlogPosts(0, '0'))
 
   return {
     props: {
