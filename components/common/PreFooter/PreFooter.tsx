@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import ContactForm from '../../ui/ContactForm/ContactForm'
+// import ContactForm from '../../ui/ContactForm/ContactForm'
 import { footerGreen, footerBlue, footerRed, footerPurple, footerPink, footerGreenContact } from '@lib/footer-images'
 
 import classNames from 'classnames/bind'

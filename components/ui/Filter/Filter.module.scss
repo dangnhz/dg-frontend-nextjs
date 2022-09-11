@@ -1,0 +1,117 @@
+.filter-term {
+    &.active, &:hover {
+        color: var(--page-main-color)
+    }
+
+    &.active {
+        border-bottom: 4px solid var(--page-main-color);
+    }
+}
+
+.button-trigger {
+    color: var(--page-main-color);
+    border: 1px solid var(--page-main-color);
+
+    svg {
+        fill: var(--page-main-color);
+      }
+}
+
+.filter-desktop {
+    display: none;
+
+    @include xl {
+        display: block;
+    }
+
+    .filter-terms-listing {
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+
+        .filter-term {
+            margin: 1rem;
+            font-family: $font-primary-bold;
+            font-size: 20px;
+            cursor: pointer;
+            padding-bottom: 2px;
+            transition: color 0.3s;
+
+            @include xl2 {
+                margin: 1rem 1.2rem;
+            }
+
+            @include xl5 {
+                margin: 1rem 1.5rem;
+            }
+        }
+    }
+}
+
+.filter-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    @include xl {
+        display: none;
+    }
+
+    .button-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 2rem;
+        width: 100%;
+        background-color: white;
+        cursor: pointer;
+
+        .button-trigger-icon {
+            margin-right: 1rem;
+            width: 22px;
+
+            path {
+                fill: inherit;
+            }
+        }
+
+        .button-trigger-text {
+            font-family: $font-primary-bold;
+            font-size: 1rem;
+            line-height: 1.38;
+            transform: translateY(2px);
+        }
+    }
+
+    .filter-terms-listing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s;
+        background-color: $white;
+        width: 100%;
+
+        .filter-term {
+            margin: 0.5rem 2rem;
+            font-family: $font-primary-bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            border: none;
+
+            &:first-of-type {
+                margin-top: 1rem;
+            }
+
+            &:last-of-type {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

@@ -7,12 +7,19 @@ import ProjectListing from '@components/home/ProjectListing/ProjectListing'
 import WhatWeDo from '@components/home/WhatWeDo/WhatWeDo'
 import HomePanels from '@components/home/HomePanels'
 import HomeClients from '@components/home/HomeClients/HomeClients'
+import { useUI } from 'context/UIContext';
+import { useEffect } from 'react'
 
 interface Props {
-  data: any
+  [key:string]: any
 }
 
 const Home: NextPage<Props> = ({ data }) => {
+
+  const {setCurrentTheme} = useUI()
+
+  useEffect(() => {setCurrentTheme('green')}, [setCurrentTheme])
+
   return (
     <>
       <SEO

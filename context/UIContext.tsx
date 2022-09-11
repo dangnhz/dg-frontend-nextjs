@@ -3,11 +3,12 @@ import {colors, DGColor } from '@theme/colors';
 
 interface ThemeState {
   theme: DGColor;
-  setCurrentTheme?: React.Dispatch<React.SetStateAction<string>>;
+  setCurrentTheme: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const initialState : ThemeState = {
   theme: {...colors},
+  setCurrentTheme: () => {}
 }
 
 export const UIContext = createContext(initialState)

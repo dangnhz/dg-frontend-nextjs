@@ -188,7 +188,7 @@ const Navbar = () => {
     <nav id="navbar" className={navClassName} ref={navbar}>
       <div className={cx('navbar-inside', 'max-width-6')}>
         <div className={cx('brand')}>
-          <Logo className={`${isMini ? 'mini-logo' : ''}`} />
+          <Logo className={cx({'mini-logo': isMini})} />
           <Hamburger handleMenu={handleMenu} isMenuOpen={isMenuOpen} disabled={disabled} />
         </div>
         <div className={cx('menu-wrapper', 'js-menu-wrapper')}>

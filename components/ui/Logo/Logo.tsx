@@ -15,7 +15,7 @@ const Logo:React.FC<{className: string}> = ({className}) => {
 
     return (
         <Link href="/" passHref>
-            <a  aria-label="Home">
+            <a aria-label="Home" title="Home">
                  <svg className={cx('dg-logo', className)}  viewBox="0 0 150 121" role="img">
                      <title>We're a digital web design & development agency specialising in UX and UI</title>
                     <defs>
