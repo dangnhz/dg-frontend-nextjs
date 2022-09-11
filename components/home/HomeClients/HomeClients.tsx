@@ -43,7 +43,7 @@ const HomeClients: React.FC<Props> = ({ title, cards: clientsData, link }) => {
 
       <ButtonRounded>
         <Link href="/clients">
-          <a>{link.title || 'View more'}</a>
+          <a >{link.title || 'View more'}</a>
         </Link>
       </ButtonRounded>
     </section>

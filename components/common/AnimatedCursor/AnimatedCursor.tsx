@@ -60,11 +60,11 @@ const AnimatedCursor = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      const hoverElements = document.querySelectorAll("[data-cursor-type]");
+      const hoverElements = document.querySelectorAll("a , button, [data-cursor-type]");
       hoverElements.forEach((element) => {
         const cursorType = element.getAttribute("data-cursor-type");
 
-        if (cursorType === "medium") {
+        if (cursorType === "move-left") {
           element.addEventListener("mousemove", (e) => {
             e.stopImmediatePropagation();
             if (!cursorRef.current) return;
@@ -77,15 +77,8 @@ const AnimatedCursor = () => {
               duration: 0.4,
             });
           });
-        } else if (cursorType === "big") {
-          element.addEventListener("mouseenter", () => {
-            setCursorScale(1);
-          });
-
-          element.addEventListener("mouseleave", () => {
-            setCursorScale(0.2);
-          });
-        } else if (cursorType === "none") {
+        
+        } else {
           element.addEventListener("mouseover", () => {
             setCursorScale(0);
           });
@@ -100,7 +93,7 @@ const AnimatedCursor = () => {
     return () => {
       setCursorScale(0.2);
     };
-  }, [router]);
+  }, [router.asPath]);
 
   return (
     <div ref={cursorRef} className={styles.cursor}>

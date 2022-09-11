@@ -41,7 +41,7 @@ const PreFooter: React.FC<Props> = ({ showContactForm = false, background = 'gre
         setImageUrl(footerGreen.src)
         break
     }
-  }, [])
+  }, [background])
 
   return (
     <div className={cx('pre-footer', { 'has-contact-form': showContactForm })}>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import ArrowRight from '@components/icons/ArrowRight'
 import classNames from 'classnames/bind'
 import styles from './ServiceCardIcon.module.scss'
+import Image from 'next/image'
 
 const cx = classNames.bind(styles)
 
@@ -33,10 +34,10 @@ const ServiceCardIcon: React.FC<ServiceCardProps> = ({
         <a className={cx('services-card-wrapper')}>
           <div className={cx('services-card-top')}>
             <div className={cx('services-card-cloud')}>
-              <img src={cloud} alt={title} width={200} height={180} />
+              <Image src={cloud} alt={title} width={200} height={180} />
             </div>
             <div className={cx('services-card-icon')}>
-              <img src={icon} alt="service-icon" width="100" height="100" />
+              <Image src={icon} alt="service-icon" width="100" height="100" />
             </div>
           </div>
           <div className={cx('services-card-title')}>

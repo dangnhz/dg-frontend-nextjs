@@ -48,14 +48,6 @@ const Navbar = () => {
     breakpoint.current = window.matchMedia('(max-width: 1023px)')
   }, [])
 
-  //Listening for page changes.
-
-  useEffect(() => {
-    if (breakpoint.current?.matches) {
-      setIsMenuOpen(false);
-      closeMenu()
-    }
-  }, [router.asPath])
 
   //Determine if menu button should be disabled
   const disableMenu = () => {
@@ -139,6 +131,15 @@ const Navbar = () => {
     setIsMenuOpen((prev) => !prev)
   }
 
+    //Listening for page changes.
+
+    useEffect(() => {
+      if (breakpoint.current?.matches) {
+        setIsMenuOpen(false);
+        closeMenu()
+      }
+    }, [router.asPath, closeMenu])
+
   useEffect(() => {
 
    if (breakpoint.current) {
@@ -158,7 +159,7 @@ const Navbar = () => {
     })
    }
 
-  }, [])
+  }, [isMenuOpen, resetMenu])
 
   //hide and show navbar on scroll
 

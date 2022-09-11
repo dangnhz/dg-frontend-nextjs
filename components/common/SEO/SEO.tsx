@@ -24,28 +24,6 @@ interface Props {
     children?: React.ReactNode
   }
 
-  interface OgImage {
-    url?: string
-    width?: string
-    height?: string
-    alt?: string
-  }
-  
-  interface Props {
-    title?: string
-    description?: string
-    robots?: string
-    openGraph?: {
-      title?: string
-      type?: string
-      description?: string
-      site_name?: string
-      url?: string
-      images?: OgImage[]
-    }
-    children?: React.ReactNode
-  }
-  
   const ogImage = ({ url, width, height, alt }: OgImage, index: number) => {
     // generate full URL for OG image url with store base URL
     const imgUrl = url

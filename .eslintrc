@@ -1,11 +1,13 @@
 {
   "extends": [
-    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
     "next",
+    "next/core-web-vitals",
     "prettier"
   ],
   "rules": {
     "react/no-unescaped-entities": "off",
-    "react/no-unknown-property": ["error", { "ignore": ["jsx", "tsx"] }]
+    "react/no-unknown-property": "off",
+    "no-unused-vars": "warn"
   }
 }

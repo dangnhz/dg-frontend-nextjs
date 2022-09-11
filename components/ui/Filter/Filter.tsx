@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import FilterIcon from '@components/icons/Filter'
+import FilterIcon from '@components/icons/FilterIcon'
 import classNames from 'classnames/bind'
 import styles from './Filter.module.scss'
 
@@ -47,7 +47,7 @@ const Filter: React.FC<Props> = ({ filterTerms, setFilterTerm, filterTerm }) => 
           <ul className={cx('filter-terms-listing')}>
             <li
               key="all-desktop"
-              data-cursor-type="medium"
+              data-cursor-type="move-left"
               className={cx('filter-term', { active: filterTerm.text === 'All' })}
               onClick={() => handleFilterTermClick({ id: '0', text: 'All' })}
             >
@@ -58,7 +58,7 @@ const Filter: React.FC<Props> = ({ filterTerms, setFilterTerm, filterTerm }) => 
               filterTerms.map((term: Term) => (
                 <li
                   key={term.id}
-                  data-cursor-type="medium"
+                  data-cursor-type="move-left"
                   className={cx('filter-term', { active: filterTerm.id === term.id })}
                   onClick={() => handleFilterTermClick(term)}
                 >

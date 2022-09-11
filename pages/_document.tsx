@@ -27,7 +27,7 @@ export default function Document() {
       <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR45ZC2" height="0" width="0" style={{display: "none", visibility: "hidden"}}></iframe></noscript>
 
-        <Script strategy="lazyOnload">
+        <Script strategy="lazyOnload" id="ga">
             {`
                (function (w, d, s, l, i) {
                 w[l] = w[l] || [];

@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames/bind';
 import { ButtonLink } from '@components/ui/Button';
 import styles from './Panel.module.scss'
+import Image from 'next/image';
 
 
 const cx = classNames.bind(styles)
@@ -19,7 +20,7 @@ export const Panel:React.FC<PanelProps> = ({ data }) => {
       <div className={cx("home-panel")}>
         <div className={cx("home-panel-wrapper")}>
           <div className={cx("home-panel-background")}>
-           {background_image &&  <img src={background_image} alt={title} loading="lazy"/>}
+           {background_image &&  <Image src={background_image} alt={title} width={960} height={610}/>}
           </div>
           <div className={cx("home-panel-overlay")} style={{ backgroundColor: background_color, opacity: background_image ? 0.8 : 1}}></div>
           <div className={cx("home-panel-inside")}>

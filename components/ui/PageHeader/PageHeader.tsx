@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Lottie from 'lottie-react'
 import gsap from 'gsap'
 import { isMobile, browserName, CustomView } from 'react-device-detect'
@@ -17,6 +17,7 @@ import {
 
 import { pinkCloud, blueCloud, greenCloud, purpleCloud, orangeCloud, redCloud } from '@lib/cloud-images'
 import { useWindowSize } from 'react-use'
+import Image from 'next/image'
 
 interface Props {
   title: string
@@ -165,7 +166,7 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
               condition={browserName === 'Safari' || isOnMobile}
               className={cx('page-header-animation', 'js-page-header-animation', 'cloud-image')}
             >
-              <img src={cloudImage.src} alt="title-cloud" />
+              <Image src={cloudImage.src} alt="title-cloud" width={200} height={180} />
             </CustomView>
           </div>
           <h1 ref={titleRef}>{title}</h1>

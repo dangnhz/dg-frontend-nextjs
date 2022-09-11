@@ -1,5 +1,4 @@
 import React from 'react'
-import {MenuState} from './NavBar'
 import styles from './Hamburger.module.scss'
 import classNames from 'classnames/bind';
 

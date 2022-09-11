@@ -25,13 +25,39 @@ const Hero: React.FC<Props> = ({ banner }) => {
   const [isOnMobile, setIsOnMobile] = useState(false)
 
   const largeBlobRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
   const subtitleRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => setIsOnMobile(isMobile))
+  useEffect(() => setIsOnMobile(isMobile), [])
 
   useEffect(() => {
     const headerTimeline = gsap.timeline()
+
+    headerTimeline.fromTo(
+      titleRef.current,
+      {
+        opacity: 0,
+        y: 80,
+        delay: 0.7,
+      },
+      {
+        opacity: 1,
+        duration: 0.4,
+        y: 0,
+      }
+    )
+
+    headerTimeline.fromTo(
+      largeBlobRef.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 0.5,
+      }
+    )
 
     headerTimeline.fromTo(
       subtitleRef.current,
@@ -51,7 +77,6 @@ const Hero: React.FC<Props> = ({ banner }) => {
       buttonRef.current,
       {
         opacity: 0,
-
         y: 30,
       },
       {
@@ -85,7 +110,7 @@ const Hero: React.FC<Props> = ({ banner }) => {
         </CustomView>
       </div>
       <div className={cx('home-hero-content')}>
-        <div className={cx('home-hero-title')}>
+        <div className={cx('home-hero-title')} ref={titleRef}>
           {title} <br />
           <span>
             <Typewriter
