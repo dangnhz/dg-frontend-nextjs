@@ -83,6 +83,8 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
 
   const pageHeaderRef = useRef<HTMLDivElement>(null)
   const blobRef = useRef<HTMLDivElement>(null)
+  const desktopCloudRef = useRef<HTMLDivElement>(null)
+  const mobileCloudRef = useRef<HTMLDivElement>(null)
   const titleWrapper = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLDivElement>(null)
@@ -145,9 +147,10 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
   }, [])
 
   useEffect(() => {
-    const cloud = document.querySelector('.js-page-header-animation') as HTMLElement
     const titleRect = titleRef.current?.getBoundingClientRect()
-    cloud.style.left = titleRect ? titleRect.width - 150 + 'px' : ''
+    const leftVal = titleRect?.width! - 150
+    gsap.set(desktopCloudRef.current, { left: leftVal })
+    gsap.set(mobileCloudRef.current, { left: leftVal })
   }, [width])
 
   return (
@@ -155,17 +158,15 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
       <div className={cx('page-header-wrapper', 'max-width-5')}>
         <div className={cx('page-header-title')} ref={titleWrapper}>
           <div ref={blobRef} className={cx('animation-wrapper')}>
-            <CustomView
-              condition={browserName !== 'Safari' && !isOnMobile}
-              className={cx('page-header-animation', 'js-page-header-animation')}
-            >
-              <Lottie {...lottieOptions} />
+            <CustomView condition={browserName !== 'Safari' && !isOnMobile}>
+              <div className={cx('page-header-animation')} ref={desktopCloudRef}>
+                <Lottie {...lottieOptions} />
+              </div>
             </CustomView>
-            <CustomView
-              condition={browserName === 'Safari' || isOnMobile}
-              className={cx('page-header-animation', 'js-page-header-animation', 'cloud-image')}
-            >
-              <Image src={cloudImage.src} alt="title-cloud" width={200} height={180} />
+            <CustomView condition={browserName === 'Safari' || isOnMobile}>
+              <div className={cx('page-header-animation', 'cloud-image')} ref={mobileCloudRef}>
+                <Image src={cloudImage.src} alt="title-cloud" width={200} height={180} />
+              </div>
             </CustomView>
           </div>
           <h1 ref={titleRef}>{title}</h1>

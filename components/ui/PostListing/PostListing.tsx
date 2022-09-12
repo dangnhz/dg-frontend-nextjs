@@ -1,6 +1,6 @@
 import React from 'react'
 import Post from './Post'
-import { PostType } from 'types'
+import { PostType } from 'types/post'
 import classNames from 'classnames/bind'
 import styles from './PostListing.module.scss'
 import { InfiniteQueryObserverResult } from 'react-query'

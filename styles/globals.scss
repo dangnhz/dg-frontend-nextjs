@@ -10,6 +10,10 @@ body {
   overscroll-behavior-y: none !important;
   background-color: $bg-color-1;
   overflow-x: hidden;
+
+  &.is-loading {
+    opacity: 0;
+  }
 }
 
 .app {
@@ -22,10 +26,15 @@ body {
   @include large {
     padding-top: 160px;
   }
+
 }
 
 .page-wrapper {
   min-height: 80vh;
+}
+
+.page-inner {
+  opacity: 0;
 }
 
 .page-curtain {

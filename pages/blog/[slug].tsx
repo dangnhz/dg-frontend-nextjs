@@ -3,7 +3,8 @@ import PostDetail from '@components/ui/PostDetail'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import {fetchBlogPost, fetchAllBlogPosts} from '@lib/api/blog.service';
 import { useUI } from '@context/UIContext';
-
+import { orangeCloud } from '@lib/cloud-images';
+import { OrangeDetailCloud } from '@lib/detail-page-clouds'
 
 
 const BlogDetail = ({post} : {post: any}) => {
@@ -11,7 +12,7 @@ const BlogDetail = ({post} : {post: any}) => {
 
   useEffect(() => {setCurrentTheme('orange')}, [setCurrentTheme])
   return (
-    <PostDetail post={post} />
+    <PostDetail post={post} cloudBackground={OrangeDetailCloud} blobCloud={orangeCloud} />
   )
 }
 

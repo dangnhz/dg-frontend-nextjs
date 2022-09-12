@@ -6,7 +6,7 @@ export const fetchAllPosts = async (page=0) => {
     return data.data
 }
 
-export const fetchPost = async (id:string) => {
+export const fetchPost = async (id:string|string[]) => {
     const data = await http.get(`/job/${id}`)
     return data.data
 }

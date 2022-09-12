@@ -24,7 +24,7 @@ export default function Document() {
            
 
       </Head>
-      <body>
+      <body className="is-loading">
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR45ZC2" height="0" width="0" style={{display: "none", visibility: "hidden"}}></iframe></noscript>
 
         <Script strategy="lazyOnload" id="ga">
