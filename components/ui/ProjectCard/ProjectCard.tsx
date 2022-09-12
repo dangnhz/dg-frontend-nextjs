@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import classNames from 'classnames/bind'
 import { colors } from '@theme/colors'
-
+import { ProjectCardType } from 'types/project'
 import styles from './ProjectCard.module.scss'
 
 const cx = classNames.bind(styles)
@@ -13,16 +13,7 @@ export interface CustomCSS extends CSSProperties {
   '--text-color': string
 }
 
-export interface ProjectCardType {
-  image: string
-  title: string
-  id: string
-  alias: string
-  shortDescription: string
-  clientName: string
-  thumbnailColor?: string
-  isGated: boolean
-}
+
 
 export interface ProjectCardProps {
   data: ProjectCardType

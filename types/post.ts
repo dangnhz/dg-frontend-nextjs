@@ -9,3 +9,8 @@ export interface PostType {
   date: string
   alias: string
 }
+
+
+export interface PostDetailType {
+  [key: string] : any
+}

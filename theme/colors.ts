@@ -9,4 +9,5 @@ export const colors : DGColor = {
   pink: '#EC138D',
   blue: '#00A3E5',
   red: '#F64D1B',
+  lime: '#3FB91E',
 }

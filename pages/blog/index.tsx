@@ -6,9 +6,10 @@ import { dehydrate, QueryClient, useInfiniteQuery } from 'react-query'
 import { fetchAllBlogPosts } from '@lib/api/blog.service'
 import { useUI } from '@context/UIContext'
 import React, { useState, useEffect } from 'react'
-import PostListing from '../../components/ui/PostListing/PostListing'
+import PostListing from '@components/ui/PostListing/PostListing'
 import Filter from '@components/ui/Filter'
 import PreFooter from '@components/common/PreFooter'
+import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 
 const QUERY_KEY = 'fetchAllBlogPosts';
 const INITIAL_TERM = { id: '0', text: 'All' }
@@ -53,18 +54,20 @@ const Blog: React.FC = () => {
         description={header?.intro}
         animationType={header?.animation_type}
       />
-      <Filter filterTerms={filterTerms} filterTerm={filterTerm} setFilterTerm={setFilterTerm}/>
-      {posts?.length > 0 && (
-        <PostListing
-          posts={posts}
-          link="blog"
-          hasNextPage={hasNextPage}
-          fetchNextPage={fetchNextPage}
-          isFetchingNextPage={isFetchingNextPage}
-        />
-      )}
+     <AnimationFadeInUp y={50} animationDelay={2}>
+        <Filter filterTerms={filterTerms} filterTerm={filterTerm} setFilterTerm={setFilterTerm}/>
+        {posts?.length > 0 && (
+          <PostListing
+            posts={posts}
+            link="blog"
+            hasNextPage={hasNextPage}
+            fetchNextPage={fetchNextPage}
+            isFetchingNextPage={isFetchingNextPage}
+          />
+        )}
+     </AnimationFadeInUp>
 
-      <PreFooter background='orange'/>
+      <PreFooter />
     </>
   )
 }

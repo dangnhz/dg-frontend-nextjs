@@ -94,13 +94,12 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
     headerTimeline.fromTo(
       titleRef.current,
       {
-        yPercent: 100,
-
-        delay: 0.5,
+        opacity: 0,
       },
       {
-        yPercent: 0,
+        opacity: 1,
         duration: 0.4,
+        delay: 0.5,
       }
     )
 

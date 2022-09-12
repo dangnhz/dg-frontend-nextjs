@@ -72,7 +72,7 @@ interface Props {
     return (
       <Head>
         <title key="title">
-          {title ? `${config.titleTemplate.replace(/%s/g, title)}` : config.title}
+          {title ? title : config.title}
         </title>
         <meta
           key="description"

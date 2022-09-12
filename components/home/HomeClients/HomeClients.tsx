@@ -1,17 +1,18 @@
+import React from 'react'
 import { ClientLogo } from '@components/Clients'
 import Link from 'next/link'
 import { ButtonRounded } from '@components/ui/Button/Button'
-import React from 'react'
+import { ClientType } from 'types/client'
 import classNames from 'classnames/bind'
+import Grid from '@components/ui/Grid'
 import styles from './HomeClients.module.scss'
 
 const cx = classNames.bind(styles)
 
-import Grid from '@components/ui/Grid'
 
 interface Props {
   title: string
-  cards: any
+  cards: Array<ClientType>
   link: any
 }
 
@@ -19,13 +20,12 @@ const clientTextIntro =
   '<p>Digital Garden has worked with clients across every sector in corporate, government and not-for-profit.</p>'
 
 const HomeClients: React.FC<Props> = ({ title, cards: clientsData, link }) => {
-  const clientListing = clientsData.map((item: any, index: number) => (
+  const clientListing = clientsData.map((item, index: number) => (
     <ClientLogo
       logo={item.logo}
-      projectId={item.project.id}
-      externalLink={item.external_link}
-      projectAlias={item.project.alias}
-      key={item.id || index}
+      project={item.project}
+      external_link={item.external_link}
+      key={index}
     />
   ))
 

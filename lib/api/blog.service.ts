@@ -6,7 +6,7 @@ export const fetchAllBlogPosts = async (page=0, category:string) => {
     return data.data
 }
 
-export const fetchBlogPost = async (id:string) => {
+export const fetchBlogPost = async (id:any) => {
     const data = await http.get(`/blog/${id}`)
     return data.data
 }

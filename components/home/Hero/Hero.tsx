@@ -38,12 +38,12 @@ const Hero: React.FC<Props> = ({ banner }) => {
       titleRef.current,
       {
         opacity: 0,
-        y: 80,
-        delay: 0.7,
+        y: 50,
       },
       {
         opacity: 1,
         duration: 0.4,
+        delay: 0.5,
         y: 0,
       }
     )

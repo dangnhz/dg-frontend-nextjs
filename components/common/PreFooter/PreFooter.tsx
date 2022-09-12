@@ -6,20 +6,21 @@ import { footerGreen, footerBlue, footerRed, footerPurple, footerPink, footerOra
 import classNames from 'classnames/bind'
 import styles from './PreFooter.module.scss'
 import { ButtonRounded } from '@components/ui/Button/Button'
-
+import { useUI } from '@context/UIContext'
 const cx = classNames.bind(styles)
 
 interface Props {
   showContactForm?: boolean
-  background?: string
 }
 
-const PreFooter: React.FC<Props> = ({ showContactForm = false, background = 'green' }) => {
+const PreFooter: React.FC<Props> = ({ showContactForm = false }) => {
   const [imgURL, setImageUrl] = useState<string>('')
 
+  const {theme} = useUI()
+
   useEffect(() => {
-    switch (background) {
-      case 'green-contact':
+    switch (theme.currentTheme) {
+      case 'lime':
         setImageUrl(footerGreenContact.src)
         break
       case 'blue':
@@ -41,7 +42,7 @@ const PreFooter: React.FC<Props> = ({ showContactForm = false, background = 'gre
         setImageUrl(footerGreen.src)
         break
     }
-  }, [background])
+  }, [theme.currentTheme])
 
   return (
     <div className={cx('pre-footer', { 'has-contact-form': showContactForm })}>

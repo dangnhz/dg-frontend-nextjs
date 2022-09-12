@@ -99,7 +99,6 @@ export const pageCurtainReveal = () => {
       { height: window.outerHeight, bottom: 0, duration: 0.8, ease: "power3.inOut" },
       { height: 0, bottom: window.outerHeight, duration: 0.8, ease: "power3.inOut" },
     ],
-    delay: 0.5
   })
     .to(
       ".page-inner",

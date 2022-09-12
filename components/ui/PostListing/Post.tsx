@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import classNames from 'classnames/bind'
-import {PostType} from 'types'
+import {PostType} from 'types/post'
 import styles from './Post.module.scss'
 
 

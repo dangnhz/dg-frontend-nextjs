@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import CloseIcon from "@components/icons/CloseIcon";
 
 import { useRouter } from "next/router";
-import { useSearch } from "../../../context/SearchContext";
+import { useSearch } from "@context/SearchContext";
 import SearchIcon from '../../icons/SearchIcon';
 import classNames from 'classnames/bind';
 import styles from './SearchForm.module.scss'

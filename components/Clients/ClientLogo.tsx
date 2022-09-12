@@ -1,23 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ClientType } from 'types/client'
 import classNames from 'classnames/bind'
 import styles from './ClientLogo.module.scss'
 
 const cx = classNames.bind(styles)
 
-interface Props {
-  logo: string
-  projectId: string
-  projectAlias: string
-  externalLink: string
-}
 
-export const ClientLogo: React.FC<Props> = ({ logo, projectId, projectAlias, externalLink }) => {
+export const ClientLogo: React.FC<ClientType> = ({ logo, project, external_link }) => {
+  const {id: projectId, alias: projectAlias} = project
   return (
     <>
-      {externalLink && !projectId && (
-        <a href={externalLink} target="_blank" rel="noopener noreferrer">
+      {external_link && !projectId && (
+        <a href={external_link} target="_blank" rel="noopener noreferrer">
           <div className={cx('client-logo')}>
             <Image src={logo} alt="client logo" width={185} height={121}/>
           </div>
@@ -32,7 +28,7 @@ export const ClientLogo: React.FC<Props> = ({ logo, projectId, projectAlias, ext
         </Link>
       )}
 
-      {!projectId && !externalLink && (
+      {!projectId && !external_link && (
         <div className={cx('client-logo')}>
           <Image src={logo} alt="client logo" width={185} height={121} />
         </div>

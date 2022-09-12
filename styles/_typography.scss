@@ -1,234 +1,255 @@
 .app {
   //
-// Generic header styles:
-// All arguments are optional. If not defined, the defaults below will be used
-//
+  // Generic header styles:
+  // All arguments are optional. If not defined, the defaults below will be used
+  //
 
-$color-heading: $black;
-$big-margin: $space * 2.5 0 $space;
-$small-margin: $space * 1.25 0 $space;
-$fluid-font-base: 6.25rem; // 120px
+  $color-heading: $black;
+  $big-margin: $space * 2.5 0 $space;
+  $small-margin: $space * 1.25 0 $space;
+  $fluid-font-base: 6.25rem; // 120px
 
-@mixin heading(
-  $font-family: $font-primary-bold,
-  $font-size-max: $fluid-font-base,
-  $font-size-scale: 0.35,
-  $line-height: 1.1,
-  $letter-spacing: 0,
-  $font-weight: 300,
-  $margin: $big-margin,
-  $color: inherit,
-  $color-link: inherit,
-  $color-link-hover: inherit
-) {
-  color: #{$color};
-  font-family: #{$font-family};
-  font-weight: #{$font-weight};
-  font-style: normal;
-  line-height: #{$line-height};
-  letter-spacing: #{$letter-spacing};
-  margin: #{$margin};
-  width: auto;
+  @mixin heading(
+    $font-family: $font-primary-bold,
+    $font-size-max: $fluid-font-base,
+    $font-size-scale: 0.35,
+    $line-height: 1.1,
+    $letter-spacing: 0,
+    $font-weight: 300,
+    $margin: $big-margin,
+    $color: inherit,
+    $color-link: inherit,
+    $color-link-hover: inherit
+  ) {
+    color: #{$color};
+    font-family: #{$font-family};
+    font-weight: #{$font-weight};
+    font-style: normal;
+    line-height: #{$line-height};
+    letter-spacing: #{$letter-spacing};
+    margin: #{$margin};
+    width: auto;
 
-  @include fluid-font($font-size-max, $font-size-scale);
+    @include fluid-font($font-size-max, $font-size-scale);
 
-  &__link {
-    color: $color-link;
+    &__link {
+      color: $color-link;
 
-    &:hover {
-      color: $color-link-hover;
+      &:hover {
+        color: $color-link-hover;
+      }
     }
   }
-}
 
-h1,
-.h1 {
-  @include heading($line-height: 0.925, $letter-spacing: 0);
-}
-
-h2,
-.h2 {
-  @include heading($font-size-max: $fluid-font-base * 0.7, $font-size-scale: 0.45, $line-height: 1, $letter-spacing: 0px);
-}
-
-h3,
-.h3 {
-  @include heading($font-size-max: $fluid-font-base * 0.4833, $font-size-scale: 0.552, $line-height: 1, $letter-spacing: -0.5px);
-
-  &.color {
-    color: $orange;
+  h1,
+  .h1 {
+    @include heading($line-height: 0.925, $letter-spacing: 0);
   }
 
-  margin: $small-margin;
-}
-
-h4,
-.h4 {
-  @include heading($font-size-max: $fluid-font-base * 0.35, $font-size-scale: 0.62, $line-height: 1.1, $letter-spacing: -0.56px);
-
-  &.color {
-    color: $orange;
+  h2,
+  .h2 {
+    @include heading(
+      $font-size-max: $fluid-font-base * 0.7,
+      $font-size-scale: 0.45,
+      $line-height: 1,
+      $letter-spacing: 0px
+    );
   }
 
-  margin: $small-margin;
-}
+  h3,
+  .h3 {
+    @include heading(
+      $font-size-max: $fluid-font-base * 0.4833,
+      $font-size-scale: 0.552,
+      $line-height: 1,
+      $letter-spacing: -0.5px
+    );
 
-.h5,
-h5 {
-  @include heading($font-size-max: $fluid-font-base * 0.3, $font-size-scale: 0.667, $line-height: 1.25, $letter-spacing: -0.32px);
-}
+    &.color {
+      color: $orange;
+    }
 
-h6,
-.h6 {
-  @include heading($font-size-max: $fluid-font-base * 0.233, $font-size-scale: 0.714, $line-height: normal, $letter-spacing: -0.27px);
-}
-
-// h7 30% smaller than h4
-
-.h7 {
-  @include heading($font-size-max: $fluid-font-base * 0.25, $font-size-scale: 0.667, $line-height: 1.1, $letter-spacing: -0.4px);
-  margin: $small-margin;
-}
-
-
-.homepage-title {
-  letter-spacing: -1px;
-  @include fluid-font(3.75rem, 0.5333);
-
-}
-
-p {
-  font-family: $font-primary-regular;
-  line-height: 1.625;
-
-  @include fluid-font(1.625rem, 0.615);
-
-  @include large {
-    line-height: 1.33;
+    margin: $small-margin;
   }
-}
 
+  h4,
+  .h4 {
+    @include heading(
+      $font-size-max: $fluid-font-base * 0.35,
+      $font-size-scale: 0.62,
+      $line-height: 1.1,
+      $letter-spacing: -0.56px
+    );
 
-.body-copy {
-  font-family: $font-primary-regular;
-  @include fluid-font(1.625rem, 0.615);
+    &.color {
+      color: $orange;
+    }
+
+    margin: $small-margin;
+  }
+
+  .h5,
+  h5 {
+    @include heading(
+      $font-size-max: $fluid-font-base * 0.3,
+      $font-size-scale: 0.667,
+      $line-height: 1.25,
+      $letter-spacing: -0.32px
+    );
+  }
+
+  h6,
+  .h6 {
+    @include heading(
+      $font-size-max: $fluid-font-base * 0.233,
+      $font-size-scale: 0.714,
+      $line-height: normal,
+      $letter-spacing: -0.27px
+    );
+  }
+
+  // h7 30% smaller than h4
+
+  .h7 {
+    @include heading(
+      $font-size-max: $fluid-font-base * 0.25,
+      $font-size-scale: 0.667,
+      $line-height: 1.1,
+      $letter-spacing: -0.4px
+    );
+    margin: $small-margin;
+  }
+
+  .homepage-title {
+    letter-spacing: -1px;
+    @include fluid-font(3.75rem, 0.5333);
+  }
 
   p {
-    margin-bottom: 1.5rem;
+    font-family: $font-primary-regular;
+    line-height: 1.625;
 
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+    @include fluid-font(1.625rem, 0.615);
 
-    @include larger {
-      margin-bottom: 40px;
-    }
-  }
-
-  strong {
-    font-family: $font-primary-bold;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  a {
-    transition: 0.3s;
-    color: var(--page-main-color);
-    &:hover {
-      opacity: 0.8;
+    @include large {
+      line-height: 1.33;
     }
   }
-}
 
-/// Mixin - list-reset
-/// Reset list item defaults when no margin, padding, list styles needed
-@mixin list-reset {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  .body-copy {
+    font-family: $font-primary-regular;
+    @include fluid-font(1.625rem, 0.615);
 
-.body-copy {
-  ul,
-  ol {
-    padding-left: 0;
+    p {
+      margin-bottom: 1.5rem;
 
-    // @include medium {
-    //   padding-left: 1.5 * $space;
-    // }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      @include larger {
+        margin-bottom: 40px;
+      }
+    }
+
+    strong {
+      font-family: $font-primary-bold;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      transition: 0.3s;
+      color: var(--page-main-color);
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 
-  ul {
+  /// Mixin - list-reset
+  /// Reset list item defaults when no margin, padding, list styles needed
+  @mixin list-reset {
     list-style: none;
-    margin: 2 * $space 0;
+    margin: 0;
+    padding: 0;
   }
 
-  li {
-    margin-left: $space * 1.5;
-    position: relative;
-    margin-bottom: 8px;
-    line-height: 1.35;
-
-    @include medium {
-      margin-bottom: 1rem;
-    }
-  }
-
-  ul li::before {
-    content: "";
-    background: $orange;
-    width: 6px;
-    height: 6px;
-    position: absolute;
-    top: 6px;
-    left: -1.5rem;
-    border-radius: 100%;
-
-    @include larger {
-      width: 10px;
-      height: 10px;
-      left: -1.5rem;
-      top: 9px;
-    }
-  }
-
-  ol {
-    list-style: none;
-    counter-reset: my-counter;
-  }
-
-  ol li {
-    counter-increment: my-counter;
-    padding-left: 0;
-  }
-
-  ol li::before {
-    content: counter(my-counter) ". ";
-    color: $grey;
-    position: absolute;
-    top: 0;
-    left: -1.5rem;
-  }
-
-  small {
+  .body-copy {
     ul,
-    ol,
+    ol {
+      padding-left: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    li {
+      margin-left: 1.5rem;
+      position: relative;
+      margin-bottom: 8px;
+      line-height: 1.35;
+
+      @include medium {
+        margin-bottom: 1rem;
+      }
+    }
+
+    ul li::before {
+      content: '';
+      background: var(--page-main-color);
+      width: 6px;
+      height: 6px;
+      position: absolute;
+      top: 6px;
+      left: -1.5rem;
+      border-radius: 100%;
+
+      @include larger {
+        width: 10px;
+        height: 10px;
+        left: -1.5rem;
+        top: 9px;
+      }
+    }
+
+    ol {
+      list-style: none;
+      counter-reset: my-counter;
+    }
+
+    ol li {
+      counter-increment: my-counter;
+      padding-left: 0;
+    }
+
     ol li::before {
+      content: counter(my-counter) '. ';
       color: $grey;
+      position: absolute;
+      top: 0;
+      left: -1.5rem;
+    }
+
+    small {
+      ul,
+      ol,
+      ol li::before {
+        color: $grey;
+      }
     }
   }
-}
 
-.list-item {
-  margin-bottom: 0.2em;
-  padding-left: 0;
-}
+  .list-item {
+    margin-bottom: 0.2em;
+    padding-left: 0;
+  }
 
-
-
-.text-center {
-  text-align: center;
-}
+  .text-center {
+    text-align: center;
+  }
 }

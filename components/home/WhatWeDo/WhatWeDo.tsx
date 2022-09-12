@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {greenCloud, pinkCloud, blueCloud} from '@lib/cloud-images';
 import Grid from '@components/ui/Grid';
 import ServiceCardIcon from '../../ui/ServiceCardIcon/ServiceCardIcon';
-import { ServiceCardProps } from '../../ui/ServiceCardIcon/ServiceCardIcon';
+import { ServiceCardType } from 'types/service';
 import classNames from 'classnames/bind';
 import styles from './WhatWeDo.module.scss';
 
@@ -11,12 +11,12 @@ const cx = classNames.bind(styles)
 
 interface Props {
 	title: string
-	tiles: Array<ServiceCardProps>
+	tiles: Array<ServiceCardType>
 	backgroundColor?: string
 }
 
 const WhatWeDo:React.FC<Props> = ({ title, tiles, backgroundColor }) => {
-	const [servicesItems, setServicesItems] = useState<any>([]);
+	const [servicesItems, setServicesItems] = useState<Array<any>>([]);
 
 	useEffect(() => {
 		if (tiles) {

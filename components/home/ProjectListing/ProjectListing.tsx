@@ -3,7 +3,7 @@ import Grid from '@components/ui/Grid'
 import { colors } from '@theme/colors'
 import classNames from 'classnames/bind'
 import ProjectCard from '@components/ui/ProjectCard'
-import { ProjectCardType } from '@components/ui/ProjectCard/ProjectCard'
+import { ProjectCardType } from 'types/project'
 import styles from './ProjectListing.module.scss'
 
 const cx = classNames.bind(styles)

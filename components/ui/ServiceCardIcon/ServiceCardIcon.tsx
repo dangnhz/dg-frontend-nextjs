@@ -1,24 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 import ArrowRight from '@components/icons/ArrowRight'
+import { ServiceCardType } from 'types/service'
 import classNames from 'classnames/bind'
 import styles from './ServiceCardIcon.module.scss'
 import Image from 'next/image'
 
 const cx = classNames.bind(styles)
 
-export interface ServiceCardProps {
-  id: string
-  alias: string
-  icon: string
-  cloud: string
-  title: string
-  description: string
-  isActive: boolean
-  extraClass: string
-}
 
-const ServiceCardIcon: React.FC<ServiceCardProps> = ({
+const ServiceCardIcon: React.FC<ServiceCardType> = ({
   id,
   alias,
   icon,

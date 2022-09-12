@@ -7,7 +7,7 @@ interface ThemeState {
 }
 
 const initialState : ThemeState = {
-  theme: {...colors},
+  theme: {currentTheme: 'green',...colors},
   setCurrentTheme: () => {}
 }
 
@@ -23,7 +23,7 @@ export const useUI = () => {
 
 export const UIProvider: FC<{ children: ReactNode }> = ({children}) => {
   const [currentTheme, setCurrentTheme] = useState('green')
-  const theme = {...colors, primaryColor:colors[currentTheme]}
+  const theme = {currentTheme, ...colors, primaryColor:colors[currentTheme]}
 
   const value = {
     theme,
