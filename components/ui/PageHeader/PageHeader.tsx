@@ -18,6 +18,7 @@ import {
 import { pinkCloud, blueCloud, greenCloud, purpleCloud, orangeCloud, redCloud } from '@lib/cloud-images'
 import { useWindowSize } from 'react-use'
 import Image from 'next/image'
+import { Column, Flex } from '../Flex'
 
 interface Props {
   title: string
@@ -83,8 +84,6 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
 
   const pageHeaderRef = useRef<HTMLDivElement>(null)
   const blobRef = useRef<HTMLDivElement>(null)
-  const desktopCloudRef = useRef<HTMLDivElement>(null)
-  const mobileCloudRef = useRef<HTMLDivElement>(null)
   const titleWrapper = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLDivElement>(null)
@@ -147,10 +146,11 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
   }, [])
 
   useEffect(() => {
-    const titleRect = titleRef.current?.getBoundingClientRect()
-    const leftVal = titleRect?.width! - 150
-    gsap.set(desktopCloudRef.current, { left: leftVal })
-    gsap.set(mobileCloudRef.current, { left: leftVal })
+    setTimeout(() => {
+      const cloud = document.querySelector('.js-page-header-animation') as HTMLElement
+      const titleRect = titleRef.current?.getBoundingClientRect()
+      cloud.style.left = titleRect ? titleRect.width - 150 + 'px' : ''
+    }, 500)
   }, [width])
 
   return (
@@ -158,30 +158,38 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
       <div className={cx('page-header-wrapper', 'max-width-5')}>
         <div className={cx('page-header-title')} ref={titleWrapper}>
           <div ref={blobRef} className={cx('animation-wrapper')}>
-            <CustomView condition={browserName !== 'Safari' && !isOnMobile}>
-              <div className={cx('page-header-animation')} ref={desktopCloudRef}>
-                <Lottie {...lottieOptions} />
-              </div>
+            <CustomView
+              condition={browserName !== 'Safari' && !isOnMobile}
+              className={cx('page-header-animation', 'js-page-header-animation')}
+            >
+              <Lottie {...lottieOptions} />
             </CustomView>
-            <CustomView condition={browserName === 'Safari' || isOnMobile}>
-              <div className={cx('page-header-animation', 'cloud-image')} ref={mobileCloudRef}>
-                <Image src={cloudImage.src} alt="title-cloud" width={200} height={180} />
-              </div>
+            <CustomView
+              condition={browserName === 'Safari' || isOnMobile}
+              className={cx('page-header-animation', 'js-page-header-animation', 'cloud-image')}
+            >
+              <Image src={cloudImage.src} alt="title-cloud" width={200} height={180} />
             </CustomView>
           </div>
           <h1 ref={titleRef}>{title}</h1>
         </div>
         <div className={cx('page-header-content')}>
+        <Flex alignItems="start" gap="lg">
+          <Column width="32%">
           <div
             ref={subtitleRef}
             className={cx('page-header-subtitle')}
             dangerouslySetInnerHTML={{ __html: subtitle }}
           ></div>
+          </Column>
+          <Column>
           <div
             ref={descriptionRef}
             className={cx('page-header-description')}
             dangerouslySetInnerHTML={{ __html: description }}
           ></div>
+          </Column>
+        </Flex>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ import PostListing from '@components/ui/PostListing/PostListing'
 import PreFooter from '@components/common/PreFooter'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import NoJobPost from '@components/careers/NoJobPost'
-import OurValues from '@components/careers/OurValues'
+import OurValues from '@components/ui/OurValues'
 
 const QUERY_KEY = 'fetchAllPosts'
 

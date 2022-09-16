@@ -13,10 +13,16 @@ import gsap from 'gsap'
 import classNames from 'classnames/bind'
 import styles from './PostDetail.module.scss'
 
-
 const cx = classNames.bind(styles)
 
-const PostDetail: React.FC<PostDetailType> = ({ post, cloudBackground, showBlobAnimation , blobAnimation, blobCloud, type }) => {
+const PostDetail: React.FC<PostDetailType> = ({
+  post,
+  cloudBackground,
+  showBlobAnimation,
+  blobAnimation,
+  blobCloud,
+  type,
+}) => {
   const [isOnMobile, setIsOnMobile] = useState(false)
   const hasImage = post.image?.length > 0
   const animationRef = useRef<HTMLDivElement>(null)
@@ -55,13 +61,13 @@ const PostDetail: React.FC<PostDetailType> = ({ post, cloudBackground, showBlobA
   }, [])
 
   useEffect(() => {
-    const cloud = document.querySelector('.js-post-detail-header-animation') as HTMLElement
-    if (titleRef.current && cloud) {
-
-      const titleRect = titleRef.current.getBoundingClientRect()
-      cloud.style.left = titleRect?.width! - 150 + 'px'
-
-    }
+    setTimeout(() => {
+      const cloud = document.querySelector('.js-post-detail-header-animation') as HTMLElement
+      if (titleRef.current && cloud) {
+        const titleRect = titleRef.current.getBoundingClientRect()
+        cloud.style.left = titleRect?.width! - 150 + 'px'
+      }
+    }, 100)
   }, [width, post])
 
   return (
@@ -85,12 +91,12 @@ const PostDetail: React.FC<PostDetailType> = ({ post, cloudBackground, showBlobA
       />
 
       <div className="page-inner">
-        <article className={cx('post-detail', 'padding-v-10', type,  { 'without-image': !hasImage })}>
+        <article className={cx('post-detail', 'padding-v-10', type, { 'without-image': !hasImage })}>
           <div className={cx('post-detail-wrapper')}>
             <div className={cx('post-detail-header', 'max-width-6 mx-auto padding-horizontal')}>
-              {(!hasImage && !showBlobAnimation) && (
+              {!hasImage && !showBlobAnimation && (
                 <div className={cx('post-detail-header-without-image-animation')}>
-                  <Image src={cloudBackground?.src} alt="detail-cloud" width={1137} height={1219} />
+                  <Image src={cloudBackground?.src} alt="detail-cloud" width={1137} height={1219} priority />
                 </div>
               )}
               <div className={cx('post-detail-title-wrapper')}>
@@ -120,14 +126,12 @@ const PostDetail: React.FC<PostDetailType> = ({ post, cloudBackground, showBlobA
 
                 {type === 'job-post' && (
                   <>
-                  <AnimationFadeInUp animationDelay={0.8}>
-									<div className={cx('job-category')}>
-										Job type: <span className={cx("value")}>{post.category}</span>
-									</div>
-									<div className={cx('job-date')}>
-										Close date: <span className={cx("value")}>{post.close_date}</span>
-									</div>
-								</AnimationFadeInUp>
+                    <div className={cx('job-category')}>
+                      Job type: <span className={cx('value')}>{post.category}</span>
+                    </div>
+                    <div className={cx('job-date')}>
+                      Close date: <span className={cx('value')}>{post.close_date}</span>
+                    </div>
                   </>
                 )}
               </AnimationFadeInUp>
@@ -137,7 +141,7 @@ const PostDetail: React.FC<PostDetailType> = ({ post, cloudBackground, showBlobA
                 <div className={cx('post-detail-main-background')}></div>
                 {hasImage && (
                   <div className={cx('post-detail-image')}>
-                    <Image src={post.image} alt={post.title} width={1728} height={1112}/>
+                    <Image src={post.image} alt={post.title} width={1728} height={1112} priority />
                   </div>
                 )}
                 <div className={cx('post-detail-content', 'max-width-6 padding-horizontal mx-auto')}>
@@ -151,7 +155,13 @@ const PostDetail: React.FC<PostDetailType> = ({ post, cloudBackground, showBlobA
                             </div>
                           )}
                           {post.author.image && (
-                            <Image src={post.author.image} alt={post.author.name} width={180} height={180} />
+                            <Image
+                              src={post.author.image}
+                              alt={post.author.name}
+                              width={180}
+                              height={180}
+                              layout="responsive"
+                            />
                           )}
                           <div className={cx('post-detail-author-name')}>{post.author.name}</div>
                         </div>

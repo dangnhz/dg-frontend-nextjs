@@ -10,5 +10,15 @@
         height: 100%;
         object-fit: contain;
         max-width: 250px;
+        filter: grayscale(100%);
+    }
+
+    &.clickable {
+
+        &:hover {
+            img {
+                filter: grayscale(0%);
+            }
+        }
     }
 }

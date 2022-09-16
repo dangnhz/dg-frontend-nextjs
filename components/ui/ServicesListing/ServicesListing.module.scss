@@ -1,0 +1,109 @@
+.services-listing {
+  width: 100%;
+  position: relative;
+
+  @include large {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @include xl2 {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .background {
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    @include large {
+      width: 86%;
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include large {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+    display: none;
+
+    @include small {
+      height: 450px;
+    }
+
+    @include medium {
+      height: 700px;
+    }
+
+    @include large {
+      width: calc(40% - 3rem);
+      height: 420px;
+      display: block;
+      position: sticky;
+      top: 15%;
+    }
+
+    @include xl {
+      width: calc(40% - 5rem);
+      height: 550px;
+    }
+
+    @include xl3 {
+      padding-right: 7.5 * $space;
+      height: 650px;
+    }
+
+  }
+
+  .image-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &.active {
+      img {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    img {
+      object-fit: cover;
+      transform: scale(1.3);
+      transition: all 1s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .items {
+    width: 100%;
+
+    @include large {
+      width: 60%;
+    }
+
+    .item-wrap {
+      height: fit-content;
+    }
+  }
+}

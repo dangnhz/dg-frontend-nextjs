@@ -1,0 +1,28 @@
+.testimonial {
+  text-align: center;
+
+  .wrapper {
+    border-top: 1px solid #e8e7e7;
+  }
+
+  .text,
+  .label,
+  .label-bold {
+    @include fluid-font(1.625rem, 0.77);
+  }
+
+  .text {
+    p {
+      font-size: inherit;
+    }
+
+    @include xl2 {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+
+  .label-bold {
+    font-family: $font-primary-bold;
+  }
+}

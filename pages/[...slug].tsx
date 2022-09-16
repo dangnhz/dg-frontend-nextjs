@@ -18,7 +18,6 @@ const BasicPage = ({post} : {post: any}) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-
   return {
     paths: [],
     fallback: 'blocking'

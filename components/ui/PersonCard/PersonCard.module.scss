@@ -1,0 +1,147 @@
+.card {
+  
+    .wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      overflow: hidden;
+    }
+  
+    .image {
+      overflow: hidden;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.3s;
+      }
+    }
+  
+    .overlay {
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: black;
+      padding: 2rem;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.15;
+      transition: 0.4s;
+    }
+  
+    .info {
+      width: 100%;
+      padding: 14px 12px;
+      position: absolute;
+      bottom: 0;
+      color: #fff;
+      text-align: left;
+      z-index: 2;
+  
+      @include medium {
+        padding: 20px 16px;
+      }
+  
+      @include xl {
+        padding: 38px 28px;
+      }
+  
+      .title {
+        font-family: $font-primary-bold;
+        margin: 0;
+        line-height: 1;
+        letter-spacing: -0.5px;
+        line-height: 1.13;
+        margin-bottom: 0;
+        font-size: 32px;
+        color: #fff;
+  
+        //  @include fluid-font(3.625rem, 0.552);
+  
+        @include medium {
+          letter-spacing: -1px;
+          line-height: 1;
+        }
+  
+        @include xl2 {
+          font-size: 36px;
+        }
+  
+        @include xl4 {
+          font-size: 58px;
+        }
+      }
+  
+      .role {
+        font-family: $font-primary-regular;
+        margin-bottom: $space;
+        margin: 0 0 1rem 0;
+        color: #fff;
+        @include fluid-font(1.25rem, 0.8);
+      }
+  
+      .description {
+        overflow: hidden;
+        max-height: 0;
+        color: #fff;
+        // transition: max-height 300ms ease-out;
+  
+        p {
+          font-family: $font-primary-regular;
+          line-height: 1.33;
+          opacity: 0;
+          font-size: 16px;
+          transition: 0.3s;
+  
+          @include medium {
+            margin-top: 24px;
+          }
+  
+          @include xl2 {
+            font-size: 18px;
+          }
+  
+          @include xl5 {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+  
+
+  @media (hover: hover) and (pointer: fine) {
+    .card {
+      &:hover {
+        .overlay {
+          opacity: 1;
+          background-color: var(--hover-color, $purple);
+        }
+  
+        .image {
+          img {
+            transform: scale(1.1);
+          }
+        }
+  
+        .description {
+          transition: max-height 600ms ease-in;
+          max-height: 500px;
+  
+          p {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+  }

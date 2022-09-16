@@ -1,0 +1,33 @@
+
+
+
+
+.sub-service-list {
+    margin-bottom: 2rem;
+
+    .more-about-service {
+        margin-top: 0;
+    }
+
+    ul {
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+
+            a {
+                font-family: $font-primary-medium;
+                color: $black;
+                text-decoration: none;
+                margin-left: 12px;
+                transition: 0.3s;
+                display: inline-block;
+                @include fluid-font(1.5rem, 0.8);
+
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}

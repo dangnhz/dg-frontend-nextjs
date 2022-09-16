@@ -1,0 +1,111 @@
+
+
+.how-we-do {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	padding-right: 0;
+
+	@include xl2 {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+
+	@include xl3 {
+		padding-top: 10rem;
+		padding-bottom: 10rem;
+		padding-right: 5.625rem;
+	}
+
+	.listing-wrapper {
+		position: relative;
+
+		//fade element
+		&::after,
+		&::before {
+			content: '';
+			display: block;
+			width: 2.5rem;
+			height: 100%;
+			position: absolute;
+			bottom: 1.5rem;
+            z-index: 5;
+
+			@include large {
+				display: none;
+			}
+		}
+
+		&::before {
+            background: #FBFBFB;
+            background: linear-gradient(270deg, rgba(251, 251, 251, 0.15) 0%, rgba(251, 251, 251,0.9) 85%);
+			left: -1rem;
+
+            @include medium {
+                width: 3.5rem;
+                left: -2rem;
+            }
+		}
+
+		&::after {
+            background: #FBFBFB;
+            background: linear-gradient(90deg, rgba(251, 251, 251, 0.15) 0%, rgba(251, 251, 251,0.9) 85%);
+			right: -1rem;
+            @include medium {
+                width: 3.5rem;
+                right: -2rem;
+            }
+		}
+	}
+
+	.how-we-do-listing {
+		display: flex;
+		overflow-x: scroll;
+		margin-top: 3rem;
+		position: relative;
+		padding-bottom: 2rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+		// firefox fix
+		scrollbar-color: $blue #ebf0ff;
+
+		&::-webkit-scrollbar-track {
+			background-color: #ebf0ff;
+		}
+
+		&::-webkit-scrollbar {
+			height: 0.5rem;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $blue;
+			border-radius: 0;
+		}
+
+        @include medium {
+            margin-left: -2rem;
+            margin-right: -2rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+		@include larger {
+			margin-top: 5rem;
+		}
+
+		@include breakpoint(920px) {
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+		}
+	}
+}

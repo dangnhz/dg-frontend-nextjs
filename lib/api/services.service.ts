@@ -5,7 +5,7 @@ export const fetchAllServices = async () => {
 	return data.data;
 };
 
-export const fetchService = async (id:string) => {
+export const fetchService = async (id:string|string[]) => {
 	const data = await http.get(`/service/${id}`);
 	return data.data;
 };

@@ -24,7 +24,7 @@ const Post:React.FC<Props> = ({post, link, type}) => {
       </div>
       <div className={cx("right")}>
         <Link href={`/${link}${post.alias ? post.alias : '/'+post.id}`} >
-          <a className={cx("title")} data-cursor-type="none"><h2 className="my-0 h3">{post.title}</h2></a>
+          <a className={cx("title")}><h2 className="my-0 h3">{post.title}</h2></a>
         </Link>
        {post.shortDescription && <div className={cx("intro")} dangerouslySetInnerHTML={{__html: post.shortDescription}}></div>}
       </div>

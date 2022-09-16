@@ -5,12 +5,12 @@ export const fetchAllProjects = async (page:number, category:string) => {
 	return data.data;
 };
 
-export const fetchProject = async (id:string) => {
+export const fetchProject = async (id:string|string[]) => {
 	const data = await http.get(`/project/${id}`);
 	return data.data;
 };
 
-export const fetchGatedProject = async (id:string) => {
+export const fetchGatedProject = async (id:string|string[]) => {
 	const accessToken = localStorage.getItem('accessToken');
 		const data = await http.get(`/gated-project/${id}`, {
 			headers: {

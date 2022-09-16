@@ -1,5 +1,5 @@
 import React from 'react'
-import { ClientLogo } from '@components/Clients'
+import { ClientLogo } from '@components/clients'
 import Link from 'next/link'
 import { ButtonRounded } from '@components/ui/Button/Button'
 import { ClientType } from 'types/client'

@@ -1,0 +1,24 @@
+
+
+.service-detail{
+    position: relative;
+    width: 100%;
+
+    @extend .padding-t-2;
+    @extend .padding-b-10;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: white;
+
+    @include xl4 {
+        width: 95%;
+    }
+}

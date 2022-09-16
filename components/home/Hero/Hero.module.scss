@@ -6,6 +6,7 @@
   background: $bg-color-1;
   padding-top: 110px;
   padding-bottom: 60px;
+  z-index:1;
 
   @include medium {
     padding-top: 50px;

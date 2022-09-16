@@ -1,157 +1,141 @@
 .page-header {
-	width: 100%;
-	overflow-x: hidden;
-	padding-top: 100px;
-	background-color: $bg-color-1;
-	animation: fadeIn 500ms forwards ease-in-out;
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: 100px;
+  background-color: $bg-color-1;
+  animation: fadeIn 500ms forwards ease-in-out;
 
-	@include medium {
-		padding-top: 130px;
-	}
+  @include medium {
+    padding-top: 130px;
+  }
 
-	@include large {
-		padding-top: 180px;
-	}
+  @include large {
+    padding-top: 180px;
+  }
 
-	@include xl {
-		padding-top: 200px;
-	}
+  @include xl {
+    padding-top: 200px;
+  }
 
-	&-wrapper {
-		margin: auto;
-	}
+  &-wrapper {
+    margin: auto;
+  }
 
-	&-title {
-		position: relative;
-		width: fit-content;
-		overflow-wrap: break-word;
+  &-title {
+    position: relative;
+    width: fit-content;
+    overflow-wrap: break-word;
 
-		@include xl {
-			max-width: 100%;
-		}
+    @include xl {
+      max-width: 100%;
+    }
 
-		.page-header-animation {
-			position: absolute;
-			z-index: 0;
-			pointer-events: none;
-			backface-visibility: hidden;
+    .page-header-animation {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      backface-visibility: hidden;
 
-			&:not(.cloud-image) {
-				width: 200px;
-				top: -100px;
+      &:not(.cloud-image) {
+        width: 200px;
+        top: -100px;
 
-				@include xl2 {
-					width: 300px;
-					top: -150px;
-				}
-			}
+        @include xl2 {
+          width: 300px;
+          top: -150px;
+        }
+      }
 
-			//safari and mobile
+      //safari and mobile
 
-			&.cloud-image {
-				width: 180px;
-				top: -80px;
-				transform: translateX(50px);
+      &.cloud-image {
+        width: 180px;
+        top: -80px;
+        transform: translateX(50px);
 
-				@include xl2 {
-					width: 230px;
-				}
+        @include xl2 {
+          width: 230px;
+        }
 
-				img {
-					width: 100%;
-					height: auto;
-				}
-			}
-		}
-		h1 {
-			margin: 0;
-			position: relative;
-			font-family: $font-primary-bold;
-			letter-spacing: -2px;
-			line-height: 1.11;
-			z-index: 1;
-			display: inline;
-			opacity: 0;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
 
-			// @include fluid-font(7.5rem, 0.4);
-			@include fluid-font(6.25rem, 0.4);
+    h1 {
+      margin: 0;
+      position: relative;
+      font-family: $font-primary-bold;
+      letter-spacing: -2px;
+      line-height: 1.11;
+      z-index: 1;
+      display: inline;
+      opacity: 0;
 
-			@include large {
-				letter-spacing: -5px;
-			}
-		}
-	}
+      @include fluid-font(6.25rem, 0.4);
 
-	&-content {
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		z-index: 1;
+      @include large {
+        letter-spacing: -5px;
+      }
+    }
+  }
 
-		@include large {
-			flex-direction: row;
-			margin-top: 55px;
-		}
-	}
+  &-content {
+    position: relative;
+    z-index: 1;
 
-	&-subtitle {
-		margin-top: 24px;
+    @include large {
+      margin-top: 55px;
+    }
+  }
 
-		@include large {
-			width: 40%;
-			padding-right: 3 * $space;
-			margin-top: 0;
-			text-align: right;
-		}
-		@include xl {
-			padding-right: 5 * $space;
-		}
-		@include xl3 {
-			padding-right: 7.5 * $space;
-		}
+  &-subtitle {
+    margin-top: 24px;
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		p {
-			font-family: $font-secondary-regular;
-			letter-spacing: -0.56px;
-			line-height: 1.25;
-			pointer-events: none;
-			margin: 0;
+    @include large {
+      margin-top: 0;
+      text-align: right;
+    }
 
-			@include fluid-font(2.25rem, 0.667);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: $font-secondary-regular;
+      letter-spacing: -0.56px;
+      line-height: 1.25;
+      pointer-events: none;
+      margin: 0;
 
-			@include large {
-				line-height: 1.22;
-			}
-		}
-	}
+      @include fluid-font(2.25rem, 0.667);
 
-	&-description {
-		margin-top: $space;
+      @include large {
+        line-height: 1.22;
+      }
+    }
+  }
 
-		@include large {
-			width: 60%;
-			margin-top: 0;
-		}
+  &-description {
+    margin-top: 1rem;
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		p {
-			font-family: $font-primary-regular;
-			letter-spacing: 0;
-			line-height: 1.38;
-			margin: 0;
-			pointer-events: none;
-			@include fluid-font(1.625rem, 0.615);
-		}
-	}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: $font-primary-regular;
+      letter-spacing: 0;
+      line-height: 1.38;
+      margin: 0;
+      pointer-events: none;
+      @include fluid-font(1.625rem, 0.615);
+    }
+  }
 }
