@@ -11,7 +11,7 @@ interface Props {
 }
 
 const SubServiceList:React.FC<Props> = ({ title, serviceItems, parentAlias, parentId }) => {
-  const items = serviceItems.filter((item:any) => item.link !== null)
+  const items = serviceItems?.filter((item:any) => item.link !== null)
 
   return (
     <div className={cx("sub-service-list")}>

@@ -72,7 +72,7 @@ interface Props {
     return (
       <Head>
         <title key="title">
-          {title ? title : config.title}
+          {title ? title.replace('&amp;', '&').replace('&#039;', '’') : config.title}
         </title>
         <meta
           key="description"

@@ -5,13 +5,14 @@ import PageHeader from '../PageHeader'
 import PreFooter from '@components/common/PreFooter'
 import classNames from 'classnames/bind'
 import styles from './ServiceDetail.module.scss'
-import FeatureLeftRightImage from '../FeatureLeftRightImage'
+import FeatureLeftRightImage from '../FeatureImage/FeatureLeftRightImage'
 import Container from '../Container'
 import ClientListing from '../ClientListing'
 import FavoriteTools from '../FavoriteTools'
 import OtherServices from '../OtherServices'
 import RelatedProjects from '../RelatedProjects'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp';
+import FeatureImage from '../FeatureImage'
 
 const cx = classNames.bind(styles)
 
@@ -37,7 +38,7 @@ const ServiceDetail = ({ data }: { data: any }) => {
 
   const subServices = {
     title: `More about ${title}`,
-    serviceItems: serviceItems.items,
+    serviceItems: serviceItems?.items,
     parentAlias: alias,
     parentId: id,
   }
@@ -50,7 +51,7 @@ const ServiceDetail = ({ data }: { data: any }) => {
     <>
       <SEO title={meta?.tags.title} description={meta?.tags.description} />
 
-      <PageHeader title={title} subtitle={shortDescription} description={intro} animationType={animation_type} />
+      <PageHeader title={title} subtitle={shortDescription} description={intro} animationType={animation_type || 'type4'} />
 
       <AnimationFadeInUp animationDelay={2}>
         <div className={cx('service-detail')}>
@@ -61,13 +62,15 @@ const ServiceDetail = ({ data }: { data: any }) => {
           {featureImages?.length > 0 && (
             <div className="service-feature-images margin-t-10">
               {featureImages.map((item: any, index: number) => (
-                <FeatureLeftRightImage
+                <FeatureImage
                   key={index}
                   image={item.image}
                   title={item.title}
                   body={item.body}
                   mediaSide={item.mediaSide}
-                  gap="xl"
+                  bgColor={item.bgColor}
+                  textColor={item.textColor}
+                  isSticky={item.isSticky}
                 />
               ))}
             </div>

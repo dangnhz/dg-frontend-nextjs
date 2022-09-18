@@ -10,7 +10,7 @@ export const fetchService = async (id:string|string[]) => {
 	return data.data;
 };
 
-export const fetchServiceItem = async (id:string, itemId:string) => {
+export const fetchServiceItem = async (id:string|string[], itemId:string|string[]) => {
 	const data = await http.get(`/service/${id}/item/${itemId}`);
 	return data.data;
 };
