@@ -1,11 +1,10 @@
 import React from 'react'
-import { ClientLogo } from '@components/clients'
 import Link from 'next/link'
 import { ButtonRounded } from '@components/ui/Button/Button'
 import { ClientType } from 'types/client'
 import classNames from 'classnames/bind'
-import Grid from '@components/ui/Grid'
 import styles from './HomeClients.module.scss'
+import ClientListing from '@components/ui/ClientListing'
 
 const cx = classNames.bind(styles)
 
@@ -20,14 +19,6 @@ const clientTextIntro =
   '<p>Digital Garden has worked with clients across every sector in corporate, government and not-for-profit.</p>'
 
 const HomeClients: React.FC<Props> = ({ title, cards: clientsData, link }) => {
-  const clientListing = clientsData.map((item, index: number) => (
-    <ClientLogo
-      logo={item.logo}
-      project={item.project}
-      external_link={item.external_link}
-      key={index}
-    />
-  ))
 
   return (
     <section className={cx('home-clients', 'max-width-5 mx-auto padding-horizontal padding-b-8')}>
@@ -39,7 +30,7 @@ const HomeClients: React.FC<Props> = ({ title, cards: clientsData, link }) => {
         <div className={cx('home-clients-intro')} dangerouslySetInnerHTML={{ __html: clientTextIntro }}></div>
       </div>
 
-      <Grid className="grid-clients">{clientsData?.length > 0 && clientListing}</Grid>
+      <ClientListing clients={clientsData} />
 
       <ButtonRounded>
         <Link href="/clients">

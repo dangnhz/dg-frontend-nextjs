@@ -8,13 +8,13 @@
         &:hover {
             .services-card-title {
 
-                h2 {
-                    color: $green;
+                h3 {
+                    color: var(--page-main-color, $green);
                 }
 
                 svg {
                     transform: translateX(8px);
-                    stroke: $green;
+                    stroke: var(--page-main-color, $green);
                 }
 
             }
@@ -94,7 +94,7 @@
         width: fit-content;
         text-align: center;
 
-        h2 {
+        h3 {
             margin: 0;
             transition: 0.3s;
             display: flex;
@@ -134,6 +134,20 @@
             font-family: $font-primary-regular;
 
             @include fluid-font(1.625rem, 0.615);
+        }
+    }
+}
+
+
+.services-card.other-services {
+    &.active {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .services-card-title {
+        h3 {
+            @include fluid-font(1.25rem, 0.8);
         }
     }
 }

@@ -123,6 +123,10 @@
   &-description {
     margin-top: 1rem;
 
+    @include large {
+      margin-top: 0;
+    }
+
     h1,
     h2,
     h3,
@@ -138,4 +142,6 @@
       @include fluid-font(1.625rem, 0.615);
     }
   }
+
+  
 }

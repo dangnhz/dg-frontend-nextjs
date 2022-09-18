@@ -6,6 +6,6 @@ export interface ServiceCardType {
     title: string
     description: string
     isActive: boolean
-    extraClass: string
+    extraClass?: string
   }
   

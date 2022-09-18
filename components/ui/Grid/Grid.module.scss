@@ -43,12 +43,47 @@
         grid-template-columns: repeat(3, 1fr);
     }
     @include medium {
-        grid-column-gap: 0;
+       
         grid-template-columns: repeat(4, 1fr);
     }
 
     @include xl2 {
-        grid-template-columns: repeat(6, 1fr);
+        grid-column-gap: 2rem;
+        grid-template-columns: repeat(var(--item-per-row, 6), 1fr);
         
+    }
+
+    > div, > a {
+        place-self: center;
+    }
+}
+
+.grid.align-center {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+
+    > div, > a {
+        width: 50%;
+        height: 100%;
+        margin: 1rem 0;
+        max-width: 250px;
+        
+        @include small-medium {
+            max-width: none;
+            width: calc(100% / 3);
+            padding: 0 1rem;
+        }
+
+        @include large {
+            width: calc(100% / var(--item-per-row, 5));
+        }
+
+        @include xl4 {
+            padding: 0 3rem;
+        }
     }
 }

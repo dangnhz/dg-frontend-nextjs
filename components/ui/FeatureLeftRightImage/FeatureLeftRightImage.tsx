@@ -64,7 +64,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({ subServices, mediaSide, isStic
   return (
     <div className={classes} ref={featureImageRef}>
       <div className="max-width-5 mx-auto">
-        <Flex alignItems={`${isSticky ? 'start' : 'center'}`} direction={`${mediaSide === 'right' ? 'row-reserve' : 'row'}`} gap={gap}>
+        <Flex alignItems={`${isSticky ? 'start' : 'center'}`} direction={`${mediaSide === 'media-right' ? 'row-reserve' : 'row'}`} gap={gap}>
           <Column width={mediaWidth} className={cx({ 'is-sticky': isSticky })}>
             {subServices &&  <SubServiceList title={subServices.title} serviceItems={subServices.serviceItems} parentAlias={subServices.parentAlias} parentId={subServices.parentId} />}
             <div className={cx('image')} ref={imageRef}>

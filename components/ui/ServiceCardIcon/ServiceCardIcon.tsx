@@ -17,7 +17,7 @@ const ServiceCardIcon: React.FC<ServiceCardType> = ({
   title,
   description,
   isActive,
-  extraClass = '',
+  extraClass,
 }) => {
   return (
     <div className={cx('services-card', { active: isActive }, extraClass)}>
@@ -25,16 +25,16 @@ const ServiceCardIcon: React.FC<ServiceCardType> = ({
         <a className={cx('services-card-wrapper')}>
           <div className={cx('services-card-top')}>
             <div className={cx('services-card-cloud')}>
-              <Image src={cloud} alt={title} width={200} height={180} />
+              <Image src={cloud} alt={title} layout="fill"/>
             </div>
             <div className={cx('services-card-icon')}>
-              <Image src={icon} alt="service-icon" width="100" height="100" />
+              <Image src={icon} alt="service-icon" width={100} height={100} />
             </div>
           </div>
           <div className={cx('services-card-title')}>
-            <h2>
+            <h3>
               {title} <ArrowRight />
-            </h2>
+            </h3>
           </div>
           {description && <div className={cx('services-card-description')} dangerouslySetInnerHTML={{ __html: description }}></div>}
         </a>

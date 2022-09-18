@@ -6,10 +6,7 @@ import { useUI } from '@context/UIContext'
 import React, { useEffect } from 'react'
 import PreFooter from '@components/common/PreFooter'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
-import { ClientLogo } from '@components/clients'
-
-import { ClientType } from 'types/client'
-import Grid from '@components/ui/Grid'
+import ClientListing from '@components/ui/ClientListing'
 
 const QUERY_KEY = 'fetchAllClients'
 
@@ -27,9 +24,7 @@ const Clients: React.FC = () => {
     setCurrentTheme('green')
   }, [setCurrentTheme])
 
-  const clientListing = data?.clients?.map((item: ClientType, index: number) => (
-    <ClientLogo logo={item.logo} project={item.project} external_link={item.external_link} key={index} />
-  ))
+
 
   return (
     <>
@@ -44,7 +39,7 @@ const Clients: React.FC = () => {
       <AnimationFadeInUp y={50} animationDelay={2}>
         <div className="clients-listing margin-horizontal padding-b-10">
           <div className="container max-width-5">
-            <Grid className="grid-clients">{clientListing}</Grid>
+            <ClientListing clients={data.clients}/>
           </div>
         </div>
       </AnimationFadeInUp>
