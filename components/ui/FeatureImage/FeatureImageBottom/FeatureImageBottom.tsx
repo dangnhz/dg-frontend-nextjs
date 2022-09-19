@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import classNames from 'classnames/bind'
 import { Column, Flex } from '@components/ui/Flex'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
@@ -54,7 +54,7 @@ const FeatureImageBottom: React.FC<Props> = ({ mediaSide, image, title, body, bg
   const classes = cx(
     'feature-image-bottom',
     'padding-horizontal',
-    { 'padding-v-10': bgColor },
+    { 'padding-t-10': bgColor },
     { 'margin-v-7': !bgColor },
     { 'media-bottom': mediaSide === 'media-bottom' },
     { 'media-bottom-right': mediaSide === 'media-bottom-right' },
@@ -69,18 +69,18 @@ const FeatureImageBottom: React.FC<Props> = ({ mediaSide, image, title, body, bg
             <Flex gap='lg'>
               <Column width='32%'>
                 {title && (
-                    <h3 className="title margin-b-3" ref={titleRef}>
+                    <h3 className={cx("title")} ref={titleRef}>
                       {title}
                     </h3>
                   )}
               </Column>
               <Column>
-                  {body && <div className="body-copy" ref={contentRef} dangerouslySetInnerHTML={{ __html: body }}></div>}
+                  {body && <div className={cx("body","body-copy")} ref={contentRef} dangerouslySetInnerHTML={{ __html: body }}></div>}
               </Column>
             </Flex>
         </div>
         <div className={cx('image', 'margin-t-3')} ref={imageRef}>
-              <Image src={image} layout="responsive" width={1920} height={1080} objectFit="contain" alt={title ? title : 'image'} priority />
+              <Image src={image} alt={title ? title : 'digital garden image'} width={1920} height={1080} style={{width: '100%', height: 'auto'}} />
         </div>
       </div>
     </div>

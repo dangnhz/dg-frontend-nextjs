@@ -11,14 +11,13 @@ interface Props {
 }
 
 const SubServiceList:React.FC<Props> = ({ title, serviceItems, parentAlias, parentId }) => {
-  const items = serviceItems?.filter((item:any) => item.link !== null)
 
   return (
     <div className={cx("sub-service-list")}>
-      {title && items?.length > 0 && <h5 className={cx("more-about-service")}>{title}</h5>}
+      {title && serviceItems?.length > 0 && <h5 className={cx("more-about-service")}>{title}</h5>}
       <ul>
-        {items?.length > 0 &&
-          items.map(
+        {serviceItems?.length > 0 &&
+          serviceItems.map(
             (item:any) =>
               item.link && (
                 <li key={item.link.id} data-cursor-type="none">

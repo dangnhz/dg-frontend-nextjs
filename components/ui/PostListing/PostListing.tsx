@@ -19,7 +19,8 @@ interface Props {
 }
 
 const PostListing: React.FC<Props> = ({ posts, link, hasNextPage, fetchNextPage, isFetchingNextPage }) => {
-    const {theme} = useUI()
+  const {theme} = useUI()
+
   return (
     <div className={cx('post-listing', 'padding-horizontal margin-t-2 margin-b-10 padding-t-7')}>
       <div className={cx('background')}></div>

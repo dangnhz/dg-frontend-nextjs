@@ -23,7 +23,7 @@ const AboutListing: React.FC<Props> = ({ intro, teamData }) => {
       <AnimationFadeInUp animationDelay={2}>
         <div className={cx('about-listing')}>
           <div className={cx('background')}></div>
-          <FeatureLeftRightImage image={intro.image} body={intro.text} />
+          <FeatureLeftRightImage image={intro.image} body={intro.text} priority />
           <div className={cx('team-listing', 'padding-horizontal')}>
             <div className="max-width-5 mx-auto">
               <h3 className="text-center">Our team</h3>

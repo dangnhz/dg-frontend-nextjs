@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
-
+import React, { useState, useEffect } from 'react'
 import SEO from '@components/common/SEO'
 import PageHeader from '@components/ui/PageHeader'
 import { dehydrate, QueryClient, useInfiniteQuery } from 'react-query'
 import { fetchAllBlogPosts } from '@lib/api/blog.service'
 import { useUI } from '@context/UIContext'
-import React, { useState, useEffect } from 'react'
 import PostListing from '@components/ui/PostListing/PostListing'
 import Filter from '@components/ui/Filter'
 import PreFooter from '@components/common/PreFooter'

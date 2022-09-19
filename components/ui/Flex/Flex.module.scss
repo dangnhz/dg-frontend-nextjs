@@ -1,6 +1,14 @@
 .flex {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+
+    @include up-to-large {
+        &.mobile-content-on-top {
+            flex-direction: column-reverse;
+            
+        }
+    }
 
     @include large {
         flex-direction: row;
@@ -68,3 +76,4 @@
         gap: 10rem;
     }
 }
+

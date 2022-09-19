@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import classNames from 'classnames/bind'
 import styles from './FeatureLeftRightImage.module.scss'
 import { Column, Flex } from '@components/ui/Flex'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import SubServiceList from '@components/ui/SubServiceList'
@@ -17,20 +17,25 @@ interface Props {
     parentId: string
   }
   mediaSide?: string
-  isSticky?: boolean
+  isImageSticky?: boolean
+  isContentSticky?:boolean
+  mobileContentOnTop?:boolean
   image: string
   title?: string
   body?: string
   gap?: string
   mediaWidth?: string
   bgColor?: string
-  textColor?: string
+  textColor?: string,
+  priority?:boolean,
 }
 
 const FeatureLeftRightImage: React.FC<Props> = ({
   subServices,
   mediaSide,
-  isSticky,
+  isImageSticky,
+  isContentSticky,
+  mobileContentOnTop,
   image,
   title,
   body,
@@ -38,6 +43,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({
   mediaWidth = '32%',
   bgColor,
   textColor,
+  priority
 }) => {
   const featureImageRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLImageElement>(null)
@@ -79,28 +85,31 @@ const FeatureLeftRightImage: React.FC<Props> = ({
     { 'text-dark': textColor === 'dark' },
     { 'text-light': textColor === 'light' }
   )
+
+  const alignment = cx({ 'start': isImageSticky || isContentSticky , 'center': !isImageSticky && !isContentSticky})
   return (
     <div className={classes} ref={featureImageRef} style={{backgroundColor: bgColor}}>
       <div className="max-width-5 mx-auto">
         <Flex
-          alignItems={`${isSticky ? 'start' : 'center'}`}
+          mobileContentOnTop={mobileContentOnTop}
+          alignItems={alignment}
           direction={`${mediaSide === 'media-right' ? 'row-reserve' : 'row'}`}
           gap={gap}
         >
-          <Column width={mediaWidth} className={cx({ 'is-sticky': isSticky })}>
-            {subServices && (
+          <Column width={mediaWidth} className={cx({ 'is-image-sticky': isImageSticky })}>
+            {subServices?.serviceItems?.length > 0 && (
               <SubServiceList
-                title={subServices.title}
-                serviceItems={subServices.serviceItems}
-                parentAlias={subServices.parentAlias}
-                parentId={subServices.parentId}
+                title={subServices?.title}
+                serviceItems={subServices?.serviceItems}
+                parentAlias={subServices?.parentAlias}
+                parentId={subServices?.parentId}
               />
             )}
             <div className={cx('image')} ref={imageRef}>
-              <Image src={image} width={480} height={600} layout="responsive" alt={title ? title : 'image'} priority />
+              <Image src={image} width={480} height={600} alt={title ? title : 'digital garden image'} priority={priority} style={{width: '100%', height: 'auto'}} />
             </div>
           </Column>
-          <Column>
+          <Column className={cx({ 'is-content-sticky': isContentSticky })}>
             <div className={cx('content')}>
               {title && (
                 <h3 className="title margin-b-3" ref={titleRef}>

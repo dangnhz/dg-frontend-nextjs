@@ -7,13 +7,15 @@ interface Props {
   title?: string
   body?: string
   image: string
+  mediaWidth?: string
+  gap?:string
   mediaSide?: string
   bgColor?: string
   textColor?: string
   isSticky?: boolean
 }
 
-const FeatureImage: React.FC<Props> = ({ title, body, image, mediaSide, bgColor, textColor, isSticky }) => {
+const FeatureImage: React.FC<Props> = ({ title, body, image, mediaWidth, mediaSide, gap="xl",  bgColor, textColor, isSticky }) => {
   if (!title && !body && !mediaSide) {
     return <FeatureImageFullWidth image={image} />
   }
@@ -23,14 +25,16 @@ const FeatureImage: React.FC<Props> = ({ title, body, image, mediaSide, bgColor,
   }
   return (
     <FeatureLeftRightImage
+      mediaWidth={mediaWidth}
       image={image}
       title={title}
       body={body}
       mediaSide={mediaSide}
-      gap="xl"
+      gap={gap}
       bgColor={bgColor}
       textColor={textColor}
-      isSticky={isSticky}
+      isContentSticky={isSticky}
+      mobileContentOnTop
     />
   )
 }

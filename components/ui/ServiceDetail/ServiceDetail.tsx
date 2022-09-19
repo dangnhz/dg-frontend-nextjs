@@ -38,7 +38,7 @@ const ServiceDetail = ({ data }: { data: any }) => {
 
   const subServices = {
     title: `More about ${title}`,
-    serviceItems: serviceItems?.items,
+    serviceItems: serviceItems?.items.filter((item: { link: object }) => item.link != null),
     parentAlias: alias,
     parentId: id,
   }
@@ -57,7 +57,7 @@ const ServiceDetail = ({ data }: { data: any }) => {
         <div className={cx('service-detail')}>
           <div className={cx('background')}></div>
   
-          {body && <FeatureLeftRightImage image={body.image} body={body.text} isSticky subServices={subServices} />}
+          {body && <FeatureLeftRightImage image={body.image} body={body.text} priority isImageSticky subServices={subServices} />}
   
           {featureImages?.length > 0 && (
             <div className="service-feature-images margin-t-10">

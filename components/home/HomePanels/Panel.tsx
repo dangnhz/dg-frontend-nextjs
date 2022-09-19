@@ -20,7 +20,7 @@ export const Panel:React.FC<PanelProps> = ({ data }) => {
       <div className={cx("home-panel")}>
         <div className={cx("home-panel-wrapper")}>
           <div className={cx("home-panel-background")}>
-           {background_image &&  <Image src={background_image} alt={title} width={960} height={610}/>}
+           {background_image &&  <Image src={background_image} alt={title} layout="fill" objectFit='cover'/>}
           </div>
           <div className={cx("home-panel-overlay")} style={{ backgroundColor: background_color, opacity: background_image ? 0.8 : 1}}></div>
           <div className={cx("home-panel-inside")}>

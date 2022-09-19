@@ -22,7 +22,7 @@ const FavoriteTools: React.FC<Props> = ({ title, tools, alignCenter, itemPerRow 
       <Grid alignCenter={alignCenter} itemPerRow={itemPerRow} >
         {tools.map((item) => (
           <div key={item.title}>
-            <Image src={item.image} alt={item.title} title={item.title} width={300} height={150} layout="responsive" />
+            <Image src={item.image} alt={item.title} title={item.title} width={300} height={150} layout="responsive" objectFit='contain' />
           </div>
         ))}
       </Grid>
