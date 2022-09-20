@@ -1,0 +1,175 @@
+.contact-form {
+	width: 100%;
+	text-align: center;
+	height: fit-content;
+
+	.contact-form-title {
+		color: white;
+		text-align: center;
+		margin-bottom: 3rem;
+
+		&.hidden {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	&-container {
+		display: block;
+
+		&.hidden {
+			display: none;
+		}
+	}
+
+	&-wrapper {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+
+		@include medium {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		.contact-form-left-column,
+		.contact-form-right-column {
+			width: 100%;
+			@include medium {
+				width: calc(100% / 2 - 20px);
+			}
+		}
+	}
+
+	.btn-contact-submit {
+		border: none;
+		outline: none;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+        padding: 20px 24px 16px;
+		border-radius: 1000px;
+        background-color: $black;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $white;
+        font-family: $font-primary-medium;
+        font-size: 16px;
+        transition: 0.3s;
+        letter-spacing: 1px;
+		cursor: pointer;
+
+		@include medium {
+			width: 260px;
+			margin-top: 3rem;
+		}
+
+        &:hover {
+            border-top-right-radius: 0;
+            background-color: $white;
+            color: $black;
+          }
+	}
+
+	.form-response {
+		.message {
+			color: black;
+		}
+	}
+}
+
+.contact-form-recaptcha {
+	width: 100%;
+	max-width: 1205px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1rem;
+    
+    @include medium {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+		margin-top: 1.5rem;
+    }
+}
+
+.contact-form-field {
+	margin-bottom: 20px;
+	width: 100%;
+	label {
+		display: block;
+		font-size: 16px;
+		margin-bottom: 6px;
+		text-transform: uppercase;
+		line-height: 1;
+		text-align: left;
+		font-family: $font-primary-bold;
+	}
+
+	input,
+	textarea {
+		border: 1px solid transparent;
+		outline: none;
+		background: $white;
+		padding: 1rem 1rem;
+		font-size: 1rem;
+		font-family: $font-primary-regular;
+		width: 100%;
+		border-radius: 0;
+		-webkit-appearance: none;
+		transition: 0.3s;
+		height: 58px;
+
+		&:focus {
+			border: 1px solid black;
+		}
+
+		@include xl {
+			font-size: 18px;
+		}
+		&.is-invalid {
+			border: 1px solid red;
+		}
+	}
+
+	&.text-area {
+		height: calc(100% - 120px);
+
+		@include medium {
+			padding-bottom: 1.4rem;
+		}
+		textarea {
+			height: 100%;
+			min-height: 100px;
+			resize: none;
+
+			&.is-invalid {
+				max-height: calc(100% - 58px);
+			}
+		}
+	}
+
+}
+
+.error {
+	margin-top: 0.5rem;
+	font-size: 14px;
+	color: red;
+	font-family: $font-primary-medium;
+	text-align: left;
+	display: flex;
+	align-items: center;
+	
+	@include medium {
+		width: fit-content;
+		margin-left: auto;
+	}
+
+	svg {
+		margin-right: 5px;
+		margin-top: -2px;
+		fill: red;
+	}
+}

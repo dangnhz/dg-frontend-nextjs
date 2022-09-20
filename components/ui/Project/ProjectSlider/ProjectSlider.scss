@@ -1,0 +1,209 @@
+.project-slider {
+  margin-top: -150px;
+
+  @include medium {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include larger {
+    padding-left: 5.625rem;
+    padding-right: 5.625rem;
+  }
+
+  @include xl4 {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .project-slider-wrapper {
+    position: relative;
+    max-width: 1596px;
+
+    .project-slider-navigation {
+      position: absolute;
+      transform: translateY(-50%);
+      top: 47%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1;
+      pointer-events: none;
+
+      .btn-next,
+      .btn-prev {
+        background-color: $black;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.9;
+        transition: 0.3s;
+        pointer-events: all;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        @include medium {
+          width: 50px;
+          height: 50px;
+        }
+
+        @include xl {
+          width: 70px;
+          height: 70px;
+        }
+
+        @include xl3 {
+          width: 100px;
+          height: 100px;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          width: 5px;
+          height: 5px;
+          border-right: 2px solid white;
+          border-top: 2px solid white;
+
+          @include medium {
+            width: 10px;
+            height: 10px;
+            border-right: 3px solid white;
+            border-top: 3px solid white;
+          }
+
+          @include xl {
+            width: 15px;
+            height: 15px;
+            border-right: 3px solid white;
+            border-top: 3px solid white;
+          }
+
+          @include xl2 {
+            width: 25px;
+            height: 25px;
+            border-right: 4px solid white;
+            border-top: 4px solid white;
+          }
+        }
+      }
+
+      .btn-next {
+        &::before {
+          transform: translateX(-25%) rotate(45deg);
+        }
+
+        @include medium {
+          margin-right: -25px;
+        }
+
+        @include xl {
+          margin-right: -35px;
+        }
+
+        @include xl3 {
+          margin-right: -50px;
+        }
+      }
+
+      .btn-prev {
+        &::before {
+          transform: translateX(25%) rotate(-135deg);
+        }
+
+        @include medium {
+          margin-left: -25px;
+        }
+
+        @include xl {
+          margin-left: -35px;
+        }
+
+        @include xl3 {
+          margin-left: -50px;
+        }
+      }
+
+      .swiper-button-disabled {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  .swiper-slide {
+    margin-bottom: 1.5rem;
+  }
+
+  .project-slider-pagination {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .swiper-pagination-bullets {
+    .swiper-pagination-bullet {
+      position: relative;
+      margin: 0 7px !important;
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      border-radius: 50%;
+      background-color: rgb(185, 185, 185);
+     
+
+      @include larger {
+        width: 10px;
+        height: 10px;
+      }
+
+      &-active {
+        background-color: $black;
+
+        &::before {
+          content: "";
+          width: 14px;
+          height: 14px;
+          border: 1px solid $black;
+          border-radius: 100%;
+          display: block;
+          position: absolute;
+          top: -4px;
+          left: -4px;
+
+          @include larger {
+            width: 18px;
+            height: 18px;
+            top: -5px;
+            left: -5px;
+          }
+        }
+      }
+    }
+  }
+
+  .project-slider-item {
+    .image-wrap {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      width: 100%;
+      height: 0;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

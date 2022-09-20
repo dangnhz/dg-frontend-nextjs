@@ -4,22 +4,22 @@ import PageHeader from '@components/ui/PageHeader'
 import { dehydrate, QueryClient, useInfiniteQuery } from 'react-query'
 import { fetchAllProjects } from '@lib/api/project.service'
 import { useUI } from '@context/UIContext'
-import InfiniteScroll from "react-infinite-scroller";
+import InfiniteScroll from 'react-infinite-scroller'
 import Filter from '@components/ui/Filter'
 import PreFooter from '@components/common/PreFooter'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import { BeatLoader } from 'react-spinners'
 import Grid from '@components/ui/Grid'
 import ProjectCard from '@components/ui/ProjectCard'
-import { ProjectCardType } from '../../types/project';
+import { ProjectCardType } from '../../types/project'
 import Container from '@components/ui/Container'
 
-const QUERY_KEY = 'fetchAllProjects';
+const QUERY_KEY = 'fetchAllProjects'
 const INITIAL_TERM = { id: '0', text: 'All' }
 
 const Work: React.FC = () => {
   const [filterTerm, setFilterTerm] = useState(INITIAL_TERM)
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery(
+  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
     [QUERY_KEY, filterTerm.id],
     ({ pageParam = 0 }) => fetchAllProjects(pageParam, filterTerm.id),
     {
@@ -29,7 +29,7 @@ const Work: React.FC = () => {
         return
       },
       keepPreviousData: true,
-      staleTime: 1000 * 60 * 2
+      staleTime: 1000 * 60 * 2,
     }
   )
 
@@ -57,22 +57,29 @@ const Work: React.FC = () => {
         description={header?.intro}
         animationType={header?.animation_type}
       />
-     <AnimationFadeInUp y={50} animationDelay={2}>
-        <Filter filterTerms={filterTerms} filterTerm={filterTerm} setFilterTerm={setFilterTerm}/>
-       
-        <Container padding="padding-horizontal" margin="margin-t-3 margin-b-10" maxWidth='max-width-6'>
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={() => fetchNextPage()}
-        hasMore={hasNextPage || false}
-        loader={
-          <div key={0} className="mx-auto margin-t-2" style={{width: 'fit-content'}}><BeatLoader  color={theme.primaryColor} size={8} margin={3} /></div>
-        }
-      >
-       <Grid>{projects?.length > 0 && projects.map((item : ProjectCardType) => <ProjectCard key={item.id} data={item} hoverColor={theme.primaryColor}/>)}</Grid>
-      </InfiniteScroll>
-       </Container>
-     </AnimationFadeInUp>
+      <AnimationFadeInUp y={50} animationDelay={2}>
+        <Filter filterTerms={filterTerms} filterTerm={filterTerm} setFilterTerm={setFilterTerm} />
+
+        <Container padding="padding-horizontal" margin="margin-t-3 margin-b-10" maxWidth="max-width-6">
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={() => fetchNextPage()}
+            hasMore={hasNextPage || false}
+            loader={
+              <div key={0} className="mx-auto margin-t-2" style={{ width: 'fit-content' }}>
+                <BeatLoader color={theme.primaryColor} size={8} margin={3} />
+              </div>
+            }
+          >
+            <Grid>
+              {projects?.length > 0 &&
+                projects.map((item: ProjectCardType) => (
+                  <ProjectCard key={item.id} data={item} hoverColor={theme.primaryColor} />
+                ))}
+            </Grid>
+          </InfiniteScroll>
+        </Container>
+      </AnimationFadeInUp>
 
       <PreFooter />
     </>

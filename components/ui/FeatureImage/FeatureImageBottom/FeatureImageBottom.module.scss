@@ -33,3 +33,12 @@
 
       }
 }
+
+.feature-image-bottom.media-bottom-right {
+  .feature-image-bottom-media {
+    @include large {
+      width: 60%;
+      margin-left: auto;
+    }
+  }
+}

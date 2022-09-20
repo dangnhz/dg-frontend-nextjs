@@ -55,7 +55,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: featureImageRef.current,
-        start: 'top 85%',
+        start: 'top 90%',
         toggleActions: 'play none none none',
       },
     })
@@ -81,7 +81,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({
     'feature-left-right-image',
     'padding-horizontal',
     { 'padding-v-10': bgColor },
-    { 'margin-v-7': !bgColor },
+    { 'margin-v-10': !bgColor },
     { 'text-dark': textColor === 'dark' },
     { 'text-light': textColor === 'light' }
   )

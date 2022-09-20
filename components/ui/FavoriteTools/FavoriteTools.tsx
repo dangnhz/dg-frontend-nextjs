@@ -20,7 +20,7 @@ const FavoriteTools: React.FC<Props> = ({ title, tools, alignCenter, itemPerRow 
     <Container padding="padding-horizontal" maxWidth="max-width-6" margin="margin-t-7">
       {title && <h3 className="text-center margin-b-3">{title}</h3>}
       <Grid alignCenter={alignCenter} itemPerRow={itemPerRow} >
-        {tools.map((item) => (
+        {tools?.map((item) => (
           <div key={item.title}>
             <Image src={item.image} alt={item.title} title={item.title} width={300} height={150} layout="responsive" objectFit='contain' />
           </div>

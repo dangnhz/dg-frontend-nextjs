@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-// import ContactForm from '../../ui/ContactForm/ContactForm'
+import ContactForm from '@components/ui/ContactForm'
 import { footerGreen, footerBlue, footerRed, footerPurple, footerPink, footerOrange ,footerGreenContact } from '@lib/footer-images'
 
 import classNames from 'classnames/bind'
@@ -61,7 +61,7 @@ const PreFooter: React.FC<Props> = ({ showContactForm = false }) => {
               </ButtonRounded>
             </>
           )}
-          {/* {showContactForm && <ContactForm />} */}
+          {showContactForm && <ContactForm />}
         </div>
       </div>
     </div>

@@ -1,53 +1,48 @@
-import React, { useEffect, useRef } from "react";
-import CloseIcon from "@components/icons/CloseIcon";
+import React, { useEffect, useRef } from 'react'
+import CloseIcon from '@components/icons/CloseIcon'
 
-import { useRouter } from "next/router";
-import { useSearch } from "@context/SearchContext";
-import SearchIcon from '../../icons/SearchIcon';
-import classNames from 'classnames/bind';
+import { useRouter } from 'next/router'
+import { useSearch } from '@context/SearchContext'
+import SearchIcon from '../../icons/SearchIcon'
+import classNames from 'classnames/bind'
 import styles from './SearchForm.module.scss'
 
 const cx = classNames.bind(styles)
 
-const SearchForm = ({ from, className} : {from:string, className: string}) => {
-  const { query, setQuery, setSearchResults } = useSearch();
-  const router = useRouter();
+const SearchForm = ({ from, className }: { from?: string; className?: string }) => {
+  const { query, setQuery, setSearchResults } = useSearch()
+  const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
 
-    if (from === "menu") {
-      router.push("/search");
+    if (from === 'menu') {
+      router.push('/search')
     }
-  };
+  }
 
-  const handleKeyEnterPress = (e: { key: string; preventDefault: () => void; }) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleSubmit(e);
+  const handleKeyEnterPress = (e: { key: string; preventDefault: () => void }) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      handleSubmit(e)
     }
-  };
+  }
 
   const handleClearInput = () => {
-    setQuery("");
-    setSearchResults([]);
-  };
+    setQuery('')
+    setSearchResults([])
+  }
 
-  useEffect(() => {
-    if (from !== "menu" && inputRef.current === document.activeElement) {
-      const params = new URLSearchParams();
-      if (query) {
-        params.append("q", query);
-      } else {
-        params.delete("q");
-      }
-      router.push({ search: params.toString() });
-    }
-  }, [query, router, from]);
 
   return (
-    <form onSubmit={handleSubmit} onKeyPress={handleKeyEnterPress} className={cx(className, 'search-form')} action="." data-cursor-type="none">
+    <form
+      onSubmit={handleSubmit}
+      onKeyDown={handleKeyEnterPress}
+      className={cx(className, 'search-form')}
+      action="."
+      data-cursor-type="none"
+    >
       <div className={cx('input-wrapper')}>
         <input
           id="search-input"
@@ -63,7 +58,7 @@ const SearchForm = ({ from, className} : {from:string, className: string}) => {
           <SearchIcon />
         </div>
         {query.length > 0 && (
-          <button className={cx('btn-clear-input')} onClick={handleClearInput} >
+          <button className={cx('btn-clear-input')} onClick={handleClearInput}>
             <CloseIcon />
           </button>
         )}
@@ -72,7 +67,7 @@ const SearchForm = ({ from, className} : {from:string, className: string}) => {
         <SearchIcon />
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default SearchForm;
+export default SearchForm

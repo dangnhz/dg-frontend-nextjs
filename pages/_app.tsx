@@ -1,14 +1,18 @@
 import React, {useEffect} from 'react'
 import type { AppProps } from 'next/app'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
 import { UIProvider } from 'context/UIContext'
 import AppLayout from '@components/common/AppLayout'
 import SearchProvider from 'context/SearchContext'
-import '../styles/globals.scss'
+// Import Swiper styles
+import 'swiper/css';
 
-function MyApp({ Component, pageProps }: AppProps) {
+import '../styles/globals.scss'
+import '@components/ui/Project/ProjectSlider/ProjectSlider.scss'
+
+function MyApp({ Component, pageProps:p }: AppProps)  {
   const [queryClient] = React.useState(() => new QueryClient())
+  const pageProps: any = p
 
   useEffect(() => {
     document.body.classList?.remove('is-loading')
@@ -24,7 +28,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             </AppLayout>
           </UIProvider>
         </SearchProvider>
-        <ReactQueryDevtools initialIsOpen={false} />
       </Hydrate>
     </QueryClientProvider>
   )

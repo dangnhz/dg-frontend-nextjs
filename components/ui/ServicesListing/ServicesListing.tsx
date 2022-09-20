@@ -84,7 +84,7 @@ const ServicesListing: React.FC<Props> = ({ services }) => {
             ))}
         </div>
         <div className={cx('items')}>
-          {services.map((item: any) => (
+          {services?.map((item: any) => (
             <div key={item.id} className={cx('item-wrap', 'js-item-wrap')}>
               <ServicesItem data={item} />
             </div>

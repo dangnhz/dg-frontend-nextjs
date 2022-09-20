@@ -1,0 +1,11 @@
+
+ .title {
+   h3 {
+    margin-top: 0;
+   }
+}
+
+.intro-text  {
+    font-family: $font-primary-bold !important;
+    @include fluid-font (1.625rem, 0.615);
+}

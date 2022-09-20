@@ -39,7 +39,7 @@ const Clients: React.FC = () => {
       <AnimationFadeInUp y={50} animationDelay={2}>
         <div className="clients-listing margin-horizontal padding-b-10">
           <div className="container max-width-5">
-            <ClientListing clients={data.clients}/>
+            <ClientListing clients={data?.clients}/>
           </div>
         </div>
       </AnimationFadeInUp>

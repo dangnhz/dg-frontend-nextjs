@@ -1,0 +1,307 @@
+
+.two-columns-layout  {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 1;
+  
+	@include large {
+	  flex-direction: row;
+	  margin-top: 55px;
+	}
+
+	.left-column {
+		@include large {
+		  width: 40%;
+		  padding-right: 3 * $space;
+		  margin-top: 0;
+		  text-align: left;
+		}
+		@include xl {
+		  padding-right: 5 * $space;
+		}
+		@include xl3 {
+		  padding-right: 7.5 * $space;
+		}
+	  }
+	
+	  .right-column {
+		width: 100%;
+		@include large {
+		  width: 60%;
+		}
+	  }
+}
+
+
+.project-result {
+	color: white;
+
+	.project-results-top {
+		@include up-to-large {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.project-result-heading {
+		margin-top: 0;
+	}
+
+	.project-results-middle {
+		.image-wrapper {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+
+			@include up-to-large {
+				margin-bottom: 2rem;
+			}
+			img {
+				width: 100%;
+				height: auto;
+				object-fit: cover;
+
+				@include up-to-large {
+					max-width: 300px;
+				}
+			}
+		}
+	}
+
+	.project-results-stats {
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		.stats-item {
+			width: 100%;
+			border-top: 1px solid white;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			@include small-medium {
+				flex-direction: column;
+				align-items: flex-start;
+				width: calc(50% - 16px);
+			}
+
+			.stats-item-heading {
+				@include up-to-medium {
+					margin-right: 1rem;
+				}
+				h5 {
+					margin: 0;
+				}
+			}
+			.stats-item-number {
+				h2 {
+					margin: 0;
+				}
+
+				@include small-medium {
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+
+	.project-results-impact-statement {
+		border-top: 1px solid white;
+	}
+
+	.project-results-bottom {
+		@include up-to-xl {
+			flex-direction: column-reverse;
+		}
+
+		.two-columns-layout {
+			@include up-to-medium {
+				flex-direction: column-reverse;
+			}
+			@include medium {
+				flex-direction: row;
+			}
+		}
+
+		.left-column {
+			@include large {
+				padding-right: 0;
+				padding-left: 3rem;
+			}
+
+			@include xl {
+				padding-left: 5 * $space;
+			}
+			@include xl3 {
+				padding-left: 7.5 * $space;
+			}
+		}
+	}
+
+	.project-results-graph {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		@include up-to-medium {
+			margin-bottom: 3rem;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+
+			@include up-to-medium {
+				max-width: 300px;
+			}
+		}
+	}
+
+	.project-results-testimonial {
+		.quote {
+			margin-top: 2rem;
+			padding-top: 4rem;
+			border-top: 1px solid white;
+			position: relative;
+
+			p {
+				font-family: $font-primary-bold;
+
+				@include fluid-font(2rem, 0.667)
+
+			}
+
+			@include xl {
+				padding-top: 4rem;
+			}
+
+			&::before {
+				content: '"';
+				line-height: 1;
+				color: white;
+				position: absolute;
+				font-style: italic;
+				top: 2rem;
+				left: 0;
+				font-size: 80px;
+				font-family: $font-primary-bold;
+
+				@include xl {
+					left: -1rem;
+					font-size: 100px;
+				}
+			}
+		}
+	}
+}
+
+//variations
+
+.project-result.project-result--no-graph {
+	.project-results-top {
+		.two-columns-layout {
+			margin-top: 0;
+
+			@include xl {
+				.left-column {
+					width: 25%;
+				}
+
+				.right-column {
+					width: 75%;
+				}
+			}
+		}
+
+		.image-wrapper {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 2rem;
+			width: 100%;
+
+			@include large {
+				justify-content: flex-start;
+				margin-top: 5rem;
+			}
+
+			img {
+				width: 100%;
+				height: auto;
+				max-width: 250px;
+			}
+		}
+
+		.project-results-testimonial {
+			margin-bottom: 2rem;
+
+			@include large {
+				margin-top: 0;
+				margin-bottom: 5rem;
+
+				.quote {
+					margin-top: 0;
+					border-top: none;
+
+					&::before {
+						top: 0;
+					}
+
+					p {
+						margin-top: 0;
+					}
+				}
+
+				.author {
+					text-align: right;
+				}
+			}
+
+			@include xl {
+				margin-left: 12rem;
+			}
+		}
+
+		.project-result-intro {
+			margin-bottom: 2rem;
+			max-width: 900px;
+
+			@include large {
+				margin-bottom: 5rem;
+				padding-bottom: 2.5rem;
+				border-bottom: 1px solid white;
+			}
+		}
+
+		.project-results-stats {
+			@include xl {
+				margin-left: 12rem;
+			}
+
+			.stats-item {
+				@include large {
+					padding: 0;
+					border-top: none;
+
+					.stats-item-heading {
+						border-bottom: 1px solid white;
+						padding-bottom: 10px;
+					}
+				}
+			}
+		}
+
+		.project-results-impact-statement {
+			@include medium {
+				margin-top: 1rem;
+			}
+
+			@include large {
+				margin-top: 5rem;
+			}
+		}
+	}
+}

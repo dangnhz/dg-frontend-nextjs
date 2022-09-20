@@ -24,21 +24,21 @@ const Home: NextPage<Props> = ({ data }) => {
   return (
     <>
       <SEO
-        title={data.meta.tags.title}
-        description={data.meta.tags.description}
+        title={data?.meta?.tags?.title}
+        description={data?.meta?.tags?.description}
       />
 
-      <Hero banner={data.banner} />
+      <Hero banner={data?.banner} />
       <AnimationFadeInUp y={50} animationDelay={2}>
         <ProjectListing
           title="Who we are"
-          subtitle={data.our_work.title}
-          intro={data.banner.body}
-          projects={data.our_work.projects}
+          subtitle={data?.our_work?.title}
+          intro={data?.banner?.body}
+          projects={data?.our_work?.projects}
         />
-        <WhatWeDo title={data.services_summary.title} tiles={data.services_summary.tiles} backgroundColor="white" />
-        <HomePanels data={data.call_to_action} />
-        <HomeClients title={data.clients.title} cards={data.clients.cards} link={data.clients.link} />
+        <WhatWeDo title={data?.services_summary?.title} tiles={data?.services_summary?.tiles} backgroundColor="white" />
+        <HomePanels data={data?.call_to_action} />
+        <HomeClients title={data?.clients?.title} cards={data?.clients?.cards} link={data?.clients?.link} />
       </AnimationFadeInUp>
 
       <PreFooter />

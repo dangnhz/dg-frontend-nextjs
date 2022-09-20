@@ -11,7 +11,7 @@ import ClientListing from '../ClientListing'
 import FavoriteTools from '../FavoriteTools'
 import OtherServices from '../OtherServices'
 import RelatedProjects from '../RelatedProjects'
-import AnimationFadeInUp from '@components/common/AnimationFadeInUp';
+import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import FeatureImage from '../FeatureImage'
 
 const cx = classNames.bind(styles)
@@ -51,14 +51,27 @@ const ServiceDetail = ({ data }: { data: any }) => {
     <>
       <SEO title={meta?.tags.title} description={meta?.tags.description} />
 
-      <PageHeader title={title} subtitle={shortDescription} description={intro} animationType={animation_type || 'type4'} />
+      <PageHeader
+        title={title}
+        subtitle={shortDescription}
+        description={intro}
+        animationType={animation_type || 'type4'}
+      />
 
       <AnimationFadeInUp animationDelay={2}>
         <div className={cx('service-detail')}>
           <div className={cx('background')}></div>
-  
-          {body && <FeatureLeftRightImage image={body.image} body={body.text} priority isImageSticky subServices={subServices} />}
-  
+
+          {body && (
+            <FeatureLeftRightImage
+              image={body.image}
+              body={body.text}
+              priority
+              isImageSticky
+              subServices={subServices}
+            />
+          )}
+
           {featureImages?.length > 0 && (
             <div className="service-feature-images margin-t-10">
               {featureImages.map((item: any, index: number) => (
@@ -75,13 +88,13 @@ const ServiceDetail = ({ data }: { data: any }) => {
               ))}
             </div>
           )}
-  
+
           {clients?.cards?.length > 0 && (
-            <Container maxWidth='max-width-6' padding='padding-horizontal' margin='margin-v-7'>
+            <Container maxWidth="max-width-6" padding="padding-horizontal" margin="margin-v-7">
               <ClientListing clients={clients.cards} title={clients.heading} alignCenter />
             </Container>
           )}
-  
+
           {favouriteTools?.items?.length > 0 && (
             <FavoriteTools tools={favouriteTools.items} title={favouriteTools.heading} alignCenter itemPerRow={4} />
           )}

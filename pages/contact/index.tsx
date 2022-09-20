@@ -1,9 +1,59 @@
-import React from 'react'
+import SEO from '@components/common/SEO'
+import PageHeader from '@components/ui/PageHeader'
+import { dehydrate, QueryClient, useQuery} from 'react-query'
+import { fetchContactInfo } from '@lib/api/contact.service'
+import { useUI } from '@context/UIContext'
+import React, { useEffect } from 'react'
+import PreFooter from '@components/common/PreFooter'
+import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
+import ContactInfo from '@components/ui/ContactInfo'
 
-const Contact = () => {
+const QUERY_KEY = 'fetchContactInfo'
+
+const Contact: React.FC = () => {
+  const { data } = useQuery(QUERY_KEY, fetchContactInfo, {
+    staleTime: 1000 * 60 * 2,
+  })
+
+  const { setCurrentTheme } = useUI()
+
+  const meta = data?.meta
+
+  useEffect(() => {
+    setCurrentTheme('lime')
+  }, [setCurrentTheme])
+
+
+
   return (
-    <div>Contact</div>
+    <>
+      <SEO title={meta?.tags.title} description={meta?.tags.description} />
+
+      <PageHeader
+        title={data?.title}
+        subtitle={data?.shortDescription}
+        description={data?.intro}
+        animationType={data?.animation_type}
+      />
+      <AnimationFadeInUp y={50} animationDelay={2}>
+        <ContactInfo addresses={data?.adresses} />
+      </AnimationFadeInUp>
+
+      <PreFooter showContactForm />
+    </>
   )
+}
+
+export const getStaticProps = async () => {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery(QUERY_KEY, fetchContactInfo)
+
+  return {
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+    },
+  }
 }
 
 export default Contact

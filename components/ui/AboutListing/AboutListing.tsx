@@ -29,7 +29,7 @@ const AboutListing: React.FC<Props> = ({ intro, teamData }) => {
               <h3 className="text-center">Our team</h3>
               <div className="margin-t-5">
                 <Grid>
-                  {teamData.map((item) => (
+                  {teamData?.map((item) => (
                     <PersonCard key={item.id} data={item} />
                   ))}
                 </Grid>

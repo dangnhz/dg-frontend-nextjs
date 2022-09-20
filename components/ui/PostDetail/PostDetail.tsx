@@ -175,7 +175,7 @@ const PostDetail: React.FC<PostDetailType> = ({
                     )}
                     {post.body && (
                       <div
-                        className={cx('post-detail-body body-copy')}
+                        className="body-copy"
                         dangerouslySetInnerHTML={{ __html: post.body }}
                       ></div>
                     )}

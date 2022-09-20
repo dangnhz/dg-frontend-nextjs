@@ -1,4 +1,2 @@
 
-// export {default} from './ContactForm';
-
-export {}
+export {default} from './ContactForm';
