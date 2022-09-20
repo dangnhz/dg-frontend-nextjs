@@ -21,7 +21,7 @@ const Post: React.FC<Props> = ({ post, link, type }) => {
           {post.date && <div className={cx('created-at')}>{post.date}</div>}
         </div>
         <div className={cx('right')}>
-          <Link href={`/${link}${post.alias ? post.alias : '/' + post.id}`} passHref>
+          <Link href={`/${link}${post.alias ? post.alias : '/' + post.id}`} passHref prefetch={false}>
             <a className={cx('title')}>
               <h2 className="my-0 h3">{post.title}</h2>
             </a>

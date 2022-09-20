@@ -16,11 +16,11 @@ const ServicesItem = ({ data }: { data: any }) => {
       <div className={cx('wrapper')}>
         {icon && (
           <div className={cx('icon', 'margin-b-2')}>
-            <Image src={icon} alt={title} width={80} height={80} />
+            <Image src={icon} alt={title} width={80} height={80} layout="responsive"/>
           </div>
         )}
         <div className={cx('title')}>
-          <Link href={`/services${alias ? alias : '/' + id}`} passHref>
+          <Link href={`/services${alias ? alias : '/' + id}`} passHref prefetch={false}>
             <a>
               <h2>{title}</h2>
             </a>
@@ -35,7 +35,7 @@ const ServicesItem = ({ data }: { data: any }) => {
           <SubServiceList serviceItems={serviceItems} parentAlias={alias} parentId={id} />
         </div>
         <div className={cx('button', 'margin-t-3')} data-cursor-type="none">
-          <Link href={`/services${alias ? alias : '/' + id}`} passHref>
+          <Link href={`/services${alias ? alias : '/' + id}`} passHref prefetch={false}>
             <a className={cx('my-0', 'button-link')}>
               <span>Learn more </span>
               <span className={cx('btn-service-title')}>about {title}</span>

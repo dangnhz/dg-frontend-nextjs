@@ -27,6 +27,7 @@ const SubServiceList:React.FC<Props> = ({ title, serviceItems, parentAlias, pare
                   <span>
                     <Link
                       passHref
+                      prefetch={false}
                       href={`/services${parentAlias ? parentAlias : '/' + parentId}${
                         item.link.alias ? item.link.alias : '/' + item.link.id
                       }`}

@@ -33,7 +33,7 @@ const HomeClients: React.FC<Props> = ({ title, cards: clientsData, link }) => {
       <ClientListing clients={clientsData} />
 
       <ButtonRounded>
-        <Link href="/clients">
+        <Link href="/clients" prefetch={false}>
           <a >{link.title || 'View more'}</a>
         </Link>
       </ButtonRounded>

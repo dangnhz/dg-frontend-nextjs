@@ -129,7 +129,7 @@ const Hero: React.FC<Props> = ({ banner }) => {
         ></div>
         <div className={cx('home-hero-button')} ref={buttonRef} data-cursor-type="none">
           <ButtonRounded>
-            <Link href="/work" passHref>
+            <Link href="/work" passHref prefetch={false}>
               <a className={cx('leaf-button')}>View our work</a>
             </Link>
           </ButtonRounded>

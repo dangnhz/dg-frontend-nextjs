@@ -88,6 +88,7 @@ const ProjectIntro: React.FC<Props> = ({ bgColor, textColor, clientLogo, clientU
                       {whatWeDid.map((item:any, index:number) => (
                         <li key={index} data-cursor-type="none">
                           <Link
+                            prefetch={false}
                             passHref
                             href={`/services${item.service_alias}${
                               item.service_item_alias ? item.service_item_alias : ''

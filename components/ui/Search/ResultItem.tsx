@@ -64,7 +64,7 @@ const ResultItem = ({ data }: any) => {
       <div className={cx('wrapper', 'mx-auto max-width-5')}>
         <div className={cx('left')}>{contentType && <div className={cx('category')}>{contentType}</div>}</div>
         <div className={cx('right')}>
-          <Link href={path} passHref>
+          <Link href={path} passHref prefetch={false}>
             <a className={cx('title')}>
               <h2 className="my-0 h3">{title}</h2>
             </a>

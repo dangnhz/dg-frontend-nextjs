@@ -26,6 +26,7 @@ const PersonCard: React.FC<PersonCardProps> = ({ data, hoverColor = colors.purpl
     <Link
       passHref
       href={`/about${alias ? alias : '/' + id}`}
+      prefetch={false}
     >
       <a
         className={cx('card')}

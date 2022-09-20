@@ -32,7 +32,7 @@ const Footer:React.FC = () => {
       <div className={cx("footer-wrapper", "max-width-6", "padding-horizontal")}>
         <div className={cx("footer-left-column")}>
           <div className={cx("footer-logo")}>
-            <Link href="/" passHref>
+            <Link href="/" passHref prefetch={false}>
               <a className={cx("logo")} aria-label="Digital Garden"><FooterLogo /></a>
             </Link>
           </div>
@@ -42,7 +42,7 @@ const Footer:React.FC = () => {
             {routes
               .filter((route) => route.showOnMenu === true)
               .map((item) => (
-                <Link href={item.path} passHref key={item.key} >
+                <Link href={item.path} passHref key={item.key} prefetch={false}>
                   <a className={cx("footer-link-item")} data-cursor-type="move-left">{item.text}</a>
                 </Link>
               ))}
@@ -95,8 +95,8 @@ const Footer:React.FC = () => {
                 </a>
               </div>
               <div className={cx("footer-policy" , "margin-t-2")}>
-                  <Link href="/privacy-policy" passHref><a className={cx("footer-policy-link")} data-cursor-type="move-left" aria-label="Privacy Policy">Privacy Policy</a></Link>
-                  <Link href="/terms-and-conditions" passHref><a className={cx("footer-policy-link")} data-cursor-type="move-left" aria-label="Term of Use">Term of Use</a></Link>
+                  <Link prefetch={false} href="/privacy-policy" passHref><a className={cx("footer-policy-link")} data-cursor-type="move-left" aria-label="Privacy Policy">Privacy Policy</a></Link>
+                  <Link prefetch={false} href="/terms-and-conditions" passHref><a className={cx("footer-policy-link")} data-cursor-type="move-left" aria-label="Term of Use">Term of Use</a></Link>
               </div>
             </div>
             <div className={cx("footer-copy-right")}>© {year} Digital Garden Pty Ltd.</div>

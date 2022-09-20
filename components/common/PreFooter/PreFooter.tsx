@@ -53,7 +53,7 @@ const PreFooter: React.FC<Props> = ({ showContactForm = false }) => {
             <>
               <div className={cx('pre-footer-title')}>We'd love to work with you.</div>
               <ButtonRounded color='black'>
-                <Link href="/contact" passHref>
+                <Link href="/contact" passHref prefetch={false}>
                   <a className={cx('pre-footer-button')} data-cursor-type="none">
                     Say Hello
                   </a>

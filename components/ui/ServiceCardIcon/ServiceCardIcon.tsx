@@ -21,14 +21,14 @@ const ServiceCardIcon: React.FC<ServiceCardType> = ({
 }) => {
   return (
     <div className={cx('services-card', { active: isActive }, extraClass)}>
-      <Link passHref href={`/services${alias ? alias : '/' + id}`}>
+      <Link passHref href={`/services${alias ? alias : '/' + id}`} prefetch={false}>
         <a className={cx('services-card-wrapper')}>
           <div className={cx('services-card-top')}>
             <div className={cx('services-card-cloud')}>
               <Image src={cloud} alt={title} layout="fill"/>
             </div>
             <div className={cx('services-card-icon')}>
-              <Image src={icon} alt="service-icon" width={100} height={100} />
+              <Image src={icon} alt="service-icon" width={100} height={100}/>
             </div>
           </div>
           <div className={cx('services-card-title')}>

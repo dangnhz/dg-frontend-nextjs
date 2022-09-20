@@ -25,6 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data, hoverColor = colors.gre
 
   return (
     <Link
+      prefetch={false}
       passHref
       href={{
         pathname: `${isGated ? '/gated' : '/work'}${alias}`,

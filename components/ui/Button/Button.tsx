@@ -26,7 +26,7 @@ export const ButtonRounded:React.FC<ButtonRoundedProps> = ({ children, color = '
 
 export const ButtonLink: React.FC<ButtonLinkProps> = ({ href, color = 'green', hoverColor, text }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref prefetch={false}>
       <a className={cx('button-link', color, { [`hover-${hoverColor}`]: hoverColor })} data-cursor-type="none">
         {text}
       </a>
