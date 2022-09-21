@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { PostDetailType } from 'types/post'
 import { pageCurtainReveal } from '@utils/animations'
 import SEO from '@components/common/SEO'
+import PreFooter from '@components/common/PreFooter'
 import Lottie from 'lottie-react'
 import { isMobile, browserName, CustomView } from 'react-device-detect'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
@@ -11,10 +12,6 @@ import { useWindowSize } from 'react-use'
 import gsap from 'gsap'
 import classNames from 'classnames/bind'
 import styles from './PostDetail.module.scss'
-
-import dynamic from 'next/dynamic'
-
-const PreFooter = dynamic(() => import('@components/common/PreFooter'))
 
 const cx = classNames.bind(styles)
 

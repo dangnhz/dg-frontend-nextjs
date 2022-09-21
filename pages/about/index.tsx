@@ -4,14 +4,11 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useUI } from '@context/UIContext'
 import PageHeader from '@components/ui/PageHeader'
 import SEO from '@components/common/SEO'
+import PreFooter from '@components/common/PreFooter'
 import OurValues from '@components/ui/OurValues'
 import Testimonial from '@components/ui/Testimonial'
 import AboutListing from '@components/ui/AboutListing'
 import { PersonCardType } from 'types/about'
-
-import dynamic from 'next/dynamic'
-
-const PreFooter = dynamic(() => import('@components/common/PreFooter'))
 
 const QUERY_KEY = 'fetchAllTeamMembers'
 

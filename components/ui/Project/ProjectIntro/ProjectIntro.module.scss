@@ -1,5 +1,3 @@
-
-
 .project-intro {
   padding-bottom: 180px !important;
 
@@ -29,10 +27,12 @@
 
   .left-column {
     text-align: left;
+
     @include up-to-large {
       display: flex;
       justify-content: center;
     }
+
     .client-logo {
       display: flex;
       justify-content: center;
@@ -43,6 +43,12 @@
       @include xl {
         max-width: 350px;
         max-height: 200px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     }
   }
@@ -64,10 +70,12 @@
     .project-intro-what-we-did {
       ul {
         margin-top: 0;
+
         li {
           margin-left: 0 !important;
           list-style: none;
           margin-bottom: 1rem;
+
           &::before {
             display: none;
           }
@@ -90,6 +98,7 @@
           }
         }
       }
+
       .project-intro-what-we-did-listing ul {
         @include small-medium {
           column-count: 2;
