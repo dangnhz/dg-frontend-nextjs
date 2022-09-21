@@ -1,15 +1,19 @@
 import type { NextPage } from 'next'
+import dynamic from 'next/dynamic'
 import SEO from '@components/common/SEO'
 import { fetchHomepageData } from '@lib/api/homepage.service'
-import PreFooter from '@components/common/PreFooter'
 import Hero from '@components/home/Hero'
 import ProjectListing from '@components/home/ProjectListing/ProjectListing'
-import WhatWeDo from '@components/home/WhatWeDo/WhatWeDo'
-import HomePanels from '@components/home/HomePanels'
-import HomeClients from '@components/home/HomeClients/HomeClients'
 import { useUI } from 'context/UIContext';
 import { useEffect } from 'react'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
+
+
+const WhatWeDo = dynamic(() => import('@components/home/WhatWeDo/WhatWeDo'))
+const HomePanels = dynamic(() => import('@components/home/HomePanels'))
+const HomeClients = dynamic(() => import('@components/home/HomeClients/HomeClients'))
+const PreFooter = dynamic(() => import('@components/common/PreFooter'))
+
 
 interface Props {
   [key:string]: any

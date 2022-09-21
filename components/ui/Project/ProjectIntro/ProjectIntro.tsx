@@ -69,9 +69,9 @@ const ProjectIntro: React.FC<Props> = ({ bgColor, textColor, clientLogo, clientU
           <Column >
             <div className={cx("left-column")} ref={leftColRef}>
               {clientLogo && (
-                <div className={cx("client-logo")}>
+                <div className={cx("client-logo", "margin-b-1")}>
                   <a href={clientUrl} target="_blank" rel="noopener noreferrer">
-                    <Image src={clientLogo} width={320} height={250} alt="client-logo" style={{width: '100%', height: 'auto'}} />
+                    <Image src={clientLogo} width={320} height={250} alt="client-logo" style={{width: '100%', height: 'auto'}} priority/>
                   </a>
                 </div>
               )}

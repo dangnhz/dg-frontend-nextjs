@@ -6,13 +6,15 @@ import { fetchAllProjects } from '@lib/api/project.service'
 import { useUI } from '@context/UIContext'
 import InfiniteScroll from 'react-infinite-scroller'
 import Filter from '@components/ui/Filter'
-import PreFooter from '@components/common/PreFooter'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import { BeatLoader } from 'react-spinners'
 import Grid from '@components/ui/Grid'
 import ProjectCard from '@components/ui/ProjectCard'
 import { ProjectCardType } from '../../types/project'
 import Container from '@components/ui/Container'
+import dynamic from 'next/dynamic'
+
+const PreFooter = dynamic(() => import('@components/common/PreFooter'))
 
 const QUERY_KEY = 'fetchAllProjects'
 const INITIAL_TERM = { id: '0', text: 'All' }

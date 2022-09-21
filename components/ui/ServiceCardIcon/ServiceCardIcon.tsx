@@ -28,7 +28,7 @@ const ServiceCardIcon: React.FC<ServiceCardType> = ({
               <Image src={cloud} alt={title} width={180} height={150}/>
             </div>
             <div className={cx('services-card-icon')}>
-              <Image src={icon} alt="service-icon" width={100} height={100} style={{height: 'auto'}} />
+              <Image src={icon} alt="service-icon" width={100} height={100} />
             </div>
           </div>
           <div className={cx('services-card-title')}>
