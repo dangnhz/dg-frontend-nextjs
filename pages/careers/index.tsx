@@ -5,10 +5,13 @@ import { fetchAllPosts } from '@lib/api/career.service'
 import { useUI } from '@context/UIContext'
 import React, { useEffect } from 'react'
 import PostListing from '@components/ui/PostListing/PostListing'
-import PreFooter from '@components/common/PreFooter'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import NoJobPost from '@components/careers/NoJobPost'
 import OurValues from '@components/ui/OurValues'
+
+import dynamic from 'next/dynamic'
+
+const PreFooter = dynamic(() => import('@components/common/PreFooter'))
 
 const QUERY_KEY = 'fetchAllPosts'
 

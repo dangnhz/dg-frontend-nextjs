@@ -4,10 +4,13 @@ import SEO from '@components/common/SEO'
 import PageHeader from '@components/ui/PageHeader'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { fetchAllServices } from '@lib/api/services.service'
-import PreFooter from '@components/common/PreFooter'
 import HowWeDo from '@components/ui/HowWeDo'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import ServicesListing from '@components/ui/ServicesListing'
+
+import dynamic from 'next/dynamic'
+
+const PreFooter = dynamic(() => import('@components/common/PreFooter'))
 
 const QUERY_KEY = 'fetchAllServices'
 

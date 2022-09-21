@@ -6,8 +6,10 @@ import { fetchAllBlogPosts } from '@lib/api/blog.service'
 import { useUI } from '@context/UIContext'
 import PostListing from '@components/ui/PostListing/PostListing'
 import Filter from '@components/ui/Filter'
-import PreFooter from '@components/common/PreFooter'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
+import dynamic from 'next/dynamic'
+
+const PreFooter = dynamic(() => import('@components/common/PreFooter'))
 
 const QUERY_KEY = 'fetchAllBlogPosts'
 const INITIAL_TERM = { id: '0', text: 'All' }

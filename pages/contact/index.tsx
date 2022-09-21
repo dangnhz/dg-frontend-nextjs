@@ -4,9 +4,11 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { fetchContactInfo } from '@lib/api/contact.service'
 import { useUI } from '@context/UIContext'
 import React, { useEffect } from 'react'
-import PreFooter from '@components/common/PreFooter'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import ContactInfo from '@components/ui/ContactInfo'
+import dynamic from 'next/dynamic'
+
+const PreFooter = dynamic(() => import('@components/common/PreFooter'))
 
 const QUERY_KEY = 'fetchContactInfo'
 

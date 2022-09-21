@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useUI } from '@context/UIContext'
 import SEO from '@components/common/SEO'
 import PageHeader from '../PageHeader'
-import PreFooter from '@components/common/PreFooter'
 import classNames from 'classnames/bind'
 import styles from './ServiceDetail.module.scss'
 import FeatureLeftRightImage from '../FeatureImage/FeatureLeftRightImage'
@@ -13,6 +12,10 @@ import OtherServices from '../OtherServices'
 import RelatedProjects from '../RelatedProjects'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import FeatureImage from '../FeatureImage'
+
+import dynamic from 'next/dynamic'
+
+const PreFooter = dynamic(() => import('@components/common/PreFooter'))
 
 const cx = classNames.bind(styles)
 
