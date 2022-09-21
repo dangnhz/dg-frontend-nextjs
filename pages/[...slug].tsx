@@ -24,7 +24,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 }
 
-
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug
 
