@@ -8,7 +8,7 @@ import PreFooter from '@components/common/PreFooter'
 import OurValues from '@components/ui/OurValues'
 import Testimonial from '@components/ui/Testimonial'
 import AboutListing from '@components/ui/AboutListing'
-import {PersonCardType} from 'types/about';
+import { PersonCardType } from 'types/about'
 
 const QUERY_KEY = 'fetchAllTeamMembers'
 
@@ -28,7 +28,7 @@ const About = () => {
     name: member.name,
     role: member.role,
     image: member.image,
-  }));
+  }))
 
   useEffect(() => {
     setCurrentTheme('purple')
@@ -36,7 +36,15 @@ const About = () => {
 
   return (
     <>
-      <SEO title={meta?.tags.title} description={meta?.tags.description} />
+      <SEO
+        title={meta?.tags.title}
+        description={meta?.tags.description}
+        openGraph={{
+          type: 'website',
+          title: meta?.tags?.title,
+          description: meta?.tags?.description || undefined,
+        }}
+      />
 
       <PageHeader
         title={header?.title}
@@ -45,7 +53,7 @@ const About = () => {
         animationType={header?.animation_type}
       />
 
-      <AboutListing intro={header.body} teamData={formattedTeamData}/>
+      <AboutListing intro={header.body} teamData={formattedTeamData} />
       {header.colored_items && <OurValues data={header.colored_items} />}
       {header.testimonial && <Testimonial testimonial={header.testimonial} />}
 

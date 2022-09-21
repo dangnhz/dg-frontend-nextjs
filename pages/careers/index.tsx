@@ -56,7 +56,15 @@ const Careers: React.FC = () => {
 
   return (
     <>
-      <SEO title={meta?.tags.title} description={meta?.tags.description} />
+      <SEO
+        title={meta?.tags.title}
+        description={meta?.tags.description}
+        openGraph={{
+          type: 'website',
+          title: meta?.tags?.title,
+          description: meta?.tags?.description || undefined,
+        }}
+      />
 
       <PageHeader
         title={header?.title}
@@ -77,7 +85,7 @@ const Careers: React.FC = () => {
 
         {jobPosts?.length === 0 && empty && <NoJobPost text={empty.text} />}
 
-        { header?.colored_items && <OurValues data={header.colored_items}/>}
+        {header?.colored_items && <OurValues data={header.colored_items} />}
       </AnimationFadeInUp>
 
       <PreFooter />

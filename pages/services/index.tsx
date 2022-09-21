@@ -28,13 +28,21 @@ const Services = () => {
 
   return (
     <div>
-      <SEO title={meta?.tags.title} description={meta?.tags.description} />
+      <SEO
+        title={meta?.tags.title}
+        description={meta?.tags.description}
+        openGraph={{
+          type: 'website',
+          title: meta?.tags?.title,
+          description: meta?.tags?.description || undefined,
+        }}
+      />
 
       <PageHeader
         title={header?.title}
         subtitle={header?.shortDescription}
         description={header?.intro}
-        animationType={header?.animation_type || 'type4' }
+        animationType={header?.animation_type || 'type4'}
       />
 
       <AnimationFadeInUp animationDelay={1.5}>

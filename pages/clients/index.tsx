@@ -1,6 +1,6 @@
 import SEO from '@components/common/SEO'
 import PageHeader from '@components/ui/PageHeader'
-import { dehydrate, QueryClient, useQuery} from 'react-query'
+import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { fetchAllClients } from '@lib/api/clients.service'
 import { useUI } from '@context/UIContext'
 import React, { useEffect } from 'react'
@@ -24,11 +24,17 @@ const Clients: React.FC = () => {
     setCurrentTheme('green')
   }, [setCurrentTheme])
 
-
-
   return (
     <>
-      <SEO title={meta?.tags.title} description={meta?.tags.description} />
+      <SEO
+        title={meta?.tags.title}
+        description={meta?.tags.description}
+        openGraph={{
+          type: 'website',
+          title: meta?.tags?.title,
+          description: meta?.tags?.description || undefined,
+        }}
+      />
 
       <PageHeader
         title={header?.title}
@@ -39,7 +45,7 @@ const Clients: React.FC = () => {
       <AnimationFadeInUp y={50} animationDelay={2}>
         <div className="clients-listing margin-horizontal padding-b-10">
           <div className="container max-width-5">
-            <ClientListing clients={data?.clients}/>
+            <ClientListing clients={data?.clients} />
           </div>
         </div>
       </AnimationFadeInUp>

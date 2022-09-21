@@ -43,7 +43,6 @@ const FeatureLeftRightImage: React.FC<Props> = ({
   mediaWidth = '32%',
   bgColor,
   textColor,
-  priority
 }) => {
   const featureImageRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLImageElement>(null)
@@ -55,7 +54,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: featureImageRef.current,
-        start: 'top 85%',
+        start: 'top 90%',
         toggleActions: 'play none none none',
       },
     })
@@ -106,7 +105,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({
               />
             )}
             <div className={cx('image')} ref={imageRef}>
-              <Image src={image} width={480} height={600} alt={title ? title : 'digital garden image'} priority={priority} style={{width: '100%', height: 'auto'}} />
+              <Image src={image} width={480} height={600} alt={title ? title : 'digital garden image'} priority style={{width: '100%', height: 'auto'}} />
             </div>
           </Column>
           <Column className={cx({ 'is-content-sticky': isContentSticky })}>

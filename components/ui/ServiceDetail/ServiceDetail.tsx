@@ -49,7 +49,15 @@ const ServiceDetail = ({ data }: { data: any }) => {
 
   return (
     <>
-      <SEO title={meta?.tags.title} description={meta?.tags.description} />
+      <SEO
+        title={meta?.tags.title}
+        description={meta?.tags.description}
+        openGraph={{
+          type: 'website',
+          title: meta?.tags?.title,
+          description: meta?.tags?.description || undefined,
+        }}
+      />
 
       <PageHeader
         title={title}

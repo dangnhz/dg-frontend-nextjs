@@ -1,6 +1,6 @@
 import SEO from '@components/common/SEO'
 import PageHeader from '@components/ui/PageHeader'
-import { dehydrate, QueryClient, useQuery} from 'react-query'
+import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { fetchContactInfo } from '@lib/api/contact.service'
 import { useUI } from '@context/UIContext'
 import React, { useEffect } from 'react'
@@ -23,11 +23,17 @@ const Contact: React.FC = () => {
     setCurrentTheme('lime')
   }, [setCurrentTheme])
 
-
-
   return (
     <>
-      <SEO title={meta?.tags.title} description={meta?.tags.description} />
+      <SEO
+        title={meta?.tags.title}
+        description={meta?.tags.description}
+        openGraph={{
+          type: 'website',
+          title: meta?.tags?.title,
+          description: meta?.tags?.description || undefined,
+        }}
+      />
 
       <PageHeader
         title={data?.title}

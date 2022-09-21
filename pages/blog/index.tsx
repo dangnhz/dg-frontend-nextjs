@@ -9,7 +9,7 @@ import Filter from '@components/ui/Filter'
 import PreFooter from '@components/common/PreFooter'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 
-const QUERY_KEY = 'fetchAllBlogPosts';
+const QUERY_KEY = 'fetchAllBlogPosts'
 const INITIAL_TERM = { id: '0', text: 'All' }
 
 const Blog: React.FC = () => {
@@ -24,7 +24,7 @@ const Blog: React.FC = () => {
         return
       },
       keepPreviousData: true,
-      staleTime: 1000 * 60 * 2
+      staleTime: 1000 * 60 * 2,
     }
   )
 
@@ -44,7 +44,15 @@ const Blog: React.FC = () => {
 
   return (
     <>
-      <SEO title={meta?.tags.title} description={meta?.tags.description} />
+      <SEO
+        title={meta?.tags.title}
+        description={meta?.tags.description}
+        openGraph={{
+          type: 'website',
+          title: meta?.tags?.title,
+          description: meta?.tags?.description || undefined,
+        }}
+      />
 
       <PageHeader
         title={header?.title}
@@ -52,8 +60,8 @@ const Blog: React.FC = () => {
         description={header?.intro}
         animationType={header?.animation_type}
       />
-     <AnimationFadeInUp y={50} animationDelay={2}>
-        <Filter filterTerms={filterTerms} filterTerm={filterTerm} setFilterTerm={setFilterTerm}/>
+      <AnimationFadeInUp y={50} animationDelay={2}>
+        <Filter filterTerms={filterTerms} filterTerm={filterTerm} setFilterTerm={setFilterTerm} />
         {posts?.length > 0 && (
           <PostListing
             posts={posts}
@@ -63,7 +71,7 @@ const Blog: React.FC = () => {
             isFetchingNextPage={isFetchingNextPage}
           />
         )}
-     </AnimationFadeInUp>
+      </AnimationFadeInUp>
 
       <PreFooter />
     </>
