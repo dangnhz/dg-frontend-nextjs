@@ -4,7 +4,7 @@ import ArrowRight from '@components/icons/ArrowRight'
 import { ServiceCardType } from 'types/service'
 import classNames from 'classnames/bind'
 import styles from './ServiceCardIcon.module.scss'
-import Image from 'next/image'
+import Image from 'next/future/image'
 
 const cx = classNames.bind(styles)
 
@@ -25,10 +25,10 @@ const ServiceCardIcon: React.FC<ServiceCardType> = ({
         <a className={cx('services-card-wrapper')}>
           <div className={cx('services-card-top')}>
             <div className={cx('services-card-cloud')}>
-              <Image src={cloud} alt={title} layout="fill"/>
+              <Image src={cloud} alt={title} width={180} height={150}/>
             </div>
             <div className={cx('services-card-icon')}>
-              <Image src={icon} alt="service-icon" width={100} height={100}  />
+              <Image src={icon} alt="service-icon" width={100} height={100} style={{height: 'auto'}} />
             </div>
           </div>
           <div className={cx('services-card-title')}>

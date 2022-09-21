@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import classNames from 'classnames/bind'
 import { colors } from '@theme/colors'
 import { ProjectCardType } from 'types/project'
@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data, hoverColor = colors.gre
         <div className={cx('wrapper')}>
           <div className={cx('overlay')}></div>
           <div className={cx('image')}>
-            <Image src={image} alt={title} layout="responsive" width={566} height={566} />
+            <Image src={image} alt={title} width={566} height={566} />
           </div>
           <div className={cx('info')}>
             {clientName && <div className={cx('category')}>{clientName}</div>}

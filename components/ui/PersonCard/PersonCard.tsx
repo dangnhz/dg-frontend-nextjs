@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import classNames from 'classnames/bind'
 import { colors } from '@theme/colors'
 import { PersonCardType } from 'types/about'
@@ -35,7 +35,7 @@ const PersonCard: React.FC<PersonCardProps> = ({ data, hoverColor = colors.purpl
         <div className={cx('wrapper')}>
           <div className={cx('overlay')}></div>
           <div className={cx('image')}>
-            <Image src={image} alt={name} layout="responsive" width={566} height={566} />
+            <Image src={image} alt={name} width={566} height={566} />
           </div>
           <div className={cx('info')}>
             {role && <div className={cx('role')}>{role}</div>}
