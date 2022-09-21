@@ -74,9 +74,9 @@ const ServiceDetail = ({ data }: { data: any }) => {
             <FeatureLeftRightImage
               image={body.image}
               body={body.text}
-              priority
               isImageSticky
               subServices={subServices}
+              animation
             />
           )}
 

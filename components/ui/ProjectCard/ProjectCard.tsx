@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data, hoverColor = colors.gre
         <div className={cx('wrapper')}>
           <div className={cx('overlay')}></div>
           <div className={cx('image')}>
-            <Image src={image} alt={title} width={566} height={566} />
+            <Image src={image} alt={title} width={566} height={566} priority/>
           </div>
           <div className={cx('info')}>
             {clientName && <div className={cx('category')}>{clientName}</div>}

@@ -106,7 +106,7 @@ const Hero: React.FC<Props> = ({ banner }) => {
           </svg>
         </CustomView>
         <CustomView condition={isOnMobile} className={cx('home-hero-background-image')}>
-          <Image src={homepageCloud.src} alt="leaf" layout="responsive" width={400} height={300} />
+          <Image src={homepageCloud.src} alt="leaf" layout="responsive" width={400} height={300} priority/>
         </CustomView>
       </div>
       <div className={cx('home-hero-content')}>
