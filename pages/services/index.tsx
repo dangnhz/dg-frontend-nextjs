@@ -29,7 +29,7 @@ const Services = () => {
   return (
     <div>
       <SEO
-        title={meta?.tags.title}
+        title={meta?.tags?.title}
         description={meta?.tags.description}
         openGraph={{
           type: 'website',

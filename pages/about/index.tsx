@@ -37,8 +37,8 @@ const About = () => {
   return (
     <>
       <SEO
-        title={meta?.tags.title}
-        description={meta?.tags.description}
+        title={meta?.tags?.title}
+        description={meta?.tags?.description}
         openGraph={{
           type: 'website',
           title: meta?.tags?.title,
@@ -53,9 +53,9 @@ const About = () => {
         animationType={header?.animation_type}
       />
 
-      <AboutListing intro={header.body} teamData={formattedTeamData} />
-      {header.colored_items && <OurValues data={header.colored_items} />}
-      {header.testimonial && <Testimonial testimonial={header.testimonial} />}
+      <AboutListing intro={header?.body} teamData={formattedTeamData} />
+      {header?.colored_items && <OurValues data={header?.colored_items} />}
+      {header?.testimonial && <Testimonial testimonial={header?.testimonial} />}
 
       <PreFooter />
     </>

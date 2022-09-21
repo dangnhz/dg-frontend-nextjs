@@ -50,7 +50,7 @@ const Work: React.FC = () => {
   return (
     <>
       <SEO
-        title={meta?.tags.title}
+        title={meta?.tags?.title}
         description={meta?.tags.description}
         openGraph={{
           type: 'website',

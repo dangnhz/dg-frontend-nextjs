@@ -4,6 +4,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { UIProvider } from 'context/UIContext'
 import AppLayout from '@components/common/AppLayout'
 import SearchProvider from 'context/SearchContext'
+import {refreshToken} from '@lib/api/login.service'
 // Import Swiper styles
 import 'swiper/css';
 
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps:p }: AppProps)  {
 
   useEffect(() => {
     document.body.classList?.remove('is-loading')
+    refreshToken()
   }, [])
 
   return (

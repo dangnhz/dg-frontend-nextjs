@@ -28,7 +28,7 @@ const Clients: React.FC = () => {
     <>
       <SEO
         title={meta?.tags.title}
-        description={meta?.tags.description}
+        description={meta?.tags?.description}
         openGraph={{
           type: 'website',
           title: meta?.tags?.title,

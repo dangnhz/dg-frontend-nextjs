@@ -73,18 +73,18 @@ const PostDetail: React.FC<PostDetailType> = ({
   return (
     <>
       <SEO
-        title={post.meta.tags.title}
-        description={post.meta.tags.description || undefined}
+        title={post?.meta?.tags?.title}
+        description={post?.meta?.tags?.description || undefined}
         openGraph={{
           type: 'website',
-          title: post.title,
-          description: post.meta.tags.description || undefined,
+          title: post?.title,
+          description: post?.meta?.tags?.description || undefined,
           images: [
             {
-              url: post.image,
+              url: post?.image,
               width: '800',
               height: '600',
-              alt: post.title,
+              alt: post?.title,
             },
           ],
         }}

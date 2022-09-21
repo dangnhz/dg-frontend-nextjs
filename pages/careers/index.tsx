@@ -57,8 +57,8 @@ const Careers: React.FC = () => {
   return (
     <>
       <SEO
-        title={meta?.tags.title}
-        description={meta?.tags.description}
+        title={meta?.tags?.title}
+        description={meta?.tags?.description}
         openGraph={{
           type: 'website',
           title: meta?.tags?.title,

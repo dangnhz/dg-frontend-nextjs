@@ -50,11 +50,11 @@ const Project = ({ data:project }: any) => {
     <>
       <SEO
         title={meta?.tags?.title}
-        description={meta.tags.description || undefined}
+        description={meta?.tags?.description || undefined}
         openGraph={{
           type: 'website',
           title: meta?.tags?.title,
-          description: meta.tags.description || undefined,
+          description: meta?.tags?.description || undefined,
           images: [
             {
               url: project?.projectBanner?.image,
@@ -66,7 +66,7 @@ const Project = ({ data:project }: any) => {
         }}
       />
       <div className="page-inner">
-      <div className="project-detail" style={{ '--project-primary-color': project.primaryColor, '--project-secondary-color': project.secondaryColor } as CustomCSS }>
+      <div className="project-detail" style={{ '--project-primary-color': project?.primaryColor, '--project-secondary-color': project?.secondaryColor } as CustomCSS }>
 								<ProjectBanner {...project.projectBanner} />
 								{typeof project.projectIntro === 'object' && project.projectIntro !== null && !Array.isArray(project.projectIntro) && (
 									<ProjectIntro {...project.projectIntro} />
