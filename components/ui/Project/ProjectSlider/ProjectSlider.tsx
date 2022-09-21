@@ -1,15 +1,9 @@
 import React from "react";
 import Image from "next/future/image";
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
 
-
-import classNames from "classnames/bind";
-// import styles from "./ProjectSlider.module.scss";
-
-
-// const cx = classNames.bind(styles)
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, A11y]);

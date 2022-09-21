@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./ProjectMosaic.module.scss";
 import classNames from "classnames/bind";
 import Image from "next/future/image";
