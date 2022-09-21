@@ -55,7 +55,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: featureImageRef.current,
-        start: 'top 90%',
+        start: 'top 85%',
         toggleActions: 'play none none none',
       },
     })

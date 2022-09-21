@@ -79,7 +79,7 @@ const ServicesListing: React.FC<Props> = ({ services }) => {
           {services?.length > 0 &&
             teaserImages.map((image: string, index: number) => (
               <div key={index} className={cx('image-wrap', { active: currentImageIndex === index })}>
-                <Image src={image} alt="services" layout='fill' priority/>
+                <Image src={image} alt="services" layout='fill' priority />
               </div>
             ))}
         </div>

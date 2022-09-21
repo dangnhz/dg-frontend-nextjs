@@ -28,7 +28,7 @@ const ProjectSlider:React.FC<Props> = ({ projectSliderImages, buttonColor }) => 
             <SwiperSlide key={index}>
               <div className="project-slider-item">
                 <div className="image-wrap">
-                  <Image src={image} alt="project-slider" width={1920} height={1080}/>
+                  <Image src={image} alt="project-slider" width={1920} height={1080}  />
                 </div>
               </div>
             </SwiperSlide>

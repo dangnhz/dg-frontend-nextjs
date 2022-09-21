@@ -15,7 +15,7 @@ export const ClientLogo: React.FC<ClientType> = ({ logo, project, external_link 
       {external_link && !projectId && (
         <a href={external_link} target="_blank" rel="noopener noreferrer">
           <div className={cx('client-logo', 'clickable')}>
-            <Image src={logo} alt="client logo" width={185} height={121} layout="responsive" objectFit='contain'/>
+            <Image src={logo} alt="client logo" width={185} height={121} layout="responsive" objectFit='contain' />
           </div>
         </a>
       )}
@@ -23,14 +23,14 @@ export const ClientLogo: React.FC<ClientType> = ({ logo, project, external_link 
       {projectId && (
         <Link href={`/work${projectAlias ? projectAlias : '/' + projectId}`} passHref prefetch={false}>
           <a className={cx('client-logo', 'clickable')} aria-label={projectAlias.replace('/', '')} href="">
-            <Image src={logo} alt="client logo" width={185} height={121} layout="responsive" objectFit='contain'/>
+            <Image src={logo} alt="client logo" width={185} height={121} layout="responsive" objectFit='contain' />
           </a>
         </Link>
       )}
 
       {!projectId && !external_link && (
         <div className={cx('client-logo')}>
-          <Image src={logo} alt="client logo" width={185} height={121} layout="responsive" objectFit='contain'/>
+          <Image src={logo} alt="client logo" width={185} height={121} layout="responsive" objectFit='contain' />
         </div>
       )}
     </>
