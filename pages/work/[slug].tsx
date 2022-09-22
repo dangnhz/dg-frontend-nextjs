@@ -9,9 +9,18 @@ const WorkDetail = ({ data }: any) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await fetchAllProjects(0, '0')
+  let allProjects : Array<any> = []
 
-  const paths = data.projects.map((item: any) => ({ params: { slug: item.alias } }))
+  const res = await fetchAllProjects(0, '0');
+
+  const totalPages = res?.pager?.total_pages;
+
+  for (let page = 0; page < totalPages; page++) {
+   const res = await fetchAllProjects(page, '0');
+    allProjects = [...allProjects, ...res.projects]
+  }
+
+  const paths = allProjects.map((item: any) => ({ params: { slug: item.alias } }))
 
   return {
     paths,

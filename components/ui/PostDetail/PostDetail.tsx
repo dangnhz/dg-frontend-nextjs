@@ -7,7 +7,7 @@ import Lottie from 'lottie-react'
 import { isMobile, browserName, CustomView } from 'react-device-detect'
 import AnimationFadeInUp from '@components/common/AnimationFadeInUp'
 import { animationType5 } from '@lib/blob-animations'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import { useWindowSize } from 'react-use'
 import gsap from 'gsap'
 import classNames from 'classnames/bind'
@@ -158,9 +158,8 @@ const PostDetail: React.FC<PostDetailType> = ({
                             <Image
                               src={post.author.image}
                               alt={post.author.name}
-                              width={180}
-                              height={180}
-                              layout="responsive"
+                              width={300}
+                              height={300}
                             />
                           )}
                           <div className={cx('post-detail-author-name')}>{post.author.name}</div>

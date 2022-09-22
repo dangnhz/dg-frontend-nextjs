@@ -222,7 +222,12 @@
         width: 100%;
 
         @include large {
-            width: 75%;
+            width: 90%;
+            padding-left: 5rem;
+        }
+
+        @include xl4 {
+            padding-left: 0;
         }
 
         .post-detail-intro {

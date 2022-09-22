@@ -17,7 +17,7 @@ const ResultIntro = ({ intro }: { intro: string }) => {
 const ResultImage = ({ image }: { image: string }) => {
   return (
     <div className={cx('image-wrapper')}>
-      <Image src={image} alt="result" width={500} height={800} />
+      <Image src={image} alt="result" width={800} height={800} />
     </div>
   )
 }

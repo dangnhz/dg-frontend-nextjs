@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import Grid from '../Grid'
 import Container from '../Container'
 
@@ -21,8 +21,8 @@ const FavoriteTools: React.FC<Props> = ({ title, tools, alignCenter, itemPerRow 
       {title && <h3 className="text-center margin-b-3">{title}</h3>}
       <Grid alignCenter={alignCenter} itemPerRow={itemPerRow} >
         {tools?.map((item) => (
-          <div key={item.title}>
-            <Image src={item.image} alt={item.title} title={item.title} width={300} height={150} layout="responsive" objectFit='contain'  />
+          <div key={item.title} className="logo-item">
+            <Image src={item.image} alt={item.title} title={item.title} width={300} height={150} style={{width: '100%', height: 'auto',  objectFit: 'contain'}} />
           </div>
         ))}
       </Grid>

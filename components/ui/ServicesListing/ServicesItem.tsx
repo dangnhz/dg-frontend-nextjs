@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import styles from './ServicesItem.module.scss'
 import SubServiceList from '../SubServiceList'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
@@ -16,7 +16,7 @@ const ServicesItem = ({ data }: { data: any }) => {
       <div className={cx('wrapper')}>
         {icon && (
           <div className={cx('icon', 'margin-b-2')}>
-            <Image src={icon} alt={title} width={80} height={80} layout="responsive"/>
+            <Image src={icon} alt={title} width={80} height={80} />
           </div>
         )}
         <div className={cx('title')}>
