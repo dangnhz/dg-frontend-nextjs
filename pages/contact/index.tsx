@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
         description={data?.intro}
         animationType={data?.animation_type}
       />
-      <AnimationFadeInUp y={50} animationDelay={2}>
+      <AnimationFadeInUp delay={1}>
         <ContactInfo addresses={data?.adresses} />
       </AnimationFadeInUp>
 

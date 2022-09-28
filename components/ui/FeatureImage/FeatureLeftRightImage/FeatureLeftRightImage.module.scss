@@ -3,6 +3,16 @@
     .image {
         width: 100%;
 
+        @include medium {
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @include large {
+            max-width: none;
+        }
+
         img {
             width: 100%;
             height: 100%;

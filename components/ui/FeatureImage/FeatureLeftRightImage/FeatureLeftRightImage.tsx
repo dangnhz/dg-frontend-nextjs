@@ -28,6 +28,7 @@ interface Props {
   bgColor?: string
   textColor?: string
   animation?: boolean
+  priority?:boolean
 }
 
 const FeatureLeftRightImage: React.FC<Props> = ({
@@ -44,6 +45,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({
   bgColor,
   textColor,
   animation = false,
+  priority
 }) => {
   const featureImageRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLImageElement>(null)
@@ -113,7 +115,7 @@ const FeatureLeftRightImage: React.FC<Props> = ({
                 width={480}
                 height={600}
                 alt={title ? title : 'digital garden image'}
-                priority
+                priority={priority}
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>

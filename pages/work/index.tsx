@@ -65,7 +65,7 @@ const Work: React.FC = () => {
         description={header?.intro}
         animationType={header?.animation_type}
       />
-      <AnimationFadeInUp y={50} animationDelay={2}>
+      <AnimationFadeInUp >
         <Filter filterTerms={filterTerms} filterTerm={filterTerm} setFilterTerm={setFilterTerm} />
 
         <Container padding="padding-horizontal" margin="margin-t-3 margin-b-10" maxWidth="max-width-6">

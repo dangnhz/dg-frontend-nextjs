@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import classNames from 'classnames/bind'
 import styles from './ProjectBanner.module.scss'
+import Image from 'next/future/image'
 
 const cx = classNames.bind(styles)
 
@@ -84,7 +85,9 @@ const ProjectBanner: React.FC<Props> = ({
   return (
     <div className={cx('project-banner')} ref={bannerRef}>
       <div className={cx('background')}>
-        <div className={cx('background-image')} ref={bannerImageRef} style={{ backgroundImage: `url(${image})` }}></div>
+        <div className={cx('background-image')} ref={bannerImageRef} >
+          <Image src={image} alt={title} width={1920} height={620} priority style={{objectFit: 'cover', width: '100%', height:'100%'}}/>
+        </div>
       </div>
       <div className={cx("content-wrapper" , "max-width-5 mx-auto")}>
         <div className={cx("content", "margin-horizontal max-width-5")}>

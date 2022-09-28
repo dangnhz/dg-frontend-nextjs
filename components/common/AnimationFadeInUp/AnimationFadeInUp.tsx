@@ -1,43 +1,15 @@
-import React, {useRef, useEffect} from 'react'
-import gsap from 'gsap';
-import {useRouter} from 'next/router'
+import React, { useRef } from "react";
 
-const AnimationFadeInUp:React.FC<{children: React.ReactNode, y?: number, animationDelay?: number}> = ({children, y, animationDelay = 0.5}) => {
-    const ref = useRef<HTMLDivElement>(null)
-    const router = useRouter()
+const AnimationFadeInUp: React.FC<{
+  children: React.ReactNode;
+  delay?: number;
+}> = ({ children, delay = 0.5 }) => {
 
-    useEffect(() => {
+  return (
+    <div className="fade-up" style={{opacity: 0, animation: `fadeInUp 0.4s ${delay}s forwards`}}>
+      {children}
+    </div>
+  );
+};
 
-    if (y) {
-        gsap.fromTo(ref.current, {
-            opacity: 0,
-            y: y,
-        }, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            delay: animationDelay
-        })
-    }
-    else {
-        gsap.fromTo(ref.current, {
-            opacity: 0,
-            duration: 0.5,
-        }, 
-        {
-            opacity: 1,
-            duration: 0.5,
-            delay: animationDelay
-        })
-    }
-
-    }, [y,animationDelay, router.asPath])
-
-    return (
-        <div ref={ref} style={{opacity: 0}}>
-            {children}
-        </div>
-    )
-}
-
-export default AnimationFadeInUp
+export default AnimationFadeInUp;

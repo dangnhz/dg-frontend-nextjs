@@ -29,8 +29,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = allPosts.map((item: any) => ({ params: { slug: item.alias } }))
 
-  console.log(paths);
-
   return {
     paths,
     fallback: 'blocking',
@@ -50,7 +48,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
       props: {
         post,
-        revalidate: 60,
+        revalidate: 60*2,
       },
     }
   } catch (error) {

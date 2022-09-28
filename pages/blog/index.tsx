@@ -60,7 +60,7 @@ const Blog: React.FC = () => {
         description={header?.intro}
         animationType={header?.animation_type}
       />
-      <AnimationFadeInUp y={50} animationDelay={2}>
+      <AnimationFadeInUp >
         <Filter filterTerms={filterTerms} filterTerm={filterTerm} setFilterTerm={setFilterTerm} />
         {posts?.length > 0 && (
           <PostListing

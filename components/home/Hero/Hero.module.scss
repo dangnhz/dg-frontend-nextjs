@@ -1,12 +1,11 @@
-
-
 .home-hero {
   position: relative;
   width: 100%;
   background: $bg-color-1;
   padding-top: 110px;
   padding-bottom: 60px;
-  z-index:1;
+  z-index: 1;
+
 
   @include medium {
     padding-top: 50px;
@@ -23,10 +22,10 @@
     top: 0;
     left: 0;
     z-index: 0;
-    opacity: 0;
     pointer-events: none;
     height: 100%;
     background: $grey;
+
 
     &-animation {
       svg {
@@ -43,20 +42,21 @@
       transform: scale(0.8) translate(20px, -10px);
 
       @include medium {
-        transform: scale(0.7) translate(200px, -150px);
+        transform: scale(0.7) translate(150px, -150px);
       }
 
       @include xl {
-        transform: scale(0.7) translate(300px, -270px);
+        transform: scale(0.7) translate(250px, -270px);
       }
+
       @include xl3 {
-        transform: scale(0.7) translate(550px, -320px);
+        transform: scale(0.6) translate(400px, -400px);
       }
 
       img {
         width: 100%;
         height: auto;
-        max-width: 1600px;
+        max-width: 1500px;
       }
     }
   }
@@ -73,15 +73,18 @@
       padding-top: 3rem;
       padding-left: 1rem;
     }
+
     @include medium {
       padding-left: 2rem;
       padding-right: 2rem;
     }
+
     @include large {
       padding-top: 80px;
       padding-left: 5.625rem;
       padding-right: 5.625rem;
     }
+
     @include xl {
       padding-left: 12rem;
       padding-right: 0;
@@ -99,13 +102,20 @@
     line-height: 1.11;
     margin: 0;
     opacity: 0;
+    animation: fadeInUp 500ms forwards;
     @include fluid-font(6.25rem, 0.4);
   }
 
   &-subtitle {
     margin-top: 2rem;
     line-height: 1.22;
+    font-family: $font-secondary-regular;
+    letter-spacing: -0.56px;
+    line-height: 1.23;
     opacity: 0;
+    animation: fadeInUp 500ms 300ms forwards;
+    @include fluid-font(2rem, 0.62);
+
 
     @include small-medium {
       max-width: 70%;
@@ -116,40 +126,29 @@
       margin-top: 2.5rem;
     }
 
+    @include xl {
+      line-height: 1.1;
+    }
+
     @include xl2 {
       max-width: 700px;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-      font-family: $font-secondary-regular;
-      letter-spacing: -0.56px;
-      line-height: 1.23;
-      margin: 0;
-      @include fluid-font(2rem, 0.62);
-
-      @include xl {
-        line-height: 1.1;
-      }
-    }
   }
 
   &-button {
     margin-top: 3.5rem;
     opacity: 0;
+    animation: fadeInUp 500ms 600ms forwards;
   }
 
 
   &-arrows {
     $ani-speed: 2s;
     $ani-delay: 1s;
-    
+
     display: none;
+
     @include xl {
       display: block;
     }
@@ -166,6 +165,7 @@
     .arrow-first {
       animation: arrow-movement $ani-speed ease-in-out infinite;
     }
+
     .arrow-second {
       animation: arrow-movement $ani-speed $ani-delay ease-in-out infinite;
     }
@@ -210,6 +210,7 @@
   30% {
     filter: blur(30px);
   }
+
   40% {
     filter: blur(15px);
   }
@@ -266,14 +267,16 @@
 }
 
 @keyframes arrow-movement {
-  0% { 
-      opacity: 0;
-      bottom: 0;
+  0% {
+    opacity: 0;
+    bottom: 0;
   }
+
   70% {
-      opacity: 1;
+    opacity: 1;
   }
-  100% { 
-      opacity: 0;
+
+  100% {
+    opacity: 0;
   }
 }

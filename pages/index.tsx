@@ -29,7 +29,7 @@ const Home: NextPage<Props> = ({ data }) => {
       />
 
       <Hero banner={data?.banner} />
-      <AnimationFadeInUp y={50} animationDelay={2}>
+      <AnimationFadeInUp >
         <ProjectListing
           title="Who we are"
           subtitle={data?.our_work?.title}
@@ -53,7 +53,7 @@ export const getStaticProps = async () => {
     props: {
       data,
     },
-    revalidate: 60,
+    revalidate: 60*2,
   }
 }
 

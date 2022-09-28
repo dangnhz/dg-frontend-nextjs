@@ -45,7 +45,7 @@ const Services = () => {
         animationType={header?.animation_type || 'type4'}
       />
 
-      <AnimationFadeInUp animationDelay={1.5}>
+      <AnimationFadeInUp >
         {services && <ServicesListing services={services} />}
         {footer && <HowWeDo data={footer} />}
       </AnimationFadeInUp>

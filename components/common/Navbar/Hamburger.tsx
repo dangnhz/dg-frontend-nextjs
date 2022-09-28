@@ -13,7 +13,7 @@ interface Props {
 const Hamburger:React.FC<Props> = ({disabled, handleMenu, isMenuOpen} ) => {
 
     return (
-        <button className={cx('hamburger', {'is-active': isMenuOpen})} onClick={handleMenu} disabled={disabled}>
+        <button aria-label='Menu' className={cx('hamburger', {'is-active': isMenuOpen})} onClick={handleMenu} disabled={disabled}>
             <div className={cx('line')}></div>
             <div className={cx('line')}></div>
             <div className={cx('line')}></div>

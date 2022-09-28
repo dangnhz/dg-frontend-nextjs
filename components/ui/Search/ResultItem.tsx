@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import classNames from 'classnames/bind'
 import styles from '@components/ui/Search/ResultItem.module.scss'
 import Link from 'next/link'
-import slugify from 'slugify'
 const cx = classNames.bind(styles)
 
 /**
@@ -40,7 +39,7 @@ const ResultItem = ({ data }: any) => {
           setContentType('Service')
           break
         case 'service_item':
-          setPath(`/services${alias ? alias : '/' + id}/${slugify(title, { lower: true,strict:true, remove: /[*+~.()'"!:@&]/g })}`)
+          setPath(`/services${alias ? alias : '/' + id}`)
           setContentType('Service')
           break
         case 'job_post':

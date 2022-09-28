@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import Typewriter from 'typewriter-effect'
 import { isMobile, CustomView } from 'react-device-detect'
 import { homepageCloud } from '@lib/cloud-images'
-import gsap from 'gsap'
 import Link from 'next/link'
 import Image from 'next/image'
 import classNames from 'classnames/bind'
 import styles from './Hero.module.scss'
 import { ButtonRounded } from '@components/ui/Button/Button'
+import stripTags from '@utils/strip-tags'
 
 const cx = classNames.bind(styles)
 
@@ -24,72 +24,12 @@ const Hero: React.FC<Props> = ({ banner }) => {
   const { title, animated_words: words } = banner
   const [isOnMobile, setIsOnMobile] = useState(false)
 
-  const largeBlobRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLDivElement>(null)
-  const subtitleRef = useRef<HTMLDivElement>(null)
-  const buttonRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => setIsOnMobile(isMobile), [])
 
-  useEffect(() => {
-    const headerTimeline = gsap.timeline()
-
-    headerTimeline.fromTo(
-      titleRef.current,
-      {
-        opacity: 0,
-        y: 50,
-      },
-      {
-        opacity: 1,
-        duration: 0.4,
-        delay: 0.5,
-        y: 0,
-      }
-    )
-
-    headerTimeline.fromTo(
-      largeBlobRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.5,
-      }
-    )
-
-    headerTimeline.fromTo(
-      subtitleRef.current,
-      {
-        opacity: 0,
-        y: 30,
-        delay: 0.7,
-      },
-      {
-        opacity: 1,
-        duration: 0.4,
-        y: 0,
-      }
-    )
-
-    headerTimeline.fromTo(
-      buttonRef.current,
-      {
-        opacity: 0,
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-      }
-    )
-  }, [])
 
   return (
     <section className={cx('home-hero', 'max-width-7 mx-auto')}>
-      <div className={cx('home-hero-background')} ref={largeBlobRef}>
+      <div className={cx('home-hero-background')} >
         <CustomView condition={!isOnMobile} className={cx('home-hero-background-animation')}>
           <svg viewBox="0 0 699 475" preserveAspectRatio="xMidYMid meet">
             <defs>
@@ -110,9 +50,9 @@ const Hero: React.FC<Props> = ({ banner }) => {
         </CustomView>
       </div>
       <div className={cx('home-hero-content')}>
-        <div className={cx('home-hero-title')} ref={titleRef}>
-          {title} <br />
-          <span>
+        <div className={cx('home-hero-title')}>
+          {title}
+          <div className={cx('type-writer')}>
             <Typewriter
               options={{
                 strings: words,
@@ -120,14 +60,12 @@ const Hero: React.FC<Props> = ({ banner }) => {
                 loop: true,
               }}
             />
-          </span>
+          </div>
         </div>
         <div
           className={cx('home-hero-subtitle')}
-          ref={subtitleRef}
-          dangerouslySetInnerHTML={{ __html: banner.intro }}
-        ></div>
-        <div className={cx('home-hero-button')} ref={buttonRef} data-cursor-type="none">
+        >{stripTags(banner.intro)}</div>
+        <div className={cx('home-hero-button')} data-cursor-type="none">
           <ButtonRounded>
             <Link href="/work" passHref prefetch={false}>
               <a className={cx('leaf-button')}>View our work</a>

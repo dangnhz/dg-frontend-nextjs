@@ -20,10 +20,10 @@ interface Props {
 const AboutListing: React.FC<Props> = ({ intro, teamData }) => {
   return (
     <>
-      <AnimationFadeInUp animationDelay={2}>
+      <AnimationFadeInUp >
         <div className={cx('about-listing')}>
           <div className={cx('background')}></div>
-          <FeatureLeftRightImage image={intro.image} body={intro.text} animation/>
+          <FeatureLeftRightImage image={intro.image} body={intro.text} animation priority/>
           <div className={cx('team-listing', 'padding-horizontal')}>
             <div className="max-width-5 mx-auto">
               <h3 className="text-center">Our team</h3>

@@ -26,6 +26,7 @@
     width: fit-content;
     overflow-wrap: break-word;
 
+
     @include xl {
       max-width: 100%;
     }
@@ -35,6 +36,8 @@
       z-index: 0;
       pointer-events: none;
       backface-visibility: hidden;
+      opacity: 0;
+      animation: fadeInUp 400ms 700ms forwards;
 
       &:not(.cloud-image) {
         width: 200px;
@@ -73,6 +76,7 @@
       z-index: 1;
       display: inline;
       opacity: 0;
+      animation: fadeInUp 400ms forwards;
 
       @include fluid-font(6.25rem, 0.4);
 
@@ -93,6 +97,9 @@
 
   &-subtitle {
     margin-top: 24px;
+    opacity: 0;
+    animation: fadeInUp 400ms 1000ms forwards;
+
 
     @include large {
       margin-top: 0;
@@ -122,6 +129,8 @@
 
   &-description {
     margin-top: 1rem;
+    opacity: 0;
+    animation: fadeInUp 400ms 1200ms forwards;
 
     @include large {
       margin-top: 0;

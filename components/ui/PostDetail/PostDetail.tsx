@@ -120,7 +120,7 @@ const PostDetail: React.FC<PostDetailType> = ({
                   {post.title}
                 </h2>
               </div>
-              <AnimationFadeInUp animationDelay={0.8}>
+              <AnimationFadeInUp delay={0.8}>
                 {post.category && <div className={cx('post-detail-category')}>{post.category?.text}</div>}
                 {post.date && <div className={cx('post-detail-created-at')}>{post.date}</div>}
 
@@ -136,7 +136,7 @@ const PostDetail: React.FC<PostDetailType> = ({
                 )}
               </AnimationFadeInUp>
             </div>
-            <AnimationFadeInUp animationDelay={1.8}>
+            <AnimationFadeInUp >
               <div className={cx('post-detail-main', 'padding-b-10')}>
                 <div className={cx('post-detail-main-background')}></div>
                 {hasImage && (
@@ -160,6 +160,7 @@ const PostDetail: React.FC<PostDetailType> = ({
                               alt={post.author.name}
                               width={300}
                               height={300}
+                              priority
                             />
                           )}
                           <div className={cx('post-detail-author-name')}>{post.author.name}</div>

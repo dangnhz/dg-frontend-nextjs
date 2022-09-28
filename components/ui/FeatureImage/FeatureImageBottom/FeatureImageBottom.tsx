@@ -65,7 +65,6 @@ const FeatureImageBottom: React.FC<Props> = ({
             width={1920}
             height={1080}
             style={{ width: "100%", height: "auto" }}
-            priority
           />
         </div>
       </div>

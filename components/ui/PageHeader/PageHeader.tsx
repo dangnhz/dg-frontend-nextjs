@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Lottie from 'lottie-react'
-import gsap from 'gsap'
 import { isMobile, browserName, CustomView } from 'react-device-detect'
 import classNames from 'classnames/bind'
 
@@ -89,61 +88,6 @@ const PageHeader: React.FC<Props> = ({ title, subtitle, description, animationTy
   const subtitleRef = useRef<HTMLDivElement>(null)
   const descriptionRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const headerTimeline = gsap.timeline()
-
-    headerTimeline.fromTo(
-      titleRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.4,
-        delay: 0.5,
-      }
-    )
-
-    headerTimeline.fromTo(
-      blobRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.3,
-      }
-    )
-
-    headerTimeline.fromTo(
-      subtitleRef.current,
-      {
-        opacity: 0,
-
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-      },
-      '-=0.1'
-    )
-
-    headerTimeline.fromTo(
-      descriptionRef.current,
-      {
-        opacity: 0,
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-      },
-      '-=0.1'
-    )
-  }, [])
 
   useEffect(() => {
     setTimeout(() => {

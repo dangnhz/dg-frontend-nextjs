@@ -38,11 +38,13 @@
       justify-content: center;
       margin-bottom: 2rem;
       max-width: 250px;
-      max-height: 100px;
+
+      @include medium {
+        max-height: 200px;
+      }
 
       @include xl {
         max-width: 350px;
-        max-height: 200px;
       }
 
       img {

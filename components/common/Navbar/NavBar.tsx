@@ -1,204 +1,220 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
-import Logo from '@components/ui/Logo'
-import Menu from './Menu'
-import Hamburger from './Hamburger'
-import gsap from 'gsap'
-import { useUI } from 'context/UIContext'
-import { useRouter } from 'next/router'
-import { menuCurtainReveal, menuCurtainClose, staggerTextReveal, staggerTextHide } from '@utils/animations'
-import { useWindowSize } from 'react-use'
-import { useScrollDirection } from '@hooks/useScrollDirection'
-import classNames from 'classnames/bind'
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import Logo from "@components/ui/Logo";
+import Menu from "./Menu";
+import Hamburger from "./Hamburger";
+import gsap from "gsap";
+import { useUI } from "context/UIContext";
+import { useRouter } from "next/router";
+import {
+  menuCurtainReveal,
+  menuCurtainClose,
+  staggerTextReveal,
+  staggerTextHide,
+} from "@utils/animations";
+import { useWindowSize } from "react-use";
+import { useScrollDirection } from "@hooks/useScrollDirection";
+import classNames from "classnames/bind";
 
-import styles from './Navbar.module.scss'
+import styles from "./Navbar.module.scss";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 export interface MenuState {
-  initial: boolean | null
-  clicked: boolean | null
+  initial: boolean | null;
+  clicked: boolean | null;
 }
 
-const tl = gsap.timeline()
+const tl = gsap.timeline();
 
 const Navbar = () => {
-  const navbar = useRef<HTMLDivElement>(null)
+  const navbar = useRef<HTMLDivElement>(null);
 
-  const [showNavbar, setShowNavbar] = useState(true)
+  const [showNavbar, setShowNavbar] = useState(true);
 
-  const [isMini, setIsMini] = useState(false)
+  const [isMini, setIsMini] = useState(false);
 
-  const { scrollY, scrollDir } = useScrollDirection()
+  const { scrollY, scrollDir } = useScrollDirection();
 
-  const { width } = useWindowSize()
+  const { width } = useWindowSize();
 
-  const { theme } = useUI()
+  const { theme } = useUI();
 
   // State of our Menu
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // State of hamburger button
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(false);
 
-  const router = useRouter()
+  const router = useRouter();
 
-  const breakpoint = useRef<MediaQueryList>()
+  const breakpoint = useRef<MediaQueryList>();
 
   useEffect(() => {
-    breakpoint.current = window.matchMedia('(max-width: 1023px)')
-  }, [])
-
+    breakpoint.current = window.matchMedia("(max-width: 1023px)");
+  }, []);
 
   //Determine if menu button should be disabled
   const disableMenu = () => {
-    setDisabled(true)
+    setDisabled(true);
     setTimeout(() => {
-      setDisabled(false)
-    }, 2500)
-  }
+      setDisabled(false);
+    }, 2500);
+  };
 
   //handle menu animation
 
   const openMenu = useCallback(() => {
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = "hidden";
 
-    tl.to('.js-menu-wrapper', {
-      display: 'block',
+    tl.to(".js-menu-wrapper", {
+      display: "block",
       duration: 0,
-    })
+    });
 
-    menuCurtainReveal(tl, '.js-menu-curtain')
+    menuCurtainReveal(tl, ".js-menu-curtain");
     tl.to(
-      '.js-menu-wrapper .js-menu',
+      ".js-menu-wrapper .js-menu",
       {
-        visibility: 'visible',
+        visibility: "visible",
         duration: 0.1,
       },
-      '-=0.6'
-    )
-    staggerTextReveal(tl, ['.js-menu .js-menu-link', '.js-search'])
-  }, [])
+      "-=0.6"
+    );
+    staggerTextReveal(tl, [".js-menu .js-menu-link", ".js-search"]);
+  }, []);
 
   const closeMenu = useCallback(() => {
-    document.body.style.overflow = 'scroll'
+    document.body.style.overflow = "scroll";
 
-    staggerTextHide(tl, ['.js-menu .js-menu-link', '.js-search'])
+    staggerTextHide(tl, [".js-menu .js-menu-link", ".js-search"]);
 
-    menuCurtainClose(tl, '.js-menu-curtain')
+    menuCurtainClose(tl, ".js-menu-curtain");
     tl.to(
-      '.js-menu',
+      ".js-menu",
       {
-        visibility: 'hidden',
+        visibility: "hidden",
         duration: 0.1,
       },
-      '-=0.6'
-    )
+      "-=0.6"
+    );
 
-    tl.to('.js-menu-wrapper', {
-      display: 'none',
+    tl.to(".js-menu-wrapper", {
+      display: "none",
       duration: 0,
-    })
-  }, [])
+    });
+  }, []);
 
   const resetMenu = useCallback(() => {
-    document.body.style.overflow = 'scroll'
-    gsap.set(['.js-menu .js-menu-link', '.js-search'], {
+    document.body.style.overflow = "scroll";
+    gsap.set([".js-menu .js-menu-link", ".js-search"], {
       yPercent: 0,
       opacity: 1,
-    })
+    });
 
-    gsap.set('.js-menu', {
-      visibility: 'visible',
+    gsap.set(".js-menu", {
+      visibility: "visible",
       duration: 0,
-    })
+    });
 
-    gsap.set('.js-menu-wrapper', {
-      display: 'block',
+    gsap.set(".js-menu-wrapper", {
+      display: "block",
       duration: 0,
-    })
-  }, [])
+    });
+  }, []);
 
   // Toggle menu
   const handleMenu = () => {
-    disableMenu()
+    disableMenu();
 
     if (!isMenuOpen) {
-      openMenu()
+      openMenu();
     } else {
-      closeMenu()
+      closeMenu();
     }
 
-    setIsMenuOpen((prev) => !prev)
-  }
+    setIsMenuOpen((prev) => !prev);
+  };
 
-    //Listening for page changes.
+  const handleMenuLinkClick = useCallback(() => {
+    if (breakpoint.current?.matches) {
+      setIsMenuOpen(false);
+      closeMenu();
+    }
+  }, []);
 
-    useEffect(() => {
-      if (breakpoint.current?.matches) {
-        setIsMenuOpen(false);
-        closeMenu()
-      }
-    }, [router.asPath, closeMenu])
+  //Listening for page changes.
 
   useEffect(() => {
+    handleMenuLinkClick();
+  }, [router.asPath, closeMenu]);
 
-   if (breakpoint.current) {
-    breakpoint.current?.addEventListener('change', () => {
-      if (!breakpoint.current?.matches) {
-        if (!isMenuOpen) {
-          resetMenu()
+  useEffect(() => {
+    if (breakpoint.current) {
+      breakpoint.current?.addEventListener("change", () => {
+        if (!breakpoint.current?.matches) {
+          if (!isMenuOpen) {
+            resetMenu();
+          }
+        } else {
+          //on mobile
+          setIsMenuOpen(false);
+          gsap.set(".js-menu-wrapper", {
+            display: "none",
+            duration: 0,
+          });
         }
-      } else {
-        //on mobile
-        setIsMenuOpen(false)
-        gsap.set('.js-menu-wrapper', {
-          display: 'none',
-          duration: 0,
-        })
-      }
-    })
-   }
-
-  }, [isMenuOpen, resetMenu])
+      });
+    }
+  }, [isMenuOpen, resetMenu]);
 
   //hide and show navbar on scroll
 
   useEffect(() => {
-    if (scrollDir === 'UP') {
-      setShowNavbar(true)
-    } else if (scrollDir === 'DOWN' && !isMenuOpen) {
-      setShowNavbar(false)
+    if (scrollDir === "UP") {
+      setShowNavbar(true);
+    } else if (scrollDir === "DOWN" && !isMenuOpen) {
+      setShowNavbar(false);
     }
 
     if (scrollY > 250) {
-      setIsMini(true)
+      setIsMini(true);
     } else {
-      setIsMini(false)
+      setIsMini(false);
     }
 
     if (scrollY < 160 && width > 1280) {
-      setShowNavbar(true)
+      setShowNavbar(true);
     } else if (scrollY < 100) {
-      setShowNavbar(true)
+      setShowNavbar(true);
     }
-  }, [scrollDir, scrollY, isMenuOpen, width])
+  }, [scrollDir, scrollY, isMenuOpen, width]);
 
-  const navClassName = cx('navbar', { 'navbar-mini': isMini, 'is-shown': showNavbar })
+  const navClassName = cx("navbar", {
+    "navbar-mini": isMini,
+    "is-shown": showNavbar,
+  });
 
   return (
     <nav id="navbar" className={navClassName} ref={navbar}>
-      <div className={cx('navbar-inside', 'max-width-6')}>
-        <div className={cx('brand')}>
-          <Logo className={cx({'mini-logo': isMini})} />
-          <Hamburger handleMenu={handleMenu} isMenuOpen={isMenuOpen} disabled={disabled} />
+      <div className={cx("navbar-inside", "max-width-6")}>
+        <div className={cx("brand")}>
+          <Logo className={cx({ "mini-logo": isMini })} />
+          <Hamburger
+            handleMenu={handleMenu}
+            isMenuOpen={isMenuOpen}
+            disabled={disabled}
+          />
         </div>
-        <div className={cx('menu-wrapper', 'js-menu-wrapper')}>
-          <div className={cx('menu-curtain', 'js-menu-curtain')} style={{ backgroundColor: theme.primaryColor }}></div>
-          <Menu />
+        <div className={cx("menu-wrapper", "js-menu-wrapper")}>
+          <div
+            className={cx("menu-curtain", "js-menu-curtain")}
+            style={{ backgroundColor: theme.primaryColor }}
+          ></div>
+          <Menu handleMenuLinkClick={handleMenuLinkClick} />
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

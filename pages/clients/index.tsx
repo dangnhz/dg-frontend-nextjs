@@ -42,7 +42,7 @@ const Clients: React.FC = () => {
         description={header?.intro}
         animationType={header?.animation_type}
       />
-      <AnimationFadeInUp y={50} animationDelay={2}>
+      <AnimationFadeInUp >
         <div className="clients-listing margin-horizontal padding-b-10">
           <div className="container max-width-5">
             <ClientListing clients={data?.clients} />

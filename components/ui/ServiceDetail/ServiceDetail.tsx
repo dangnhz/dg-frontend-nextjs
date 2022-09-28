@@ -66,7 +66,7 @@ const ServiceDetail = ({ data }: { data: any }) => {
         animationType={animation_type || 'type4'}
       />
 
-      <AnimationFadeInUp animationDelay={2}>
+      <AnimationFadeInUp >
         <div className={cx('service-detail')}>
           <div className={cx('background')}></div>
 
@@ -77,6 +77,7 @@ const ServiceDetail = ({ data }: { data: any }) => {
               isImageSticky
               subServices={subServices}
               animation
+              priority
             />
           )}
 

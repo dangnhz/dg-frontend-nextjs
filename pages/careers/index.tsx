@@ -72,7 +72,7 @@ const Careers: React.FC = () => {
         description={header?.intro}
         animationType="type6"
       />
-      <AnimationFadeInUp y={50} animationDelay={2}>
+      <AnimationFadeInUp >
         {jobPosts?.length > 0 && (
           <PostListing
             posts={jobPosts}

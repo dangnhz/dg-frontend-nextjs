@@ -19,7 +19,7 @@ const ProjectMosaic:React.FC<Props> = ({ images }) => {
               <div className={cx("project-mosaic-images", `project-mosaic-images--${images.length}-items`)}>
                 {images.map((item, index) => (
                   <div key={index} className={cx("image-item", `image-item-${index + 1}`)}>
-                    <Image src={item} alt="project-mosaic-item" width={1000} height={1000}  priority/>
+                    <Image src={item} alt="project-mosaic-item" width={1000} height={1000} />
                   </div>
                 ))}
               </div>

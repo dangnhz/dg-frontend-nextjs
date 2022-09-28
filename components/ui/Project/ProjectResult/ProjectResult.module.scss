@@ -228,10 +228,20 @@
 				margin-top: 5rem;
 			}
 
+
+
 			img {
 				width: 100%;
 				height: auto;
 				aspect-ratio: unset;
+
+				@include medium {
+					max-width: 350px;
+				}
+
+				@include large {
+					max-width: none;
+				}
 			}
 		}
 
