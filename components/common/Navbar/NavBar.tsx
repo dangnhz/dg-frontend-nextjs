@@ -140,12 +140,14 @@ const Navbar = () => {
       setIsMenuOpen(false);
       closeMenu();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Listening for page changes.
 
   useEffect(() => {
     handleMenuLinkClick();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath, closeMenu]);
 
   useEffect(() => {

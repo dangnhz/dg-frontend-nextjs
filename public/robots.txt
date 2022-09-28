@@ -1,3 +1,15 @@
-# https://www.robotstxt.org/robotstxt.html
+# *
 User-agent: *
-Disallow:
+Disallow: /404
+Disallow: /login
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: undefined
+
+# Sitemaps
+Sitemap: undefined/sitemap.xml
+Sitemap: undefined/server-sitemap.xml

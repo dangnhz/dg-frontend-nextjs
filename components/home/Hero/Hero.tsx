@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Typewriter from 'typewriter-effect'
 import { isMobile, CustomView } from 'react-device-detect'
 import { homepageCloud } from '@lib/cloud-images'
